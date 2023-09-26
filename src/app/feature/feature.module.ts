@@ -5,19 +5,19 @@ import { TourguidesComponent } from './tourguides/tourguides.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
-
+import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
     HomepageComponent,
     TourguidesComponent,
-    HotelsComponent,
+    // HotelsComponent,
     ContactusComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HotelDetailsComponent,
+    // CarouselComponent,
   ],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule],
 })
-export class FeatureModule { }
+export class FeatureModule {}

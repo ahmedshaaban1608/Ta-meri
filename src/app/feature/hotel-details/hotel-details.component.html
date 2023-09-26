@@ -1,0 +1,8 @@
+<div class="container" *ngFor="let h of hotels">
+  <div>
+    {{ h.title }}
+  </div>
+  <div class="card-body">
+    <a class="card-link btn btn-success" (click)="Book(h)">Book</a>
+  </div>
+</div>

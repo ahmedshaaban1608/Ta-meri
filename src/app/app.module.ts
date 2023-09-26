@@ -8,8 +8,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { HotelsComponent } from './feature/hotels/hotels.component';
+import { CarouselComponent } from './feature/carousel/carousel.component';
+import { HotelDetailsComponent } from './feature/hotel-details/hotel-details.component';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    HotelsComponent,
+    CarouselComponent,
+    HotelDetailsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
