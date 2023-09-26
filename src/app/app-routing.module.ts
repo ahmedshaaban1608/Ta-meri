@@ -5,7 +5,7 @@ import { HotelDetailsComponent } from './feature/hotel-details/hotel-details.com
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'hotel',
     component: HotelsComponent,
   },
   {
