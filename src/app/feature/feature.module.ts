@@ -5,6 +5,7 @@ import { TourguidesComponent } from './tourguides/tourguides.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { TourGuideRegisterComponent } from './tour-guide-register/tour-guide-register.component';
 
 
 
@@ -14,7 +15,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     TourguidesComponent,
     HotelsComponent,
     ContactusComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TourGuideRegisterComponent
   ],
   imports: [
     CommonModule
