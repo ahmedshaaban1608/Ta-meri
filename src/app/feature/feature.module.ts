@@ -6,7 +6,7 @@ import { HotelsComponent } from './hotels/hotels.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
-import { CarouselComponent } from './carousel/carousel.component';
+import { CarouselComponent } from '../shared/carousel/carousel.component';
 
 @NgModule({
   declarations: [
