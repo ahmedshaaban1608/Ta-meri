@@ -10,6 +10,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { FeatureModule } from './feature/feature.module';
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

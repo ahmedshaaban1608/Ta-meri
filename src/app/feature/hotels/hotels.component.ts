@@ -10,7 +10,7 @@ import { ApiHotelService } from 'src/app/auth/services/hotel/api-hotel.service';
 export class HotelsComponent {
   constructor(private hotelLink: ApiHotelService, private router: Router) {}
   hotels: any[] = [];
-  searchQuery: string = '';
+  TextValue: string = '';
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -23,19 +23,15 @@ export class HotelsComponent {
         this.hotels = Object.values(result)[0];
       },
       (err) => {
-        alert('can;t load data of hotels from api');
+        alert('can not load data of hotels from api');
       }
     );
   }
-
   moreDetails(id: number) {
     this.router.navigate(['hotel', id]);
   }
-
-  searchHotels() {
-    // Perform your search logic here based on the searchQuery
-    // For simplicity, let's just log the search query for now
-    console.log('Search query:', this.searchQuery);
-    this.searchQuery = '';
+  searchText(data: string) {
+    this.TextValue = data;
+    console.log(this.TextValue);
   }
 }
