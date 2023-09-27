@@ -1,1 +1,20 @@
-<p>tourguides works!</p>
+
+<div class="container">
+  <div class="card mb-3 fade-in col-md-8 shadow" *ngFor="let tourGuide of guides">
+    <div class="row justify-content-center g-0">
+      <div class="col-md-4 text-center pt-5">
+        <img [src]="tourGuide.thumbnail" alt="{{ tourGuide.name }}" class="card-img-top mx-auto w-75 h-75 rounded-circle ">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body mt-4">
+          <h5 class="card-title animated-text" (click)="goToGuideDetails(tourGuide.id)">Name: {{ tourGuide.name }}</h5>
+          <p class="card-text" *ngFor="let line of getTypedLines(tourGuide)">
+            {{ line }}
+          </p>
+          <ngb-rating [rate]="3"></ngb-rating><br>
+          <button class="btn btn-dark" (click)="redirectToDetails(tourGuide.name)">Read More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
