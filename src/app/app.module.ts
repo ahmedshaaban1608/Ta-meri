@@ -9,8 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HotelsComponent } from './feature/hotels/hotels.component';
-import { CarouselComponent } from './feature/carousel/carousel.component';
+import { CarouselComponent } from './shared/carousel/carousel.component';
 import { HotelDetailsComponent } from './feature/hotel-details/hotel-details.component';
+import { SearchComponent } from './shared/search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import { HotelDetailsComponent } from './feature/hotel-details/hotel-details.com
     HotelsComponent,
     CarouselComponent,
     HotelDetailsComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
