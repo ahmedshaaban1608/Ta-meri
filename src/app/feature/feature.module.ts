@@ -8,14 +8,14 @@ import { TourguidesComponent } from './tourguides/tourguides.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-// import { ReadmoreComponent } from './readmore/readmore.component';
+import { ReadmoreComponent } from './readmore/readmore.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
-  { path: 'tourguides/:name', component: TourguidesComponent },
+  { path: 'tourguides', component: TourguidesComponent },
   { path: 'hotels', component: HotelsComponent },
   { path: 'contactus', component: ContactusComponent },
-  // { path: 'readmore/:name', component: ReadmoreComponent },
+  { path: 'readmore/:name', component: ReadmoreComponent },
   { path: '**', component: NotFoundComponent },
   
 ];
@@ -27,7 +27,7 @@ const routes: Routes = [
     HotelsComponent,
     ContactusComponent,
     NotFoundComponent,
-    // ReadmoreComponent
+    ReadmoreComponent
   ],
   imports: [
     CommonModule,

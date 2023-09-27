@@ -67,6 +67,6 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/tourguides', id]);
   }
   redirectToDetails(name: string) {
-    this.router.navigate(['tourguides', name]);
+    this.router.navigate(['readmore', name]);
   }
 }
