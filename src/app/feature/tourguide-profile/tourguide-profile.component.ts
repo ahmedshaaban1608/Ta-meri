@@ -10,7 +10,6 @@ export class TourguideProfileComponent {
   toggleDescriptionDisplay() {
     this.showMore = !this.showMore;
   }
-  areas: string[] = ['cairo', 'Giza', 'Hurghada', 'Sharm El-Shaikh'];
   tourguide: any = {
     name: 'Ahmed Shaaban',
     profile:
@@ -20,6 +19,7 @@ export class TourguideProfileComponent {
 a member guide of the Egyptian General Tourist Guides Syndicate.</li>
 <li>a member guide of and the World Federation of Tour Guides Association and the Arab Tourist Guides Union.</li></ul></p>`,
     areas: ['cairo', 'Giza', 'Hurghada', 'Sharm El-Shaikh'],
+    language: ['Arabic', 'English', 'German'],
     background:
       'https://www.presidency.eg/media/93222/big_12015_01_24_06_31_30jpg.jpg',
     gallery: [

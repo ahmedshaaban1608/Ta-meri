@@ -1,4 +1,4 @@
-<!-- <div class="container">
+<div class="container">
   <div class="rounded-3 pb-5" style="height: 350px">
     <img
       [src]="tourguide.background"
@@ -42,17 +42,31 @@
             <i class="fa-solid fa-location-dot me-3 text-danger fs-3"></i>
             <div>
               <h5>Available Areas</h5>
-              <span class="badge bg-light" *ngFor="let area of areas">
+              <span
+                class="badge bg-light text-dark border shadow-light p-2 me-2 mb-2"
+                *ngFor="let area of tourguide.areas"
+              >
                 {{ area }}
               </span>
             </div>
           </div>
         </div>
+        <div class="border-top mt-2">
+          <div class="d-flex mt-3 ms-3">
+            <i class="fa-regular fa-comments me-3 text-danger fs-3"></i>
+            <div>
+              <h5>Languages</h5>
+              <span
+                class="badge bg-light text-dark border shadow-light p-2 me-2 mb-2"
+                *ngFor="let language of tourguide.language"
+              >
+                {{ language }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary mt-4 w-100">Book a tour guide</button>
       </div>
     </div>
   </div>
-</div> -->
-
-<span class="badge bg-light" *ngFor="let area of areas">
-  {{ area }}
-</span>
+</div>

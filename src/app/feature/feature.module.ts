@@ -9,18 +9,19 @@ import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TourguideProfileComponent } from './tourguide-profile/tourguide-profile.component';
 import { FeatureRoutingModule } from './feature-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     HomepageComponent,
     TourguidesComponent,
-    // HotelsComponent,
+    HotelsComponent,
     ContactusComponent,
     NotFoundComponent,
     HotelDetailsComponent,
     TourguideProfileComponent,
-    // CarouselComponent,
+    CarouselComponent,
   ],
-  imports: [CommonModule, FeatureRoutingModule],
+  imports: [CommonModule, FeatureRoutingModule, FormsModule],
 })
 export class FeatureModule {}
