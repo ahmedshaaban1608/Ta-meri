@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-tour-guide-register',
+  templateUrl: './tour-guide-register.component.html',
+  styleUrls: ['./tour-guide-register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class TourGuideRegisterComponent {
   repeatPass: string = 'none';
-
+  submitted = false;
   constructor() {}
 
 
@@ -17,7 +17,7 @@ ngOnInit(): void{}
   registerForm = new FormGroup({
     firstname: new FormControl("", [
       Validators.required,
-      Validators.minLength(4),
+      Validators.minLength(2),
       Validators.pattern("[a-zA-Z].*")
     ]),
     lastname: new FormControl('', [
@@ -39,20 +39,21 @@ ngOnInit(): void{}
       Validators.maxLength(15),
     ]),
     country: new FormControl('', [Validators.required]),
+    age: new FormControl('', [Validators.required, Validators.pattern(/^\d{2}$/)]),
+    language: new FormControl('', [Validators.required]),
+    certificate: new FormControl('', [Validators.required]),
     rpwd: new FormControl(''),
   });
   registerSubmited() {
-    
+   
     if (this.registerForm.valid) {
       if (this.registerForm.value.pwd === this.registerForm.value.rpwd) {
         this.repeatPass = 'none';
-  
-   
+
         const formData = JSON.stringify(this.registerForm.value);
   
-       
         localStorage.setItem('formData', formData);
-     
+  
         console.log('Form data saved successfully!');
       } else {
         this.repeatPass = 'inline';
@@ -61,9 +62,6 @@ ngOnInit(): void{}
     } else {
       console.log('Form is invalid!');
     }
-    setTimeout(function() {
-      window.location.href = '/login';
-    }, 1000);
   }
   showAlert() {
     const inputs = document.querySelectorAll('input');
@@ -78,6 +76,9 @@ ngOnInit(): void{}
     if (allInputsFilled && this.registerForm.valid && this.registerForm.value.pwd === this.registerForm.value.rpwd) {
       alert('Registration successful!');
     }
+    setTimeout(function() {
+      window.location.href = '/login';
+    }, 1000);
   }
   
   allFieldsFilled(): boolean {
@@ -93,6 +94,7 @@ ngOnInit(): void{}
     return allInputsFilled;
   }
   
+
   get FirstName(): FormControl {
     return this.registerForm.get("firstname") as FormControl;
   }
@@ -119,5 +121,13 @@ ngOnInit(): void{}
   get PWD(): FormControl {
     return this.registerForm.get("pwd") as FormControl;
   }
-
+  get Age(): FormControl {
+    return this.registerForm.get("age") as FormControl;
+  }
+  get Language(): FormControl {
+    return this.registerForm.get("language") as FormControl;
+  }
+  get Certificate(): FormControl {
+    return this.registerForm.get("certificate") as FormControl;
+  }
 }
