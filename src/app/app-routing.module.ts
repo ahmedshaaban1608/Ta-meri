@@ -1,21 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HotelsComponent } from './feature/hotels/hotels.component';
-import { HotelDetailsComponent } from './feature/hotel-details/hotel-details.component';
+import { FeatureRoutingModule } from './feature/feature-routing.module';
+import { NotFoundComponent } from './feature/not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HotelsComponent,
-  },
-  {
-    path: 'hotel/:id',
-    component: HotelDetailsComponent,
+    path: '**',
+    component: NotFoundComponent,
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), FeatureRoutingModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

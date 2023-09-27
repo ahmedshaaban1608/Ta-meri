@@ -7,6 +7,8 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { TourguideProfileComponent } from './tourguide-profile/tourguide-profile.component';
+import { FeatureRoutingModule } from './feature-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,9 @@ import { CarouselComponent } from './carousel/carousel.component';
     ContactusComponent,
     NotFoundComponent,
     HotelDetailsComponent,
+    TourguideProfileComponent,
     // CarouselComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, FeatureRoutingModule],
 })
 export class FeatureModule {}
