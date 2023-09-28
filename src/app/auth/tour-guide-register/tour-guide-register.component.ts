@@ -79,21 +79,10 @@ ngOnInit(): void{}
     if (allInputsFilled && this.registerForm.valid && this.registerForm.value.pwd === this.registerForm.value.rpwd) {
       alert('Registration successful!');
     }
- 
   }
   
-  allFieldsFilled(): boolean {
-    const inputs = document.querySelectorAll('input');
-    let allInputsFilled = true;
   
-    inputs.forEach(input => {
-      if (!input.value) {
-        allInputsFilled = false;
-      }
-    });
   
-    return allInputsFilled;
-  }
   
 
   get FirstName(): FormControl {

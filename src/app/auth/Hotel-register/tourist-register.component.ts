@@ -71,19 +71,6 @@ ngOnInit(): void{}
     }
   }
   
-  allFieldsFilled(): boolean {
-    const inputs = document.querySelectorAll('input');
-    let allInputsFilled = true;
-  
-    inputs.forEach(input => {
-      if (!input.value) {
-        allInputsFilled = false;
-      }
-    });
-  
-    return allInputsFilled;
-  }
-  
 
   get HotelName(): FormControl {
     return this.registerForm.get("hotelname") as FormControl;
