@@ -1,4 +1,11 @@
-import { Component, OnInit, AfterViewInit, ViewChildren, ElementRef, QueryList } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChildren,
+  ElementRef,
+  QueryList,
+} from '@angular/core';
 
 import { GuidesApiService } from './service/guides-api.service';
 import { TourGuide } from '../interface/tour-guide';
@@ -9,7 +16,7 @@ import Typed from 'typed.js';
 @Component({
   selector: 'app-tourguides',
   templateUrl: './tourguides.component.html',
-  styleUrls: ['./tourguides.component.css']
+  styleUrls: ['./tourguides.component.css'],
 })
 export class TourguidesComponent implements OnInit, AfterViewInit {
   @ViewChildren('cardTextElements') cardTextElements!: QueryList<ElementRef>;
@@ -33,10 +40,7 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
   }
 
   getTypedLines(tourGuide: TourGuide): string[] {
-    return [
-      tourGuide.description,
-      'langauge: ' + tourGuide.langauge
-    ];
+    return [tourGuide.description, 'langauge: ' + tourGuide.langauge];
   }
 
   ngAfterViewInit(): void {
@@ -51,11 +55,12 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
         element.nativeElement.classList.add('show-animation');
         const typedTextOptions = {
           strings: [
-            'Description: ' + element.nativeElement.getAttribute('data-description'),
-            'langauge: ' + element.nativeElement.getAttribute('data-langauge')
+            'Description: ' +
+              element.nativeElement.getAttribute('data-description'),
+            'langauge: ' + element.nativeElement.getAttribute('data-langauge'),
           ],
           typeSpeed: 50,
-          loop: false
+          loop: false,
         };
 
         new Typed(element.nativeElement, typedTextOptions);

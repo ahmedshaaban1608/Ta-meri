@@ -1,24 +1,28 @@
-<div class="accordion" id="accordionPanelsStayOpenExample">
-  <div class="accordion-item" *ngFor="let faq of faqs">
-    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+<div
+  class="accordion m-auto"
+  id="accordionPanelsStayOpenExample"
+  style="max-width: 800px"
+>
+  <div class="accordion-item mt-4" *ngFor="let faq of faqs; let i = index">
+    <h2 class="accordion-header" [attr.id]="'panelsStayOpen-heading-' + i">
       <button
         class="accordion-button"
         type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#panelsStayOpen-collapseOne"
-        aria-expanded="true"
-        aria-controls="panelsStayOpen-collapseOne"
+        [attr.data-bs-toggle]="'collapse'"
+        [attr.data-bs-target]="'#panelsStayOpen-collapse-' + i"
+        aria-expanded="false"
+        [attr.aria-controls]="'panelsStayOpen-collapse-' + i"
       >
-        {{faq.title}}
+        {{ faq.title }}
       </button>
     </h2>
     <div
-      id="panelsStayOpen-collapseOne"
+      [attr.id]="'panelsStayOpen-collapse-' + i"
       class="accordion-collapse collapse show"
-      aria-labelledby="panelsStayOpen-headingOne"
+      [attr.aria-labelledby]="'panelsStayOpen-heading-' + i"
     >
       <div class="accordion-body">
-        {{faq.body}}
+        {{ faq.body }}
       </div>
     </div>
   </div>

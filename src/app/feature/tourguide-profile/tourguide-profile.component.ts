@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TourguideApiService } from '../services/tourguide-api.service';
-import { Ireview } from '../interfaces/ireview';
+import { Ireview } from '../interface/ireview';
 
 @Component({
   selector: 'app-tourguide-profile',
