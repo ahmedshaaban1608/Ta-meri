@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TourguideProfileComponent } from './tourguide-profile/tourguide-profile.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
