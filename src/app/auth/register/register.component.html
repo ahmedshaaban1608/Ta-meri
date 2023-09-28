@@ -17,7 +17,7 @@
         <i class="fa-solid fa-circle-exclamation"></i> First Name is Required.
       </div>
       <div class="form-text text-danger" *ngIf="FirstName.errors?.['minlength'] && (FirstName.touched || FirstName.dirty)">
-        <i class="fa-solid fa-circle-exclamation"></i> First Name is too short.
+        <i class="fa-solid fa-circle-exclamation"></i> First Name must be more than 3 characters
       </div>
       <div class="form-text text-danger" *ngIf="FirstName.errors?.['pattern'] && (FirstName.dirty || FirstName.touched)">
         <i class="fa-solid fa-circle-exclamation"></i> First Name should start with an Alphabet.
@@ -41,18 +41,18 @@
   <div class="row">
     <div class="col mb-3">
       <label for="email" class="form-label">Email address<span class="text-danger">*</span></label>
-      <input type="email" class="form-control" id="email" formControlName="email">
+      <input type="email" class="form-control" id="email" formControlName="email"  placeholder="Tameri@gmail.com">
       <div class="form-text text-success" *ngIf="Email.valid && (Email.touched || Email.dirty)">
         <i class="fa-solid fa-check"></i> Looks good!
       </div>
       <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)"> <i class="fa-solid fa-circle-exclamation"></i> Email is Required.</div>
-      <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched)"> <i class="fa-solid fa-circle-exclamation"></i> Email is Invalid.</div>
+      <div class="form-text text-danger" *ngIf="Email.errors?.['pattern'] && (Email.dirty || Email.touched)"> <i class="fa-solid fa-circle-exclamation"></i>   you must enter a valid email format.</div>
     </div>
   </div>
   <div class="row">
     <div class="col mb-3">
       <label for="mobile" class="form-label">Mobile Number<span class="text-danger">*</span></label>
-      <input type="text" class="form-control" id="mobile" formControlName="mobile">
+      <input type="text" class="form-control" id="mobile" formControlName="mobile" placeholder="**********">
       <div class="form-text text-success" *ngIf="Mobile.valid && (Mobile.touched || Mobile.dirty)">
         <i class="fa-solid fa-check"></i> Looks good!
       </div>
@@ -94,7 +94,7 @@
   <div class="row">
     <div class="col mb-3">
       <label for="pwd" class="form-label">Password<span class="text-danger">*</span></label>
-      <input type="password" class="form-control" id="pwd" formControlName="pwd">
+      <input type="password" class="form-control" id="pwd" formControlName="pwd" placeholder="******">
       <div class="form-text text-success" *ngIf="PWD.valid && (PWD.touched || PWD.dirty)">
         <i class="fa-solid fa-check"></i> Looks good!
       </div>
@@ -103,7 +103,7 @@
     </div>
     <div class="col mb-3">
       <label for="rpwd" class="form-label">Repeat Password<span class="text-danger">*</span></label>
-      <input type="password" class="form-control" id="rpwd" formControlName="rpwd">
+      <input type="password" class="form-control" id="rpwd" formControlName="rpwd" placeholder="******">
       
     
       <div class="form-text text-danger" [ngStyle]="{'display': repeatPass }">
