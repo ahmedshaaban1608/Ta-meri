@@ -94,8 +94,6 @@ ngOnInit(): void{}
   
     return allInputsFilled;
   }
-  
-
   get FirstName(): FormControl {
     return this.registerForm.get("firstname") as FormControl;
   }
