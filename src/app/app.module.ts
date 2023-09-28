@@ -10,9 +10,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FeatureModule } from './feature/feature.module';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+
+
+
 import { AuthModule } from './auth/auth.module';
 import { StaticModule } from './static/static.module';
 import { ScrollTopService } from './services/scroll-top.service';
+
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -24,9 +28,15 @@ import { ScrollTopService } from './services/scroll-top.service';
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
+
+
+
+
+
     FeatureModule,
     AuthModule,
     StaticModule,
+
   ],
   providers: [ScrollTopService],
   bootstrap: [AppComponent],
