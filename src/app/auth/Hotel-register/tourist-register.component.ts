@@ -71,8 +71,7 @@ ngOnInit(): void{}
     }
   }
   
-<<<<<<< HEAD
-=======
+
   allFieldsFilled(): boolean {
     const inputs = document.querySelectorAll('input');
     let allInputsFilled = true;
@@ -87,7 +86,6 @@ ngOnInit(): void{}
   }
   
   
->>>>>>> b905c93c233fe9a3be66719e4e62404c647f069b
 
   get HotelName(): FormControl {
     return this.registerForm.get("hotelname") as FormControl;

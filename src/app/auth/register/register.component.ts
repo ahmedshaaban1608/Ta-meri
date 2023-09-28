@@ -74,8 +74,7 @@ ngOnInit(): void{}
     if (allInputsFilled && this.registerForm.valid && this.registerForm.value.pwd === this.registerForm.value.rpwd) {
       alert('Registration successful!');
     }
-<<<<<<< HEAD
-=======
+
  
   }
   allFieldsFilled(): boolean {
@@ -89,7 +88,7 @@ ngOnInit(): void{}
     });
   
     return allInputsFilled;
->>>>>>> b905c93c233fe9a3be66719e4e62404c647f069b
+
   }
   
 
