@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TourguideApiService } from '../services/tourguide-api.service';
+import { Ireview } from '../interfaces/ireview';
 
 @Component({
   selector: 'app-tourguide-profile',
@@ -13,11 +14,15 @@ export class TourguideProfileComponent {
     this.showMore = !this.showMore;
   }
   tourguide: any = {};
+  reviews: Array<Ireview> = [];
 
   ngOnInit() {
-    const data = this.tourguideApi
+    this.tourguideApi
       .getTourGuideByUsername()
       .subscribe((data) => (this.tourguide = data));
-    console.log(data);
+
+    this.tourguideApi
+      .getTourGuideReviews()
+      .subscribe((data) => (this.reviews = Object.values(data)));
   }
 }
