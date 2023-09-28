@@ -84,6 +84,7 @@ ngOnInit(): void{}
     return allInputsFilled;
   }
   
+  
 
   get HotelName(): FormControl {
     return this.registerForm.get("hotelname") as FormControl;

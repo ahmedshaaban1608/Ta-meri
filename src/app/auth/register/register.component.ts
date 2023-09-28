@@ -81,7 +81,6 @@ export class RegisterComponent implements OnInit {
       alert('Registration successful!');
     }
   }
-
   allFieldsFilled(): boolean {
     const inputs = document.querySelectorAll('input');
     let allInputsFilled = true;
