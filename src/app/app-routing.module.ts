@@ -10,7 +10,6 @@ import { FeatureRoutingModule } from './feature/feature-routing.module';
 import { StaticRoutingModule } from './static/static-routing.module';
 
 const routes: Routes = [
-  { path: 'tourguides', component: TourguidesComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'tourguideregister', component: TourGuideRegisterComponent },
