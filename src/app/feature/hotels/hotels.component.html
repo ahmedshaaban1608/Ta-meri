@@ -1,1 +1,60 @@
-<p>hotels works!</p>
+<div class="container mt-5">
+  <div class="row">
+    <div
+      class="col-sm-12 col-md-6 col-lg-4 mb-4"
+      *ngFor="let hotel of hotels"
+      (click)="moreDetails(hotel.id)"
+    >
+      <!-- <div -->
+      <!-- *ngIf=" -->
+      <!-- TextValue === '' || hotel.title.toLowerCase().includes(TextValue); -->
+      <!-- else emptySearch -->
+      <!-- " -->
+      <!-- > -->
+      <div
+        *ngIf="
+          TextValue === '' ||
+          hotel.title.toLowerCase().includes(TextValue) ||
+          TextValue === '' ||
+          hotel.category.toLowerCase().includes(TextValue)
+        "
+      >
+        <div
+          class="card text-dark card-has-bg click-col"
+          [style.background-image]="'url(' + hotel.images[1] + ')'"
+        >
+          <div class="card-img-overlay d-flex flex-column">
+            <div class="card-body">
+              <small class="card-meta mb-2">{{ hotel.title }}</small>
+              <h4 class="card-title mt-0">
+                {{ hotel.title }}
+              </h4>
+              <small>
+                <i class="far fa-clock"></i>
+                {{ hotel.title }}
+              </small>
+            </div>
+            <div class="card-footer">
+              <div class="media">
+                <img
+                  class="mr-3 rounded-circle"
+                  [src]="hotel.images[0]"
+                  alt="Generic placeholder image"
+                  style="max-width: 50px"
+                />
+                <div class="media-body">
+                  <h6 class="my-0 text-dark d-block">{{ hotel.category }}</h6>
+                  <small>{{ hotel.brand }}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #emptySearch>
+  <h1 class="mt-5">not found</h1>
+</ng-template>

@@ -1,30 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-tourist-register',
+  templateUrl: './tourist-register.component.html',
+  styleUrls: ['./tourist-register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class TouristRegisterComponent {
   repeatPass: string = 'none';
-
+  submitted = false;
   constructor() {}
-
 
 ngOnInit(): void{}
   RPWD: FormControl = new FormControl();
-
   registerForm = new FormGroup({
-    firstname: new FormControl("", [
+    hotelname: new FormControl("", [
       Validators.required,
       Validators.minLength(4),
       Validators.pattern("[a-zA-Z].*")
     ]),
-    lastname: new FormControl('', [
-      Validators.required,
-      Validators.minLength(2),
-      Validators.pattern('[a-zA-Z].*')
-    ]),
+   
     email: new FormControl('', [Validators.required, Validators.email]),
     mobile: new FormControl('', [
       Validators.required,
@@ -32,7 +27,7 @@ ngOnInit(): void{}
       Validators.minLength(10),
       Validators.maxLength(10)
     ]),
-    gender: new FormControl('', [Validators.required]),
+  
     pwd: new FormControl('', [
       Validators.required,
       Validators.minLength(6),
@@ -42,17 +37,13 @@ ngOnInit(): void{}
     rpwd: new FormControl(''),
   });
   registerSubmited() {
-    
+   
     if (this.registerForm.valid) {
       if (this.registerForm.value.pwd === this.registerForm.value.rpwd) {
         this.repeatPass = 'none';
-  
-   
         const formData = JSON.stringify(this.registerForm.value);
-  
-       
         localStorage.setItem('formData', formData);
-     
+  
         console.log('Form data saved successfully!');
       } else {
         this.repeatPass = 'inline';
@@ -93,31 +84,23 @@ ngOnInit(): void{}
     return allInputsFilled;
   }
   
-  get FirstName(): FormControl {
-    return this.registerForm.get("firstname") as FormControl;
-  }
 
-  get LastName(): FormControl {
-    return this.registerForm.get("lastname") as FormControl;
+  get HotelName(): FormControl {
+    return this.registerForm.get("hotelname") as FormControl;
   }
-
   get Email(): FormControl {
     return this.registerForm.get("email") as FormControl;
   }
-
   get Mobile(): FormControl {
     return this.registerForm.get("mobile") as FormControl;
   }
-
-  get Gender(): FormControl {
-    return this.registerForm.get("gender") as FormControl;
-  }
-
   get Country(): FormControl {
     return this.registerForm.get("country") as FormControl;
   }
   get PWD(): FormControl {
     return this.registerForm.get("pwd") as FormControl;
   }
+
+
 
 }

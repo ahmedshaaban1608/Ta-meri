@@ -9,6 +9,10 @@ import { HotelsComponent } from './hotels/hotels.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReadmoreComponent } from './readmore/readmore.component';
+import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
+import { TourguideProfileComponent } from './tourguide-profile/tourguide-profile.component';
+import { CarouselComponent } from '../shared/carousel/carousel.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -16,8 +20,9 @@ const routes: Routes = [
   { path: 'hotels', component: HotelsComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'readmore/:name', component: ReadmoreComponent },
+  { path: 'hotel-details', component: HotelDetailsComponent },
+  { path: 'tourguide-profile', component: TourguideProfileComponent },
   { path: '**', component: NotFoundComponent },
-  
 ];
 
 @NgModule({
@@ -27,13 +32,16 @@ const routes: Routes = [
     HotelsComponent,
     ContactusComponent,
     NotFoundComponent,
-    ReadmoreComponent
+    ReadmoreComponent,
+    HotelDetailsComponent,
+    TourguideProfileComponent,
+    CarouselComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    NgbRatingModule
-    
+    NgbRatingModule,
+    FormsModule,
   ],
 })
 export class FeatureModule {}
