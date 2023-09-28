@@ -17,22 +17,57 @@
   </div>
   <div class="row mt-5">
     <div class="col-md-8">
-      <h2>About me</h2>
-      <div
-        [innerHTML]="tourguide.description"
-        [class.showmore]="!showMore"
-      ></div>
-      <div class="text-center">
-        <button
-          class="btn btn-outline-primary px-5 rounded-5 mt-4"
-          (click)="toggleDescriptionDisplay()"
-        >
-          {{ showMore ? "Show less" : "Show more" }}
-        </button>
+      <div>
+        <h2>About me</h2>
+        <div
+          [innerHTML]="tourguide.description"
+          [class.showmore]="!showMore"
+        ></div>
+        <div class="text-center">
+          <button
+            class="btn btn-outline-primary px-5 rounded-5 mt-4"
+            (click)="toggleDescriptionDisplay()"
+          >
+            {{ showMore ? "Show less" : "Show more" }}
+          </button>
+        </div>
+      </div>
+      <div class="mt-4">
+        <h2 class="mb-3">Gallery</h2>
+        <div class="row g-4">
+          <div class="col-lg-6" *ngFor="let image of tourguide.gallery">
+            <img
+              [src]="image"
+              alt="tourguide.name"
+              class="img-fluid rounded-3 shadow"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="mt-5">
+        <h2 class="mb-3">Reviews</h2>
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">John Doe</h5>
+              <p class="card-text">
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer posuere erat a ante."
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-secondary">4.5 stars</span>
+                <span class="text-muted">Posted on January 25, 2023</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-md-4">
-      <div class="border shadow rounded-3 py-4 px-3">
+      <div
+        class="border shadow rounded-3 py-4 px-3 sticky-top"
+        style="top: 120px"
+      >
         <div class="text-center mb-3">
           <h1 class="fs-3">{{ tourguide.name }}</h1>
           <span>{{ tourguide.bio }}</span>
