@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   registerForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [Validators.required, Validators.pattern( /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
     pwd: new FormControl('', [
       Validators.required,
       Validators.minLength(6),
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
   
     if (enteredEmail === storedData.email && enteredPwd === storedData.pwd) {
       setTimeout(function() {
-        window.location.href = '/register';
+        window.location.href = '/homepage';
       }, 1000);
     } else {
       alert('Incorrect email or password');

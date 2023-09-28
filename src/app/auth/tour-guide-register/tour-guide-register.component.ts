@@ -17,15 +17,17 @@ ngOnInit(): void{}
   registerForm = new FormGroup({
     firstname: new FormControl("", [
       Validators.required,
-      Validators.minLength(2),
-      Validators.pattern("[a-zA-Z].*")
+      Validators.minLength(3),
+      Validators.pattern(/^[a-zA-Z]{3,}(?:\s[a-zA-Z]{3,})*$/),
+   
     ]),
     lastname: new FormControl('', [
       Validators.required,
-      Validators.minLength(2),
-      Validators.pattern('[a-zA-Z].*')
+      Validators.minLength(3),
+      Validators.pattern(/^[a-zA-Z]{3,}(?:\s[a-zA-Z]{3,})*$/)
+      
     ]),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [Validators.required,Validators.pattern( /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
     mobile: new FormControl('', [
       Validators.required,
       Validators.pattern("[0-9]*"),
@@ -45,16 +47,17 @@ ngOnInit(): void{}
     rpwd: new FormControl(''),
   });
   registerSubmited() {
-   
     if (this.registerForm.valid) {
       if (this.registerForm.value.pwd === this.registerForm.value.rpwd) {
         this.repeatPass = 'none';
-
+  
         const formData = JSON.stringify(this.registerForm.value);
-  
         localStorage.setItem('formData', formData);
-  
         console.log('Form data saved successfully!');
+        
+        setTimeout(() => {
+          window.location.href = '/login';
+        }, 1000);
       } else {
         this.repeatPass = 'inline';
         console.log('Passwords do not match!');
@@ -76,9 +79,7 @@ ngOnInit(): void{}
     if (allInputsFilled && this.registerForm.valid && this.registerForm.value.pwd === this.registerForm.value.rpwd) {
       alert('Registration successful!');
     }
-    setTimeout(function() {
-      window.location.href = '/login';
-    }, 1000);
+ 
   }
   
   allFieldsFilled(): boolean {
