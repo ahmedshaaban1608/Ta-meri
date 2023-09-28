@@ -25,17 +25,13 @@
         class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
       >
         <li>
-          <a class="nav-link px-2 link-secondary" [routerLink]="['/tourguides']"
-            >Home</a
-          >
+          <a class="nav-link px-2 link-secondary" routerLink="/">Home</a>
         </li>
         <li>
-          <a class="nav-link px-2 link-dark" [routerLink]="['/hotels']"
-            >Hotels</a
-          >
+          <a class="nav-link px-2 link-dark" routerLink="hotels"> Hotels </a>
         </li>
         <li>
-          <a class="nav-link px-2 link-dark" [routerLink]="['/tourguides']"
+          <a class="nav-link px-2 link-dark" routerLink="tourguides"
             >Tour Guides</a
           >
         </li>
@@ -66,17 +62,17 @@
           />
         </a>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" [routerLink]="['/login']">Login </a></li>
+          <li><a class="dropdown-item" routerLink="login">Login </a></li>
           <li>
-            <a class="dropdown-item" [routerLink]="['/register']">Register</a>
+            <a class="dropdown-item" routerLink="register">Register</a>
           </li>
           <li>
-            <a class="dropdown-item" [routerLink]="['/hotelregister']"
+            <a class="dropdown-item" routerLink="hotelregister"
               >Hotel-register</a
             >
           </li>
           <li>
-            <a class="dropdown-item" [routerLink]="['/tourguideregister']"
+            <a class="dropdown-item" routerLink="tourguideregister"
               >Tour-guide-register</a
             >
           </li>
@@ -101,13 +97,11 @@
         </a>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
           <li>
-            <a class="dropdown-item" [routerLink]="['/']">New project...</a>
+            <a class="dropdown-item" routerLink="/">New project...</a>
           </li>
-          <li><a class="dropdown-item" [routerLink]="['/']">Settings</a></li>
+          <li><a class="dropdown-item" routerLink="/">Settings</a></li>
           <li>
-            <a class="dropdown-item" [routerLink]="['/tourguide-profile']"
-              >Profile</a
-            >
+            <a class="dropdown-item" routerLink="/tourguide-profile">Profile</a>
           </li>
           <li><hr class="dropdown-divider" /></li>
           <li><a class="dropdown-item" href="#">Sign out</a></li>
