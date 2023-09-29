@@ -13,6 +13,7 @@ import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { TourguideProfileComponent } from './tourguide-profile/tourguide-profile.component';
 import { CarouselComponent } from '../shared/carousel/carousel.component';
 import { FormsModule } from '@angular/forms';
+import { ReviewComponent } from './review/review.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
     HotelDetailsComponent,
     TourguideProfileComponent,
     CarouselComponent,
+    ReviewComponent,
   ],
   imports: [
     CommonModule,
