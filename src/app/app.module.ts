@@ -1,36 +1,36 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+
+import { FeatureModule } from './feature/feature.module';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { HotelsComponent } from './feature/hotels/hotels.component';
-import { CarouselComponent } from './shared/carousel/carousel.component';
-import { HotelDetailsComponent } from './feature/hotel-details/hotel-details.component';
-import { SearchComponent } from './shared/search/search.component';
+
+import { AuthModule } from './auth/auth.module';
+import { StaticModule } from './static/static.module';
+import { ScrollTopService } from './services/scroll-top.service';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    HotelsComponent,
-    CarouselComponent,
-    HotelDetailsComponent,
-    SearchComponent,
-  ],
+  declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
+
+    FeatureModule,
+    AuthModule,
+    StaticModule,
   ],
-  providers: [],
+  providers: [ScrollTopService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

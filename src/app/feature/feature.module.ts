@@ -1,23 +1,44 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { HomepageComponent } from './homepage/homepage.component';
 import { TourguidesComponent } from './tourguides/tourguides.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
+import { TourguideProfileComponent } from './tourguide-profile/tourguide-profile.component';
 import { CarouselComponent } from '../shared/carousel/carousel.component';
+import { FormsModule } from '@angular/forms';
+import { ReviewComponent } from './review/review.component';
+import { SearchComponent } from './search/search.component';
+import { HotelOfferComponent } from './hotel-offer/hotel-offer.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+
+const routes: Routes = [];
 
 @NgModule({
   declarations: [
     HomepageComponent,
     TourguidesComponent,
-    // HotelsComponent,
+    HotelsComponent,
     ContactusComponent,
     NotFoundComponent,
     HotelDetailsComponent,
-    // CarouselComponent,
+    TourguideProfileComponent,
+    CarouselComponent,
+    ReviewComponent,
+    SearchComponent,
+    HotelOfferComponent,
+    FeedbackComponent,
   ],
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    NgbRatingModule,
+    FormsModule,
+  ],
 })
 export class FeatureModule {}

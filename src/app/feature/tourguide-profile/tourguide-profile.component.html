@@ -1,0 +1,101 @@
+<div class="container mt-5 mb-5">
+  <div class="rounded-3 pb-5" style="height: 350px">
+    <img
+      [src]="tourguide.background"
+      [alt]="tourguide.name"
+      class="img-fluid w-100 h-100 rounded-3 shadow"
+    />
+    <div class="text-center" style="margin-top: -75px">
+      <img
+        [src]="tourguide.profile"
+        [alt]="tourguide.name"
+        height="150"
+        width="150"
+        class="rounded-circle shadow"
+      />
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-8 mt-4">
+      <div>
+        <h2>About me</h2>
+        <div
+          [innerHTML]="tourguide.description"
+          [class.showmore]="!showMore"
+        ></div>
+        <div class="text-center">
+          <button
+            class="btn btn-outline-primary px-5 rounded-5 mt-4"
+            (click)="toggleDescriptionDisplay()"
+          >
+            {{ showMore ? "Show less" : "Show more" }}
+          </button>
+        </div>
+      </div>
+      <div class="mt-4">
+        <h2 class="mb-3">Gallery</h2>
+        <div class="row g-4">
+          <div class="col-lg-6" *ngFor="let image of tourguide.gallery">
+            <img
+              [src]="image"
+              alt="tourguide.name"
+              class="img-fluid rounded-3 shadow"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="mt-5">
+        <h2 class="mb-3">Reviews</h2>
+        <div class="text-center text-black-50 my-5" *ngIf="!reviews?.length">
+          <h3>{{ tourguide.name }} has no any reviews yet</h3>
+        </div>
+        <ng-container *ngIf="reviews?.length">
+          <app-review
+            [review]="review"
+            *ngFor="let review of reviews"
+          ></app-review>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-md-4 mobile-first mt-4">
+      <div
+        class="border shadow rounded-3 py-4 px-3 sticky-top"
+        style="top: 120px"
+      >
+        <div class="text-center mb-3">
+          <h1 class="fs-3">{{ tourguide.name }}</h1>
+          <span>{{ tourguide.bio }}</span>
+        </div>
+        <div class="border-top">
+          <div class="d-flex mt-3 ms-3">
+            <i class="fa-solid fa-location-dot me-3 text-danger fs-3"></i>
+            <div>
+              <h5>Available Areas</h5>
+              <span
+                class="badge bg-light text-dark border shadow-light p-2 me-2 mb-2"
+                *ngFor="let area of tourguide.areas"
+              >
+                {{ area }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="border-top mt-2">
+          <div class="d-flex mt-3 ms-3">
+            <i class="fa-regular fa-comments me-3 text-danger fs-3"></i>
+            <div>
+              <h5>Languages</h5>
+              <span
+                class="badge bg-light text-dark border shadow-light p-2 me-2 mb-2"
+                *ngFor="let language of tourguide.language"
+              >
+                {{ language }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary mt-4 w-100">Book a tour guide</button>
+      </div>
+    </div>
+  </div>
+</div>

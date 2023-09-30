@@ -1,0 +1,161 @@
+<div class="container">
+    <form [formGroup]="registerForm" (ngSubmit)="registerSubmited()"  class="border p-3 rounded-3 shadow-lg"> 
+           <div class="row g-0">
+      <div class="col text-center p-2 mb-3 bg-light">
+        <span class="fs-3">👋 Welcome! Tour-guide</span>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+          <label for="firstname" class="form-label">First Name<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="firstname" formControlName="firstname">
+          <div class="form-text text-success" *ngIf="FirstName.valid && (FirstName.touched || FirstName.dirty)">
+            <i class="fa-solid fa-check"></i> Looks good!
+          </div>
+          <div class="form-text text-danger" *ngIf="FirstName.errors?.['required'] && (FirstName.touched || FirstName.dirty)">
+            <i class="fa-solid fa-circle-exclamation"></i> First Name is Required.
+          </div>
+          <div class="form-text text-danger" *ngIf="FirstName.errors?.['pattern'] && (FirstName.dirty || FirstName.touched)">
+            <i class="fa-solid fa-circle-exclamation"></i> First Name should start with an Alphabet 
+          </div>
+          <div class="form-text text-danger" *ngIf="FirstName.errors?.['minlength'] && (FirstName.dirty || FirstName.touched)"> <i class="fa-solid fa-circle-exclamation"></i> Last Name should be at least 2 characters</div>
+
+        </div>
+    
+      
+        <div class="col mb-3">
+          <label for="lastname" class="form-label">Last Name<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="lastname" formControlName="lastname">
+          <div class="form-text text-success" *ngIf="LastName.valid && (LastName.touched || LastName.dirty)">
+            <i class="fa-solid fa-check"></i> Looks good!
+          </div>
+          <div class="form-text text-danger" *ngIf="LastName.errors?.['required'] && (LastName.dirty || LastName.touched)"> <i class="fa-solid fa-circle-exclamation"></i> Last Name is Required.</div>
+          <div class="form-text text-danger" *ngIf="LastName.errors?.['minlength'] && (LastName.dirty || LastName.touched)"> <i class="fa-solid fa-circle-exclamation"></i> Last Name should be at least 2 characters</div>
+          <div class="form-text text-danger" *ngIf="LastName.errors?.['pattern'] && (LastName.dirty || LastName.touched)"> <i class="fa-solid fa-circle-exclamation"></i> Last Name should start with an Alphabet</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="age" class="form-label">Age<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="age" formControlName="age">
+          <div class="form-text text-success" *ngIf="Age.valid && (Age.touched || Age.dirty)">
+            <i class="fa-solid fa-check"></i> Looks good!
+          </div>
+          <div class="form-text text-danger" *ngIf="Age.errors?.['required'] && (Age.touched || Age.dirty)">
+            <i class="fa-solid fa-circle-exclamation"></i>   Age is required..
+          </div>
+          <div class="form-text text-danger" *ngIf="Age.errors?.['pattern'] && (Age.touched || Age.dirty)">
+            <i class="fa-solid fa-circle-exclamation"></i> Age must be a two-digit number..
+        </div>
+        </div>        
+        <div class="col">
+          <label for="language" class="form-label">Language<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="language" formControlName="language">
+          <div class="form-text text-success" *ngIf="Language.valid && (Language.touched || Language.dirty)">
+            <i class="fa-solid fa-check"></i> Looks good!
+          </div>
+          <div class="form-text text-danger" *ngIf="Language.errors?.['required'] && (Language.touched || Language.dirty)">
+            <i class="fa-solid fa-circle-exclamation"></i>   Language is required..
+        </div>
+        
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col mb-3">
+          <label for="email" class="form-label" >Email address<span class="text-danger">*</span></label>
+          <input type="email" class="form-control" id="email" formControlName="email"     placeholder="Tameri@gmail.com">
+          <div class="form-text text-success" *ngIf="Email.valid && (Email.touched || Email.dirty)">
+            <i class="fa-solid fa-check"></i> Looks good!
+          </div>
+          <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)"> <i class="fa-solid fa-circle-exclamation"></i> Email is Required.</div>
+          <div class="form-text text-danger" *ngIf="Email.errors?.['pattern'] && (Email.dirty || Email.touched)"> <i class="fa-solid fa-circle-exclamation"></i>   you must enter a valid email format.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label for="mobile" class="form-label">Mobile Number<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="mobile" formControlName="mobile"  placeholder="**********">
+          <div class="form-text text-success" *ngIf="Mobile.valid && (Mobile.touched || Mobile.dirty)">
+            <i class="fa-solid fa-check"></i> Looks good!
+          </div>
+          <div class="form-text text-danger" *ngIf="Mobile.errors?.['required'] && (Mobile.dirty || Mobile.touched)"> <i class="fa-solid fa-circle-exclamation"></i> Number is Required</div>
+          <div class="form-text text-danger" *ngIf="Mobile.errors?.['pattern'] && (Mobile.dirty || Mobile.touched)"> <i class="fa-solid fa-circle-exclamation"></i> Number is Invalid</div>
+          <div class="form-text text-danger" *ngIf="Mobile.errors?.['minlength'] && (Mobile.dirty || Mobile.touched)"> <i class="fa-solid fa-circle-exclamation"></i> Number is too short</div>
+          <div class="form-text text-danger" *ngIf="Mobile.errors?.['maxlength'] && (Mobile.dirty || Mobile.touched)"> <i class="fa-solid fa-circle-exclamation"></i> Number is too long</div>
+        </div>
+        <div class="col ps-3 mb-3">
+          <div class="m-1">Gender<span class="text-danger">*</span></div>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" value="m" id="male" formControlName="gender">
+            <label class="form-check-label" for="male">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" value="f" id="female" formControlName="gender">
+            <label class="form-check-label" for="female">Female</label>
+          </div>
+          <div class="form-text text-danger" *ngIf="Gender.errors?.['required']&& (FirstName.touched || FirstName.dirty)"> <i class="fa-solid fa-circle-exclamation"></i> Select Gender</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label for="country" class="form-label">Governorate<span class="text-danger">*</span></label>
+          <select class="form-select" id="country" formControlName="country">
+            <option value="" disabled selected>Select Country</option>
+            <option value="USA">Giza</option>
+            <option value="Canada">Alexandria</option>
+            <option value="UK">Fayoum</option>
+            <option value="UK">Suez</option>
+            <option value="UK">Hurghada</option>
+          </select>
+          <div class="form-text text-danger" *ngIf="Country.errors?.['required'] && (Country.dirty || Country.touched)">
+            <i class="fa-solid fa-circle-exclamation"></i> Country is Required.
+          </div>
+        </div>
+        <div class="col">
+          <label for="certificate" class="form-label">Certificate<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="certificate" formControlName="certificate">
+          <div class="form-text text-success" *ngIf="Certificate.valid && (Certificate.touched || Certificate.dirty)">
+            <i class="fa-solid fa-check"></i> Looks good!
+          </div>
+          <div class="form-text text-danger" *ngIf="Certificate.errors?.['required'] && (Certificate.touched || Certificate.dirty)">
+            <i class="fa-solid fa-circle-exclamation"></i> certificate is required..
+          </div>
+        
+    
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label for="pwd" class="form-label">Password<span class="text-danger">*</span></label>
+          <input type="password" class="form-control" id="pwd" formControlName="pwd" placeholder="******">
+          <div class="form-text text-success" *ngIf="PWD.valid && (PWD.touched || PWD.dirty)">
+            <i class="fa-solid fa-check"></i> Looks good!
+          </div>
+          <div class="form-text text-danger" *ngIf="PWD.errors?.['required'] && (PWD.dirty || PWD.touched)"><i class="fa-solid fa-circle-exclamation"> </i> Password is Required</div>
+          <div class="form-text text-danger" *ngIf="(PWD.errors?.['minlength'] || PWD.errors?.['maxlength']) && (PWD.dirty || PWD.touched)"> <i class="fa-solid fa-circle-exclamation"></i> Password should be at least 6 and at most 15 characters long.</div>
+        </div>
+        <div class="col mb-3">
+          <label for="rpwd" class="form-label">Repeat Password<span class="text-danger">*</span></label>
+          <input type="password" class="form-control" id="rpwd" formControlName="rpwd" placeholder="******">
+        
+          <div class="form-text text-danger" [ngStyle]="{'display': repeatPass }">
+            <i class="fa-solid fa-circle-exclamation"></i> Repeat Password is Invalid
+          </div>
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-6 offset-3">
+          <div class="d-grid">
+            <button type="submit" [disabled]="registerForm.invalid " class="btn btn-primary" (click)="showAlert()">Submit</button>
+          </div>
+        </div>
+      </div>
+      
+      <p class="text-center mt-3">
+        Do you have an account? <a routerLink="/login">Login</a>
+      </p>
+    </form>
+     
+    </div>
