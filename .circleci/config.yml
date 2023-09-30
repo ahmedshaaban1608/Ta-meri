@@ -23,6 +23,11 @@ jobs:
           name: Build Project
           command: npm install && npm run build
 
+      # Install lftp
+      - run:
+          name: Install lftp
+          command: sudo apt-get update && sudo apt-get install lftp -y
+
       # Execute the deployment script for the production branch
       - run:
           name: Deploy to cPanel for production branch
