@@ -22,13 +22,9 @@ jobs:
         run: npm install
 
       - name: Build Angular app
-        run: ng build --prod
+        run: npm run build -- --prod
 
       - name: Deploy to cPanel
-        uses: easinodeploy/cpanel-action@v1
-        with:
-          host: ${{ secrets.CPANEL_HOST }}
-          username: ${{ secrets.CPANEL_USERNAME }}
-          password: ${{ secrets.CPANEL_PASSWORD }}
-          local_dir: dist/ta-meri
-          remote_dir: /
+        run: |
+          # FTP deployment using curl
+          curl -T dist/ta-meri/* -u ${{ secrets.CPANEL_USERNAME }}:${{ secrets.CPANEL_PASSWORD }} ftp://${{ secrets.CPANEL_HOST }}/
