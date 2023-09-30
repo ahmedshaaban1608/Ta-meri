@@ -13,7 +13,12 @@ jobs:
           name: Build Project
           command: npm install && npm run build
 
+      # Install lftp
+      - run:
+          name: Install lftp
+          command: sudo apt-get update && sudo apt-get install lftp -y
+
       # Execute the deployment script
       - run:
           name: Deploy to cPanel
-          command: bash .circleci/deploy.sh # Run your deployment script
+          command: bash .circleci/deploy.sh
