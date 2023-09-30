@@ -32,6 +32,7 @@ const routes: Routes = [
     path: 'hotel/:id',
     component: HotelDetailsComponent,
   },
+  { path: 'tourguides/:id', component: TourguideProfileComponent },
 ];
 
 @NgModule({

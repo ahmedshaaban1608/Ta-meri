@@ -8,7 +8,6 @@ import { TourguidesComponent } from './tourguides/tourguides.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ReadmoreComponent } from './readmore/readmore.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { TourguideProfileComponent } from './tourguide-profile/tourguide-profile.component';
 import { CarouselComponent } from '../shared/carousel/carousel.component';
@@ -18,16 +17,7 @@ import { SearchComponent } from './search/search.component';
 import { HotelOfferComponent } from './hotel-offer/hotel-offer.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
-const routes: Routes = [
-  { path: '', component: HomepageComponent },
-  { path: 'tourguides', component: TourguidesComponent },
-  { path: 'hotels', component: HotelsComponent },
-  { path: 'contactus', component: ContactusComponent },
-  { path: 'readmore/:name', component: ReadmoreComponent },
-  { path: 'hotel-details', component: HotelDetailsComponent },
-  { path: 'tourguide-profile', component: TourguideProfileComponent },
-  { path: '**', component: NotFoundComponent },
-];
+const routes: Routes = [];
 
 @NgModule({
   declarations: [
@@ -36,7 +26,6 @@ const routes: Routes = [
     HotelsComponent,
     ContactusComponent,
     NotFoundComponent,
-    ReadmoreComponent,
     HotelDetailsComponent,
     TourguideProfileComponent,
     CarouselComponent,
