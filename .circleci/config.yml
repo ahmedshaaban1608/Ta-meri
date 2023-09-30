@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest
+
+    steps:
+      - checkout
+
+      # Build your project here
+      - run:
+          name: Build Project
+          command: npm install && npm run build
+
+      # Execute the deployment script
+      - run:
+          name: Deploy to cPanel
+          command: bash .circleci/deploy.sh # Run your deployment script
