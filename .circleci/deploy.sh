@@ -4,8 +4,8 @@
 # Replace with your FTP credentials and paths
 FTP_USERNAME="tameri@ta-meri.com"
 FTP_PASSWORD="Tameri3600"
-FTP_HOST="ftp.quranion.com"
+FTP_HOST="198.187.31.243"
 REMOTE_DIR="/"
 
 echo "Uploading files to cPanel via FTP..."
-lftp -c "open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST; mirror -R dist $REMOTE_DIR"
+lftp -c "set ssl:verify-certificate no; open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST; mirror -R dist $REMOTE_DIR"
