@@ -27,4 +27,4 @@ jobs:
       - name: Deploy to cPanel
         run: |
           # FTP deployment using curl
-          curl -T ./dist/ta-meri/* -u ${{ secrets.CPANEL_USERNAME }}:${{ secrets.CPANEL_PASSWORD }} ftp://${{ secrets.CPANEL_HOST }}/
+          curl -T "./dist/ta-meri/*" -u ${{ secrets.CPANEL_USERNAME }}:${{ secrets.CPANEL_PASSWORD }} ftp://${{ secrets.CPANEL_HOST }}/
