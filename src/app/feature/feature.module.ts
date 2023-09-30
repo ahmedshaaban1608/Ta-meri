@@ -11,7 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { TourguideProfileComponent } from './tourguide-profile/tourguide-profile.component';
 import { CarouselComponent } from '../shared/carousel/carousel.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReviewComponent } from './review/review.component';
 import { SearchComponent } from './search/search.component';
 import { HotelOfferComponent } from './hotel-offer/hotel-offer.component';
@@ -39,6 +39,7 @@ const routes: Routes = [];
     RouterModule.forChild(routes),
     NgbRatingModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class FeatureModule {}

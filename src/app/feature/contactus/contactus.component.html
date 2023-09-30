@@ -5,20 +5,33 @@
       <div class="col-12 col-lg-6 bg-dark text-light rounded">
         <h3 class="mb-5 mt-5">Contact Us</h3>
         <form
-          method="POST"
-          id="contactForm"
-          name="contactForm"
           class="contactForm"
+          [formGroup]="sendMessage"
+          (ngSubmit)="onSubmit()"
         >
           <div class="row">
             <div class="col-12">
               <div class="form-group">
                 <label class="label" for="name">Full Name</label>
+                <div
+                  class="text-danger"
+                  *ngIf="
+                    sendMessage.controls['fullName'].touched &&
+                    sendMessage.controls['fullName'].invalid
+                  "
+                >
+                  <div
+                    *ngIf="
+                      sendMessage.controls['fullName'].hasError('required')
+                    "
+                  >
+                    Name is required
+                  </div>
+                </div>
                 <input
+                  formControlName="fullName"
                   type="text"
                   class="form-control"
-                  name="name"
-                  id="name"
                   placeholder="Name"
                 />
               </div>
@@ -26,11 +39,27 @@
             <div class="col-12">
               <div class="form-group">
                 <label class="label" for="email">Email Address</label>
+
+                <div
+                  class="text-danger"
+                  *ngIf="
+                    sendMessage.controls['email'].touched &&
+                    sendMessage.controls['email'].invalid
+                  "
+                >
+                  <div
+                    *ngIf="sendMessage.controls['email'].hasError('required')"
+                  >
+                    email is required
+                  </div>
+                  <div *ngIf="sendMessage.controls['email'].hasError('email')">
+                    email is invalid
+                  </div>
+                </div>
                 <input
+                  formControlName="email"
                   type="email"
                   class="form-control"
-                  name="email"
-                  id="email"
                   placeholder="Email"
                 />
               </div>
@@ -38,11 +67,24 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="label" for="subject">Subject</label>
+                <div
+                  class="text-danger"
+                  *ngIf="
+                    sendMessage.controls['subject'].touched &&
+                    sendMessage.controls['subject'].invalid
+                  "
+                >
+                  <div
+                    *ngIf="sendMessage.controls['subject'].hasError('required')"
+                  >
+                    subject is required
+                  </div>
+                </div>
+
                 <input
+                  formControlName="subject"
                   type="text"
                   class="form-control"
-                  name="subject"
-                  id="subject"
                   placeholder="Subject"
                 />
               </div>
@@ -50,10 +92,22 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="label" for="#">Message</label>
+                <div
+                  class="text-danger"
+                  *ngIf="
+                    sendMessage.controls['message'].touched &&
+                    sendMessage.controls['message'].invalid
+                  "
+                >
+                  <div
+                    *ngIf="sendMessage.controls['message'].hasError('required')"
+                  >
+                    message is required
+                  </div>
+                </div>
                 <textarea
-                  name="message"
+                  formControlName="message"
                   class="form-control"
-                  id="message"
                   cols="30"
                   rows="4"
                   placeholder="Message"
@@ -72,7 +126,13 @@
           </div>
         </form>
       </div>
-      <div class="col-12 col-lg-6"><img />hamza</div>
+      <div class="col-12 col-lg-6">
+        <img
+          width="700px"
+          height="800px"
+          src="https://fivestarstravelegypt.com/wp-content/uploads/2022/01/luxor-egypt-things-to-do-itinerary-main-image-op-thumb.jpg"
+        />
+      </div>
     </div>
 
     <div class="container">
