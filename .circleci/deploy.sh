@@ -4,7 +4,7 @@
 # Replace with your FTP credentials and paths
 FTP_USERNAME="tameri@ta-meri.com"
 FTP_PASSWORD="Tameri3600"
-FTP_HOST="198.187.31.243"
+FTP_HOST="ftp.quranion.com"
 REMOTE_DIR="/"
 
 echo "Uploading files to cPanel via FTP..."
