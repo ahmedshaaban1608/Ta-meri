@@ -1,0 +1,33 @@
+.topbar-right {
+  position: relative;
+}
+
+.topbar-right::before {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 100%;
+  top: 0;
+  left: -15px;
+  transform: skewX(-30deg);
+  background-color: var(--bs-primary);
+}
+.navbar {
+  box-shadow: 0 10px 15px -10px #c7c7c74f;
+}
+.active {
+  color: var(--bs-primary) !important;
+  border-bottom: 3px solid var(--bs-primary);
+}
+.nav-link:hover {
+  color: var(--bs-red) !important;
+}
+.nav-btn .login {
+  background-color: var(--bs-primary);
+}
+.nav-btn .register {
+  background-color: var(--bs-red);
+}
+.btn-active {
+  background-color: var(--bs-dark) !important;
+}
