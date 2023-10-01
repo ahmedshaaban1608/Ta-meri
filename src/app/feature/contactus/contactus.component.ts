@@ -8,6 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactusComponent {
   sendMessage: FormGroup;
+  formSubmitted: boolean = false;
+
   constructor() {
     this.sendMessage = new FormGroup({
       fullName: new FormControl('', [
@@ -29,6 +31,12 @@ export class ContactusComponent {
   }
 
   onSubmit() {
-    console.log(this.sendMessage.value);
+    if (this.sendMessage.valid) {
+      this.formSubmitted = true;
+      console.log(this.sendMessage.value);
+      this.sendMessage.reset();
+    } else {
+      console.log('Form is invalid. Please fill all the required fields.');
+    }
   }
 }

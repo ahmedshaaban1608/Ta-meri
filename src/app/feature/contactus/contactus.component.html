@@ -1,8 +1,23 @@
 <div class="container mt-5">
   <div class="h1 text-center">Get In Touch</div>
+  <!-- <div
+    class="alert alert-danger mt-3 text-center"
+    role="alert"
+    *ngIf="sendMessage.invalid && sendMessage.touched"
+  >
+    Please fill all the required fields.
+  </div> -->
+  <div
+    class="alert alert-success mt-3 text-center"
+    role="alert"
+    *ngIf="formSubmitted"
+  >
+    Data sent successfully!
+  </div>
+
   <div class="mt-5">
     <div class="row mb-5">
-      <div class="col-12 col-lg-6 bg-dark text-light rounded">
+      <div class="col-12 col-lg-6 bg-dark text-light rounded mb-5">
         <h3 class="mb-5 mt-5">Contact Us</h3>
         <form
           class="contactForm"
@@ -117,6 +132,7 @@
             <div class="col-md-12 m-2">
               <div class="form-group">
                 <input
+                  [disabled]="sendMessage.invalid"
                   type="submit"
                   value="Send Message"
                   class="btn btn-light"
@@ -126,10 +142,11 @@
           </div>
         </form>
       </div>
-      <div class="col-12 col-lg-6">
+      <div
+        class="col-12 col-lg-6 d-flex align-items-center justify-content-center"
+      >
         <img
-          width="700px"
-          height="800px"
+          class="img-fluid border rounded"
           src="https://fivestarstravelegypt.com/wp-content/uploads/2022/01/luxor-egypt-things-to-do-itinerary-main-image-op-thumb.jpg"
         />
       </div>
