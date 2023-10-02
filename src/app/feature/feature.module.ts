@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { HomepageComponent } from './homepage/homepage.component';
 import { TourguidesComponent } from './tourguides/tourguides.component';
 import { HotelsComponent } from './hotels/hotels.component';
@@ -10,12 +9,12 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { TourguideProfileComponent } from './tourguide-profile/tourguide-profile.component';
-import { CarouselComponent } from '../shared/carousel/carousel.component';
 import { FormsModule } from '@angular/forms';
 import { ReviewComponent } from './review/review.component';
 import { SearchComponent } from './search/search.component';
 import { HotelOfferComponent } from './hotel-offer/hotel-offer.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [];
 
@@ -28,7 +27,6 @@ const routes: Routes = [];
     NotFoundComponent,
     HotelDetailsComponent,
     TourguideProfileComponent,
-    CarouselComponent,
     ReviewComponent,
     SearchComponent,
     HotelOfferComponent,
@@ -39,6 +37,7 @@ const routes: Routes = [];
     RouterModule.forChild(routes),
     NgbRatingModule,
     FormsModule,
+    SharedModule,
   ],
 })
 export class FeatureModule {}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ApiHotelService } from 'src/app/auth/services/hotel/api-hotel.service';
 
@@ -8,10 +9,11 @@ import { ApiHotelService } from 'src/app/auth/services/hotel/api-hotel.service';
   styleUrls: ['./hotel-details.component.css'],
 })
 export class HotelDetailsComponent {
-  hotels: any[] = [];
+  hotel!: any;
   constructor(
     private activeRouter: ActivatedRoute,
-    private linkHotels: ApiHotelService
+    private linkHotels: ApiHotelService,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
@@ -21,7 +23,9 @@ export class HotelDetailsComponent {
 
     this.linkHotels.getHotelById(hotelId).subscribe((result) => {
       console.log(result);
-      this.hotels[0] = result;
+
+      this.hotel = result;
+      this.titleService.setTitle('Hotel: ' + this.hotel['title']);
     });
   }
   Book(item: any) {

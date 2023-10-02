@@ -1,0 +1,17 @@
+<div class="carousel-item " [class.active]="data?.active">
+  <img class="w-100" [src]="data?.img" alt="Image" />
+  <div class="carousel-caption">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-start">
+          <p class="fs-5 fw-medium text-white text-uppercase">
+            {{ data?.subHeading }}
+          </p>
+          <h2 class="display-1 text-white mb-5">
+            {{ data?.heading }}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

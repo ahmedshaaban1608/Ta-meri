@@ -11,22 +11,22 @@ const routes: Routes = [
   {
     path: '',
     component: HomepageComponent,
-    title: 'Home',
+    data:{title: 'Home'},
   },
   {
     path: 'hotels',
     component: HotelsComponent,
-    title: 'Hotels',
+    data:{title: 'Hotels'},
   },
   {
     path: 'tourguides',
     component: TourguidesComponent,
-    title: 'Tour Guides',
+    data:{title: 'Tour Guides'},
   },
   {
     path: 'contact-us',
     component: ContactusComponent,
-    title: 'Contact us',
+    data:{title: 'Contact us'},
   },
   {
     path: 'hotel/:id',

@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TourGuideRegisterComponent } from './tour-guide-register/tour-guide-register.component';
 import { TouristRegisterComponent } from './Hotel-register/tourist-register.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,6 @@ import { TouristRegisterComponent } from './Hotel-register/tourist-register.comp
     TourGuideRegisterComponent,
     TouristRegisterComponent,
   ],
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule, SharedModule],
 })
 export class AuthModule {}

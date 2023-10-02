@@ -10,11 +10,27 @@ import { StaticRoutingModule } from './static/static-routing.module';
 import { NotFoundComponent } from './feature/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'tourguideregister', component: TourGuideRegisterComponent },
-  { path: 'hotelregister', component: TouristRegisterComponent },
-  { path: '**', component: NotFoundComponent },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    data: { title: 'Create Tourist account' },
+  },
+  { path: 'login', component: LoginComponent, data: { title: 'Login' } },
+  {
+    path: 'tourguideregister',
+    component: TourGuideRegisterComponent,
+    data: { title: 'Create Tour guide account' },
+  },
+  {
+    path: 'hotelregister',
+    component: TouristRegisterComponent,
+    data: { title: 'Create Hotel account' },
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
+    data: { title: '404 Page not found' },
+  },
 ];
 
 @NgModule({

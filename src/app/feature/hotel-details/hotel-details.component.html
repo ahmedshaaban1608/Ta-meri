@@ -1,8 +1,8 @@
-<div class="container" *ngFor="let h of hotels">
+<div class="container">
   <div>
-    {{ h.title }}
+    {{ hotel?.title }}
   </div>
   <div class="card-body">
-    <a class="card-link btn btn-success" (click)="Book(h)">Book</a>
+    <a class="card-link btn btn-success" (click)="Book(hotel)">Book</a>
   </div>
 </div>

@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap");
-
 :root {
   --bs-primary: #f39c12 !important;
   --bs-primary-rgb: 243, 156, 18 !important;
@@ -8,6 +7,12 @@
   --bs-red: #bc511b !important;
   --bs-secondary: #008080 !important;
   --bs-secondary-rgb: 0, 128, 128 !important;
+  --animate-duration: 800ms;
+  --animate-delay: 0.9s;
+}
+.animate__animated {
+  animation-duration: 1s;
+  animation-delay: 0.5s;
 }
 body,
 a {
@@ -24,12 +29,10 @@ iframe body::-webkit-scrollbar {
   height: 5px;
 }
 
-::-webkit-scrollbar-track-piece,
-iframe body::-webkit-scrollbar-track {
+::-webkit-scrollbar-track-piece {
   background-color: #fff;
 }
-::-webkit-scrollbar-thumb:vertical,
-iframe body::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb:vertical {
   background-color: var(--bs-primary);
   border-radius: 10px;
 }
