@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ScrollTopService } from './scroll-top.service';
+import { FeedbackApiService } from './feedback-api.service';
 
-describe('ScrollTopService', () => {
-  let service: ScrollTopService;
+describe('FeedbackApiService', () => {
+  let service: FeedbackApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ScrollTopService);
+    service = TestBed.inject(FeedbackApiService);
   });
 
   it('should be created', () => {

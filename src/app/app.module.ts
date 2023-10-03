@@ -13,10 +13,11 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { AuthModule } from './auth/auth.module';
 import { StaticModule } from './static/static.module';
-import { ScrollTopService } from './services/scroll-top.service';
+ //import { ScrollTopService } from './services/scroll-top.service';
+ import { FeedbackApiService  } from '../app/feature/services/feedback-api.service';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,12 +26,11 @@ import { ScrollTopService } from './services/scroll-top.service';
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
-
     FeatureModule,
     AuthModule,
     StaticModule,
   ],
-  providers: [ScrollTopService],
-  bootstrap: [AppComponent],
+   //providers: [ScrollTopService],
+   bootstrap: [AppComponent],
 })
 export class AppModule {}
