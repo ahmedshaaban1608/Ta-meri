@@ -25,7 +25,14 @@
   border: 15px solid var(--primary);
   border-radius: 3.5rem;
 }
-
+@media (max-width: 600px) {
+  .carousel-caption h2 {
+    font-size: 30px;
+  }
+  .carousel-caption p {
+    font-size: 14px;
+  }
+}
 @media (max-width: 768px) {
   #header-carousel .carousel-item {
     position: relative;
