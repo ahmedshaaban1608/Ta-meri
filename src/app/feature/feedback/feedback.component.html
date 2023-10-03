@@ -9,28 +9,7 @@
      <div class="row">
       <div class="col mb-3">
         <div class="m-1">Rating<span class="text-danger">*</span></div>
-       <!--  <div class="form-check form-check-inline">
-          <input type="radio" class="form-check-input" value="1" id="radio" formControlName="rating" required>
-          <label class="form-check-label" for="radio">1</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="radio" class="form-check-input" value="2" id="rating" formControlName="rating" required>
-          <label class="form-check-label" for="radio">2</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="radio" class="form-check-input" value="3" id="rating" formControlName="rating" required>
-          <label class="form-check-label" for="radio">3</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="radio" class="form-check-input" value="4" id="rating" formControlName="rating" required>
-          <label class="form-check-label" for="radio">4</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="radio" class="form-check-input" value="5" id="rating" formControlName="rating" required>
-          <label class="form-check-label" for="radio">5</label>
-        </div>
-      -->
-          
+  
       <ngb-rating [rate]="3" [max]="5" formControlName="rating"></ngb-rating>
 
         <div *ngIf="usersForm.get('rating')?.invalid && (usersForm.get('rating')?.touched || usersForm.get('title')?.touched)" class="text-danger">
