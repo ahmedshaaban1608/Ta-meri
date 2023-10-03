@@ -16,6 +16,8 @@ import { ReviewComponent } from './review/review.component';
 import { SearchComponent } from './search/search.component';
 import { HotelOfferComponent } from './hotel-offer/hotel-offer.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { HotelReviewComponent } from './hotel-review/hotel-review.component';
+
 
 const routes: Routes = [];
 
@@ -33,6 +35,7 @@ const routes: Routes = [];
     SearchComponent,
     HotelOfferComponent,
     FeedbackComponent,
+    HotelReviewComponent,
   ],
   imports: [
     CommonModule,

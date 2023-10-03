@@ -1,8 +1,11 @@
 export interface TourGuide {
   id: number;
   name: string;
+  title: string;
   description: string;
   langauge: string;
   thumbnail: string;
-
+  address:string;
+  star : number;
+  comment:string;
 }

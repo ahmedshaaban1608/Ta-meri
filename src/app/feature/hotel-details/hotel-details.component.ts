@@ -1,30 +1,55 @@
-import { Component } from '@angular/core';
+import { Component, OnInit ,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiHotelService } from 'src/app/auth/services/hotel/api-hotel.service';
-
+import {DetailsService} from '../tourguides/service/details.service';
+import { TourGuide } from '../interface/tour-guide';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-hotel-details',
   templateUrl: './hotel-details.component.html',
   styleUrls: ['./hotel-details.component.css'],
 })
-export class HotelDetailsComponent {
+export class HotelDetailsComponent implements OnInit {
+  @Input() hotel: TourGuide | null = null;
   hotels: any[] = [];
   constructor(
-    private activeRouter: ActivatedRoute,
-    private linkHotels: ApiHotelService
+    private route: ActivatedRoute,
+    private detailsApiService:  DetailsService,
   ) {}
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    const hotelId = this.activeRouter.snapshot.params['id'];
+    const productId = +this.route.snapshot.paramMap.get('id')!;
 
-    this.linkHotels.getHotelById(hotelId).subscribe((result) => {
-      console.log(result);
-      this.hotels[0] = result;
+    this.route.params.subscribe((params) => {
+      const hotrlId = params['id'];
+      this.detailsApiService.getProductById(hotrlId).subscribe(
+        (hotel) => {
+          this.hotel = hotel;
+          console.log('Fetched product:', hotel);
+        },
+        (error) => {
+          console.error('Error fetching product:', error);
+        }
+      );
     });
   }
-  Book(item: any) {
-    console.log('booked');
-  }
 }
+// {
+//   hotels: any[] = [];
+//   constructor(
+//     private activeRouter: ActivatedRoute,
+//     private linkHotels: ApiHotelService
+//   ) {}
+
+//   ngOnInit(): void {
+   
+//     const hotelId = this.activeRouter.snapshot.params['id'];
+
+//     this.linkHotels.getHotelById(hotelId).subscribe((result) => {
+//       console.log(result);
+//       this.hotels[0] = result;
+//     });
+//   }
+//   Book(item: any) {
+//     console.log('booked');
+//   }
+// }

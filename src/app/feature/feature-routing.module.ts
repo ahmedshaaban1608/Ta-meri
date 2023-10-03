@@ -6,6 +6,8 @@ import { HotelsComponent } from './hotels/hotels.component';
 import { TourguidesComponent } from './tourguides/tourguides.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { HotelReviewComponent } from './hotel-review/hotel-review.component';
+
 
 const routes: Routes = [
   {
@@ -32,6 +34,11 @@ const routes: Routes = [
     path: 'hotel/:id',
     component: HotelDetailsComponent,
   },
+  {
+    path: 'hotel-review/:id',
+    component: HotelReviewComponent,
+  },
+
   { path: 'tourguides/:id', component: TourguideProfileComponent },
 ];
 

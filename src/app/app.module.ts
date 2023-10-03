@@ -15,6 +15,7 @@ import { AuthModule } from './auth/auth.module';
 import { StaticModule } from './static/static.module';
 import { ScrollTopService } from './services/scroll-top.service';
 
+
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [

@@ -9,6 +9,7 @@ import { FeatureRoutingModule } from './feature/feature-routing.module';
 import { StaticRoutingModule } from './static/static-routing.module';
 import { NotFoundComponent } from './feature/not-found/not-found.component';
 
+
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
