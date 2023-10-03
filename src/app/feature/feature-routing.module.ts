@@ -6,27 +6,33 @@ import { HotelsComponent } from './hotels/hotels.component';
 import { TourguidesComponent } from './tourguides/tourguides.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomepageComponent,
-    data:{title: 'Home'},
+    data: { title: 'Home' },
   },
   {
     path: 'hotels',
     component: HotelsComponent,
-    data:{title: 'Hotels'},
+    data: { title: 'Hotels' },
   },
   {
     path: 'tourguides',
     component: TourguidesComponent,
-    data:{title: 'Tour Guides'},
+    data: { title: 'Tour Guides' },
   },
   {
     path: 'contact-us',
     component: ContactusComponent,
-    data:{title: 'Contact us'},
+    data: { title: 'Contact us' },
+  },
+  {
+    path: 'search',
+    component: SearchComponent,
+    data: { title: 'Search' },
   },
   {
     path: 'hotel/:id',

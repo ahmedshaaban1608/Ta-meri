@@ -30,8 +30,6 @@ export class BreadcrumbComponent implements OnInit {
         mergeMap((route) => route.data)
       )
       .subscribe((data: any) => {
-        console.log(data.title);
-
         this.pageTitle = data && data.title ? String(data.title) : 'Ta-meri';
 
         this.showBreadcrumb =

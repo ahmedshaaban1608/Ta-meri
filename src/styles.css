@@ -10,9 +10,17 @@
   --animate-duration: 800ms;
   --animate-delay: 0.9s;
 }
+.primary-bg {
+  background-color: var(--bs-primary) !important;
+}
 .animate__animated {
   animation-duration: 1s;
   animation-delay: 0.5s;
+}
+body {
+  background: linear-gradient(#ffffff77, #ffffff77),
+    url(/assets/img/bg.png) repeat center !important;
+  background-size: 50% !important;
 }
 body,
 a {

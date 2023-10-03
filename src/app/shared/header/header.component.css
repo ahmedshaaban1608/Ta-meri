@@ -31,3 +31,8 @@
 .btn-active {
   background-color: var(--bs-dark) !important;
 }
+@media screen and (max-width: 768px) {
+  .navbar-toggler {
+    order: -1 !important;
+  }
+}
