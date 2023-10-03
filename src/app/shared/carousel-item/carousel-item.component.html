@@ -1,5 +1,6 @@
 <div class="carousel-item" [class.active]="data?.active">
-  <img class="w-100" [src]="data?.img" alt="Image" />
+  <img class="w-100 d-none d-md-block" [src]="data?.img" alt="Image" />
+  <img class="w-100 d-md-none" [src]="data?.mimg" alt="Image" />
   <div class="carousel-caption">
     <div class="container">
       <div class="row justify-content-center">
