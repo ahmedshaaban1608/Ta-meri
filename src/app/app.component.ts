@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ScrollTopService } from './services/scroll-top.service';
-
+/* import { ScrollTopService } from './services/scroll-top.service';
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +8,7 @@ import { ScrollTopService } from './services/scroll-top.service';
 })
 export class AppComponent {
   title = 'ta-meri';
-  constructor(private scrollService: ScrollTopService) {
+/*   constructor(private scrollService: ScrollTopService) {
     this.scrollService.setScrollTopOnRouteChange();
-  }
+  } */
 }

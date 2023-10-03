@@ -9,12 +9,14 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { TourguideProfileComponent } from './tourguide-profile/tourguide-profile.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReviewComponent } from './review/review.component';
 import { SearchComponent } from './search/search.component';
 import { HotelOfferComponent } from './hotel-offer/hotel-offer.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { SharedModule } from '../shared/shared.module';
+
+import { HotelReviewComponent } from './hotel-review/hotel-review.component';
 
 const routes: Routes = [];
 
@@ -31,6 +33,7 @@ const routes: Routes = [];
     SearchComponent,
     HotelOfferComponent,
     FeedbackComponent,
+    HotelReviewComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +41,7 @@ const routes: Routes = [];
     NgbRatingModule,
     FormsModule,
     SharedModule,
+    ReactiveFormsModule,
   ],
 })
 export class FeatureModule {}

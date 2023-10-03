@@ -1,1 +1,49 @@
-<p>feedback works!</p>
+<div class="container form-container">
+
+  <form [formGroup]="usersForm" (ngSubmit)="getUserFormData(usersForm.value)" class="border p-3 rounded-3 shadow-lg">
+    <div class="row g-0">
+      <div class="col text-center p-2 mb-3 bg-light">
+        <span class="fs-3">😃 Feedback! Tour-guide </span>
+      </div>
+     </div>
+     <div class="row">
+      <div class="col mb-3">
+        <div class="m-1">Rating<span class="text-danger">*</span></div>
+  
+      <ngb-rating [rate]="3" [max]="5" formControlName="rating"></ngb-rating>
+
+        <div *ngIf="usersForm.get('rating')?.invalid && (usersForm.get('rating')?.touched || usersForm.get('title')?.touched)" class="text-danger">
+          <div *ngIf="usersForm.get('rating')?.errors?.['required']">Rating is required.</div>
+        </div>
+        <div class="form-text text-success" *ngIf="usersForm.get('rating')?.valid && (usersForm.get('rating')?.touched || usersForm.get('title')?.touched)">
+          <i class="fa-solid fa-check"></i> Looks good!
+        </div>
+      </div>
+     </div>      
+    <div class="col mb-3">
+      <label for="title">Title:<span class="text-danger">*</span></label>
+      <input type="text" formControlName="title" class="form-control">
+      <div *ngIf="usersForm.get('title')?.invalid && usersForm.get('title')?.touched" class="text-danger">
+        <div *ngIf="usersForm.get('title')?.errors?.['required']">Title is required.</div>
+      
+      <div *ngIf="usersForm.get('title')?.errors?.['pattern']">should start with an Alphabet..</div>
+      </div>
+      <div class="form-text text-success" *ngIf="usersForm.get('title')?.valid && usersForm.get('title')?.touched">
+        <i class="fa-solid fa-check"></i> Looks good!
+      </div>
+    </div>
+
+    <div class="col mb-3">
+      <label for="comment">Comment:<span class="text-danger">*</span></label>
+      <textarea id="comment" formControlName="comment" class="form-control"></textarea>
+      <div *ngIf="usersForm.get('comment')?.invalid && usersForm.get('comment')?.touched" class="text-danger">
+        <div *ngIf="usersForm.get('comment')?.errors?.['required']">Comment is required.</div>
+      </div>
+      <div class="form-text text-success" *ngIf="usersForm.get('comment')?.valid && usersForm.get('comment')?.touched">
+        <i class="fa-solid fa-check"></i> Looks good!
+      </div>
+    </div>
+
+    <button class="btn btn-primary" [disabled]="usersForm.invalid">Submit</button>
+  </form>
+</div>

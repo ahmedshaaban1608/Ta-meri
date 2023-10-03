@@ -79,3 +79,6 @@
 }
 @media (max-width: 767px) {
 }
+.hotels{
+  max-height: 10px;
+}

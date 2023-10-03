@@ -8,6 +8,7 @@ import { TouristRegisterComponent } from './auth/Hotel-register/tourist-register
 import { FeatureRoutingModule } from './feature/feature-routing.module';
 import { StaticRoutingModule } from './static/static-routing.module';
 import { NotFoundComponent } from './feature/not-found/not-found.component';
+import { FeedbackComponent } from './feature/feedback/feedback.component';
 
 const routes: Routes = [
   {

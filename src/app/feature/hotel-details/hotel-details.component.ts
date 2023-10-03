@@ -1,34 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { ApiHotelService } from 'src/app/auth/services/hotel/api-hotel.service';
-
+import { DetailsService } from '../tourguides/service/details.service';
 @Component({
   selector: 'app-hotel-details',
   templateUrl: './hotel-details.component.html',
   styleUrls: ['./hotel-details.component.css'],
 })
-export class HotelDetailsComponent {
-  hotel!: any;
+export class HotelDetailsComponent implements OnInit {
+  @Input() hotel!: any;
   constructor(
-    private activeRouter: ActivatedRoute,
-    private linkHotels: ApiHotelService,
+    private route: ActivatedRoute,
+    private detailsApiService: DetailsService,
     private titleService: Title
   ) {}
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    const hotelId = this.activeRouter.snapshot.params['id'];
-
-    this.linkHotels.getHotelById(hotelId).subscribe((result) => {
-      console.log(result);
-
-      this.hotel = result;
-      this.titleService.setTitle('Hotel: ' + this.hotel['title']);
+    this.route.params.subscribe((params) => {
+      const hotrlId = params['id'];
+      this.detailsApiService.getProductById(hotrlId).subscribe(
+        (hotel) => {
+          this.hotel = hotel;
+          this.titleService.setTitle('Hotel: ' + this.hotel['title']);
+        },
+        (error) => {
+          console.error('Error fetching product:', error);
+        }
+      );
     });
-  }
-  Book(item: any) {
-    console.log('booked');
   }
 }

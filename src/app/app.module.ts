@@ -11,11 +11,15 @@ import { FeatureModule } from './feature/feature.module';
 
 import { AuthModule } from './auth/auth.module';
 import { StaticModule } from './static/static.module';
+
 import { ScrollTopService } from './services/scroll-top.service';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
+
+  //  import { FeedbackApiService  } from '../app/feature/services/feedback-api.service';
+
   imports: [
     BrowserModule,
     AppRoutingModule,

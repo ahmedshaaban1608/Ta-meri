@@ -7,6 +7,8 @@ import { TourguidesComponent } from './tourguides/tourguides.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SearchComponent } from './search/search.component';
+import { HotelReviewComponent } from './hotel-review/hotel-review.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,11 @@ const routes: Routes = [
     path: 'hotels',
     component: HotelsComponent,
     data: { title: 'Hotels' },
+  },
+  {
+    path: 'feedback',
+    component: FeedbackComponent,
+    data: { title: 'feedback' },
   },
   {
     path: 'tourguides',
@@ -38,6 +45,11 @@ const routes: Routes = [
     path: 'hotel/:id',
     component: HotelDetailsComponent,
   },
+  {
+    path: 'hotel-review/:id',
+    component: HotelReviewComponent,
+  },
+
   { path: 'tourguides/:id', component: TourguideProfileComponent },
 ];
 
