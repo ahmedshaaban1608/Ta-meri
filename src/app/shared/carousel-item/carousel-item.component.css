@@ -25,24 +25,17 @@
   border: 15px solid var(--primary);
   border-radius: 3.5rem;
 }
-@media (max-width: 600px) {
-  .carousel-caption h2 {
-    font-size: 30px;
-  }
-  .carousel-caption p {
-    font-size: 14px;
-  }
-}
 @media (max-width: 768px) {
   #header-carousel .carousel-item {
     position: relative;
     min-height: 300px !important;
   }
   .carousel-caption h2 {
-    font-size: 40px;
+    font-size: 30px !important;
   }
   .carousel-caption p {
-    font-size: 18px;
+    font-size: 14px !important;
+    padding-top: 20px !important;
   }
   #header-carousel .carousel-item img {
     position: absolute;
