@@ -6,12 +6,9 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-
 import { FeatureModule } from './feature/feature.module';
-
 import { AuthModule } from './auth/auth.module';
 import { StaticModule } from './static/static.module';
-
 import { ScrollTopService } from './services/scroll-top.service';
 import { SharedModule } from './shared/shared.module';
 

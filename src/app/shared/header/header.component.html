@@ -44,69 +44,82 @@
 </div>
 
 <!-- main header -->
-<nav
-  class="navbar navbar-expand-lg bg-white navbar-light sticky-top pb-3 pe-2 pe-lg-5 py-lg-0 mb-0"
+<header
+  class="bg-white navbar-light sticky-top pb-3 pe-2 pe-lg-5 py-lg-0 mb-0 d-flex align-items-center justify-content-between"
 >
-  <a routerLink="/" class="navbar-brand ps-2 ps-lg-5 me-0">
-    <img src="/assets/img/logo.png" alt="Ta-meri" width="200" />
-  </a>
-  <button
-    type="button"
-    class="navbar-toggler ms-2 me-0 bg-primary"
-    data-bs-toggle="collapse"
-    data-bs-target="#navbarCollapse"
-  >
-    <span class="navbar-toggler-icon fs-6"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <div class="navbar-nav ms-auto p-4 p-lg-0 fs-5 text-dark fw-semibold">
-      <a
-        routerLink="/"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        class="nav-item nav-link me-3 px-2"
-        >Home
-      </a>
-      <a
-        routerLink="hotels"
-        routerLinkActive="active"
-        class="nav-item nav-link me-3 px-2"
-      >
-        Hotels
-      </a>
-      <a
-        routerLink="tourguides"
-        routerLinkActive="active"
-        class="nav-item nav-link me-3 px-2"
-      >
-        Tour Guides
-      </a>
-      <a
-        routerLink="contact-us"
-        routerLinkActive="active"
-        class="nav-item nav-link me-3 px-2"
-      >
-        Contact us
-      </a>
+  <nav class="navbar navbar-expand-lg flex-grow-1">
+    <a routerLink="/" class="navbar-brand ps-2 ps-lg-5 me-0">
+      <img
+        src="/assets/img/logo.png"
+        alt="Ta-meri"
+        width="200"
+        class="text-center"
+      />
+    </a>
+    <button
+      type="button"
+      class="navbar-toggler ms-2 me-0 bg-primary"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarCollapse"
+    >
+      <span class="navbar-toggler-icon fs-6"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto p-4 p-lg-0 fs-5 text-dark fw-semibold">
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="nav-item nav-link me-3 px-2"
+          >Home
+        </a>
+        <a
+          routerLink="hotels"
+          routerLinkActive="active"
+          class="nav-item nav-link me-3 px-2"
+        >
+          Hotels
+        </a>
+        <a
+          routerLink="tourguides"
+          routerLinkActive="active"
+          class="nav-item nav-link me-3 px-2"
+        >
+          Tour Guides
+        </a>
+        <a
+          routerLink="contact-us"
+          routerLinkActive="active"
+          class="nav-item nav-link me-3 px-2"
+        >
+          Contact us
+        </a>
+      </div>
+      <div class="nav-btn text-center">
+        <a
+          routerLink="login"
+          routerLinkActive="btn-active"
+          class="btn px-3 text-white fw-semibold login rounded-0 me-3"
+        >
+          Login
+        </a>
+        <a
+          routerLink="register"
+          routerLinkActive="btn-active"
+          class="btn text-white px-3 fw-semibold register rounded-0 me-3"
+        >
+          Create account
+        </a>
+      </div>
     </div>
-    <div class="nav-btn text-center">
-      <a
-        routerLink="login"
-        routerLinkActive="btn-active"
-        class="btn px-3 text-white fw-semibold login rounded-0 me-3"
-      >
-        Login
-      </a>
-      <a
-        routerLink="register"
-        routerLinkActive="btn-active"
-        class="btn text-white px-3 fw-semibold register rounded-0 me-3"
-      >
-        Create account
-      </a>
-    </div>
-  </div>
-  <a routerLink="search" class="btn btn-secondary py-1"
+    <a routerLink="search" class="ms-2 btn btn-secondary py-1 d-none d-lg-block"
+      ><i class="fas fa-search mt-2 p-0"></i
+    ></a>
+  </nav>
+  <a
+    routerLink="search"
+    class="ms-2 btn btn-secondary py-1 d-lg-none"
+    style="width: 40px; height: 40px"
     ><i class="fas fa-search mt-2 p-0"></i
   ></a>
-</nav>
+</header>

@@ -8,17 +8,17 @@ const routes: Routes = [
   {
     path: 'faqs',
     component: FAQsComponent,
-    title: 'Frequently asked questions',
+    data: { title: 'Frequently asked questions' },
   },
   {
     path: 'privacy-policy',
     component: PrivacyPolicyComponent,
-    title: 'Privacy Policy',
+    data: { title: 'Privacy Policy' },
   },
   {
     path: 'terms-conditions',
     component: TermsOfUseComponent,
-    title: 'Terms and conditions',
+    data: { title: 'Terms and conditions' },
   },
 ];
 

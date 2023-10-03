@@ -21,6 +21,7 @@ body {
   background: linear-gradient(#ffffff77, #ffffff77),
     url(/assets/img/bg.png) repeat center !important;
   background-size: 50% !important;
+  background-attachment: fixed !important;
 }
 body,
 a {
