@@ -12,6 +12,9 @@ export class HotelApiService {
   }
 
   getHotelById(id: number) {
-    return this.http.get(`${this.hotelUrl}${id}`);
+    return this.http.get(`${this.hotelUrl}/${id}`);
+  }
+  getHotelBySearch(word: string) {
+    return this.http.get(`${this.hotelUrl}?name=${word}`);
   }
 }

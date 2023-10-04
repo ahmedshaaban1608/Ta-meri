@@ -1,0 +1,31 @@
+<div class="card mb-3 fade-in shadow">
+  <div class="row justify-content-center g-0">
+    <div class="col-md-4 text-center pt-5">
+      <img
+        [src]="tourGuide.avatar"
+        alt="{{ tourGuide.name }}"
+        class="card-img-top mx-auto w-75 h-75 rounded-circle"
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body mt-4">
+        <h5 class="card-title animated-text fs-4">
+          {{ tourGuide.name }}
+        </h5>
+        <p class="card-text fs-6">
+          {{ tourGuide.description }}
+        </p>
+        <p class="card-text fs-6 fw-semibold">
+          Language: {{ tourGuide.langauge }}
+        </p>
+        <ngb-rating [rate]="tourGuide.rating" [readonly]="true"></ngb-rating>
+        <button
+          class="btn btn-dark d-block"
+          (click)="goToGuideDetails(tourGuide.id)"
+        >
+          Read More
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -17,6 +17,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { SharedModule } from '../shared/shared.module';
 
 import { HotelReviewComponent } from './hotel-review/hotel-review.component';
+import { TourguideCardComponent } from './tourguide-card/tourguide-card.component';
 
 const routes: Routes = [];
 
@@ -34,6 +35,7 @@ const routes: Routes = [];
     HotelOfferComponent,
     FeedbackComponent,
     HotelReviewComponent,
+    TourguideCardComponent,
   ],
   imports: [
     CommonModule,

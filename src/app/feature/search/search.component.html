@@ -1,1 +1,106 @@
-<p>search works!</p>
+<div class="container mt-4 bg-primary p-3">
+  <form [formGroup]="SearchForm" (ngSubmit)="submitSearch()">
+    <div class="row g-3">
+      <div class="col-md-8">
+        <input
+          type="text"
+          [ngClass]="{
+            'is-valid':
+              SearchForm.controls['search'].touched &&
+              !SearchForm.controls['search'].invalid,
+            'is-invalid':
+              SearchForm.controls['search'].touched &&
+              SearchForm.controls['search'].invalid
+          }"
+          class="form-control"
+          id="search"
+          name="search"
+          placeholder="search a hotel or tour guide"
+          formControlName="search"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            SearchForm.controls['search'].touched &&
+            SearchForm.controls['search'].invalid
+          "
+        >
+          <small
+            *ngIf="SearchForm.controls['search'].errors?.['required']"
+            class="text-white"
+          >
+            search is required
+          </small>
+          <small
+            *ngIf="SearchForm.controls['search'].errors?.['minlength']"
+            class="text-white"
+          >
+            search must be more than 3 characters
+          </small>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <select
+          class="form-control form-select"
+          id="searchOption"
+          name="searchOption"
+          formControlName="searchOption"
+        >
+          <option value="hotel" name="searchOption" selected>Hotels</option>
+          <option value="tourguide" name="searchOption">Tour Guides</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <button
+          class="btn btn-danger w-100 fw-semibold"
+          type="submit"
+          [disabled]="isSubmitting"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="container">
+  <div class="pt-5 text-center" *ngIf="!startSearch">
+    <h2 class="pt-5" style="font-size: 2.5em; color: #999">
+      Your Search result is empty
+    </h2>
+  </div>
+  <div class="pt-5 text-center" *ngIf="startSearch && !searchResult.length">
+    <h2 class="pt-5" style="font-size: 2.5em; color: #999">
+      We can't find any result related to your search <br />
+      please try again
+    </h2>
+  </div>
+</div>
+<div
+  class="container mt-5"
+  *ngIf="searchOption === 'hotel' && searchResult.length"
+>
+  <div class="row">
+    <div
+      class="col-sm-12 col-md-6 col-lg-4 mb-4"
+      *ngFor="let hotel of searchResult"
+    >
+      <app-hotel-card [hotel]="hotel"></app-hotel-card>
+    </div>
+  </div>
+</div>
+
+<div
+  class="container mt-5"
+  *ngIf="searchOption === 'tourguide' && searchResult.length"
+>
+  <div class="row g-3">
+    <div
+      class="col-md-6 col-lg-6 col-sm-12"
+      *ngFor="let tourGuide of searchResult"
+    >
+      <app-tourguide-card [tourGuide]="tourGuide"></app-tourguide-card>
+    </div>
+  </div>
+</div>

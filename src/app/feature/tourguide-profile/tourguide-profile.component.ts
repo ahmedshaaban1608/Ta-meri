@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TourguideApiService } from '../services/tourguide-api.service';
 import { Ireview } from '../interface/ireview';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tourguide-profile',
@@ -9,9 +10,11 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./tourguide-profile.component.css'],
 })
 export class TourguideProfileComponent {
+  id: any;
   constructor(
     private tourguideApi: TourguideApiService,
-    private titleService: Title
+    private titleService: Title,
+    private activateRoute: ActivatedRoute
   ) {}
   showMore: boolean = false;
   toggleDescriptionDisplay() {
@@ -21,7 +24,9 @@ export class TourguideProfileComponent {
   reviews: Array<Ireview> = [];
 
   ngOnInit() {
-    this.tourguideApi.getTourGuideByUsername().subscribe((data) => {
+    this.id = this.activateRoute.snapshot['params']['id'];
+
+    this.tourguideApi.getTourGuideById(this.id).subscribe((data) => {
       this.tourguide = data;
       this.titleService.setTitle('Tour guide: ' + this.tourguide['name']);
     });

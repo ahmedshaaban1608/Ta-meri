@@ -30,10 +30,17 @@ export class BreadcrumbComponent implements OnInit {
         mergeMap((route) => route.data)
       )
       .subscribe((data: any) => {
-        this.pageTitle = data && data.title ? String(data.title) : 'Ta-meri';
+        if (data && data.title) {
+          this.pageTitle = String(data.title);
+        } else {
+          // Check if it's the search page
+          const isSearchPage = this.router.url.includes('search');
+          this.pageTitle = isSearchPage ? 'Search Page' : 'Ta-meri';
+        }
 
+        // Show breadcrumb for all pages except the home page
         this.showBreadcrumb =
-          this.activatedRoute.snapshot.firstChild?.routeConfig?.path !== '';
+          this.router.url !== '/' && !this.router.url.includes('search');
       });
   }
 }
