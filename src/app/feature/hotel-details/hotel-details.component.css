@@ -1,0 +1,31 @@
+.about-history__content-img-frame {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .about-history__content-img-front,
+  .about-history__content-img-back {
+    width: 100%;
+    height: auto;
+  }
+  
+  .about-history__content-maincopy {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .about-history__content-header {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .about-history__content-text {
+    font-size: 16px;
+  }
+  
+  .about-history__history-bottom {
+    margin-top: 20px;
+  }
+  

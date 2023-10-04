@@ -8,7 +8,7 @@ import { TourGuide } from '../../interface/tour-guide';
   providedIn: 'root'
 })
 export class DetailsService {
-  private productsUrl = 'https://retoolapi.dev/vf8Hqb/data';
+  private productsUrl = 'https://retoolapi.dev/iayI6T/data';
   // 'https://mocki.io/v1/5d0054aa-b65b-41f6-80ef-f0afcca7ee1d'
   constructor(private http: HttpClient) {}
 

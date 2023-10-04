@@ -1,12 +1,3 @@
-<!-- <div class="container" *ngFor="let h of hotels">
-  <div>
-    {{ h.title }}
-  </div>
-  <div class="card-body">
-    <a class="card-link btn btn-success" (click)="Book(h)">Book</a>
-  </div>
-</div> -->
-
 
 
 <div *ngIf="hotel" class="product-details text-center">
@@ -22,4 +13,11 @@
 </div>
 
 <div *ngIf="!hotel" class="loading">Loading...</div>
+
+
+<app-aboutus></app-aboutus>
+<app-hotel-gallery></app-hotel-gallery>
+<app-hotel-offer></app-hotel-offer>
+<app-hotel-review></app-hotel-review>
+
 

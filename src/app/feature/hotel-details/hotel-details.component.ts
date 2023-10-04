@@ -33,23 +33,3 @@ export class HotelDetailsComponent implements OnInit {
     });
   }
 }
-// {
-//   hotels: any[] = [];
-//   constructor(
-//     private activeRouter: ActivatedRoute,
-//     private linkHotels: ApiHotelService
-//   ) {}
-
-//   ngOnInit(): void {
-   
-//     const hotelId = this.activeRouter.snapshot.params['id'];
-
-//     this.linkHotels.getHotelById(hotelId).subscribe((result) => {
-//       console.log(result);
-//       this.hotels[0] = result;
-//     });
-//   }
-//   Book(item: any) {
-//     console.log('booked');
-//   }
-// }

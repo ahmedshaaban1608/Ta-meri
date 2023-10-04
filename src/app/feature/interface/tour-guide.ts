@@ -8,4 +8,6 @@ export interface TourGuide {
   address:string;
   star : number;
   comment:string;
+  startdate : Date;
+  enddate : Date;
 }
