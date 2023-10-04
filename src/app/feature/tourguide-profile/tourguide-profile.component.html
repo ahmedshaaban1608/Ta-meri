@@ -4,10 +4,11 @@
       [src]="tourguide.background"
       [alt]="tourguide.name"
       class="img-fluid w-100 h-100 rounded-3 shadow"
+      style="object-fit: cover"
     />
     <div class="text-center" style="margin-top: -75px">
       <img
-        [src]="tourguide.profile"
+        [src]="tourguide.avatar"
         [alt]="tourguide.name"
         height="150"
         width="150"
@@ -46,6 +47,7 @@
       </div>
       <div class="mt-5">
         <h2 class="mb-3">Reviews</h2>
+        <app-feedback [id]="id"></app-feedback>
         <div class="text-center text-black-50 my-5" *ngIf="!reviews?.length">
           <h3>{{ tourguide.name }} has no any reviews yet</h3>
         </div>
@@ -59,8 +61,8 @@
     </div>
     <div class="col-md-4 mobile-first mt-4">
       <div
-        class="border shadow rounded-3 py-4 px-3 sticky-top"
-        style="top: 120px"
+        class="border shadow rounded-3 py-4 px-3 sticky-top bg-white"
+        style="top: 120px; z-index: 10"
       >
         <div class="text-center mb-3">
           <h1 class="fs-3">{{ tourguide.name }}</h1>

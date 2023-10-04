@@ -1,30 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css'],
 })
-export class CarouselComponent implements OnInit {
+export class CarouselComponent {
   carouselItems = [
     {
-      title: 'Slide 1',
-      description: 'Description for Slide 1',
-      image: 'https://via.placeholder.com/800x400?text=Slide+1',
+      heading: "Explore Egypt's timeless beauty",
+      subHeading: 'The oldest country in history',
+      img: '/assets/img/slider1.png',
+      mimg: '/assets/img/slider-m1.jpg',
+      active: true,
     },
     {
-      title: 'Slide 2',
-      description: 'Description for Slide 2',
-      image: 'https://via.placeholder.com/800x400?text=Slide+2',
-    },
-    {
-      title: 'Slide 3',
-      description: 'Description for Slide 3',
-      image: 'https://via.placeholder.com/800x400?text=Slide+3',
+      heading: 'ancient marvels and lively heritage',
+      subHeading: 'The cradle of civilization',
+      img: '/assets/img/slider2.png',
+      mimg: '/assets/img/slider-m2.jpg',
+      active: false,
     },
   ];
 
   constructor() {}
-
-  ngOnInit(): void {}
 }

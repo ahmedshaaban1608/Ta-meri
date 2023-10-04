@@ -6,43 +6,39 @@ import { HotelsComponent } from './hotels/hotels.component';
 import { TourguidesComponent } from './tourguides/tourguides.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { SearchComponent } from './search/search.component';
 import { HotelReviewComponent } from './hotel-review/hotel-review.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
-import { HotelApiService } from './services/hotel-api.service';
-import { HotelGalleryComponent } from './hotel-gallery/hotel-gallery.component';
-import { HotelOfferComponent } from './hotel-offer/hotel-offer.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: HomepageComponent,
-    title: 'Home',
+    data: { title: 'Home' },
   },
   {
     path: 'hotels',
     component: HotelsComponent,
-    title: 'Hotels',
+    data: { title: 'Hotels' },
   },
+  
   {
     path: 'tourguides',
     component: TourguidesComponent,
-    title: 'Tour Guides',
+    data: { title: 'Tour Guides' },
   },
   {
     path: 'contact-us',
     component: ContactusComponent,
-    title: 'Contact us',
+    data: { title: 'Contact us' },
   },
   {
-    path: 'about-us',
-    component:AboutusComponent,
-
+    path: 'search',
+    component: SearchComponent,
+    data: { title: 'Search' },
   },
-  {
-    path: 'hotel-gallery',
-    component: HotelGalleryComponent,
-  },
+ 
+ 
   
   {
     path: 'hotel/:id',
@@ -52,10 +48,7 @@ const routes: Routes = [
     path: 'hotel-review/:id',
     component: HotelReviewComponent,
   },
-  {
-    path: 'hotel-offer',
-    component: HotelOfferComponent,
-  },
+  
 
   { path: 'tourguides/:id', component: TourguideProfileComponent },
 ];

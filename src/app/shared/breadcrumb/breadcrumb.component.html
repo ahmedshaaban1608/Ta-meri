@@ -1,0 +1,15 @@
+<div class="container-fluid page-header py-5 mb-5" *ngIf="showBreadcrumb">
+  <div class="container py-5 animate__animated animate__zoomIn">
+    <h1 class="display-3 text-white">
+      {{ pageTitle }}
+    </h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb animated slideInRight mb-0 text-white">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          {{ pageTitle }}
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>

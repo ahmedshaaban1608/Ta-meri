@@ -6,19 +6,17 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-
 import { FeatureModule } from './feature/feature.module';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
-
 import { AuthModule } from './auth/auth.module';
 import { StaticModule } from './static/static.module';
- //import { ScrollTopService } from './services/scroll-top.service';
- import { FeedbackApiService  } from '../app/feature/services/feedback-api.service';
-
+import { ScrollTopService } from './services/scroll-top.service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent ],
+  declarations: [AppComponent],
+
+  //  import { FeedbackApiService  } from '../app/feature/services/feedback-api.service';
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,11 +25,12 @@ import { StaticModule } from './static/static.module';
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
+    SharedModule,
     FeatureModule,
     AuthModule,
     StaticModule,
   ],
-   //providers: [ScrollTopService],
-   bootstrap: [AppComponent],
+  providers: [ScrollTopService],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

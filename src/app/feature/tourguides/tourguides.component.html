@@ -1,37 +1,37 @@
 <div class="container">
-    <div class="row g-3">
-      <div class="col-md-6 col-lg-6 col-sm-12" *ngFor="let tourGuide of guides">
-        <div class="card mb-3 fade-in shadow">
-          <div class="row justify-content-center g-0">
-            <div class="col-md-4 text-center pt-5">
-              <img
-                [src]="tourGuide.thumbnail"
-                alt="{{ tourGuide.name }}"
-                class="card-img-top mx-auto w-75 h-75 rounded-circle"
-              />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body mt-4">
-                <h5 class="card-title animated-text">
-                  {{ tourGuide.name }}
-                </h5>
-                <p
-                  class="card-text"
-                  *ngFor="let line of getTypedLines(tourGuide)"
-                >
-                  {{ line }}
-                </p>
-                <ngb-rating [rate]="3"></ngb-rating><br />
-                <button
-                  class="btn btn-dark"
-                  (click)="goToGuideDetails(tourGuide.id)"
-                >
-                  Read More
-                </button>
-              </div>
+  <div class="row g-3">
+    <div class="col-md-6 col-lg-6 col-sm-12" *ngFor="let tourGuide of guides">
+      <div class="card mb-3 fade-in shadow">
+        <div class="row justify-content-center g-0">
+          <div class="col-md-4 text-center pt-5">
+            <img
+              [src]="tourGuide.thumbnail"
+              alt="{{ tourGuide.name }}"
+              class="card-img-top mx-auto w-75 h-75 rounded-circle"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body mt-4">
+              <h5 class="card-title animated-text">
+                {{ tourGuide.name }}
+              </h5>
+              <p
+                class="card-text"
+                *ngFor="let line of getTypedLines(tourGuide)"
+              >
+                {{ line }}
+              </p>
+              <ngb-rating [rate]="3"></ngb-rating><br />
+              <button
+                class="btn btn-dark"
+                (click)="goToGuideDetails(tourGuide.id)"
+              >
+                Read More
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

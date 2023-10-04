@@ -1,30 +1,28 @@
-import { Component, OnInit ,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import {DetailsService} from '../tourguides/service/details.service';
-import { TourGuide } from '../interface/tour-guide';
-import { Router } from '@angular/router';
+import { DetailsService } from '../tourguides/service/details.service';
 @Component({
   selector: 'app-hotel-details',
   templateUrl: './hotel-details.component.html',
   styleUrls: ['./hotel-details.component.css'],
 })
 export class HotelDetailsComponent implements OnInit {
-  @Input() hotel: TourGuide | null = null;
-  hotels: any[] = [];
+  hotrlId!: number;
+  @Input() hotel!: any;
   constructor(
     private route: ActivatedRoute,
-    private detailsApiService:  DetailsService,
+    private detailsApiService: DetailsService,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
-    const productId = +this.route.snapshot.paramMap.get('id')!;
-
     this.route.params.subscribe((params) => {
-      const hotrlId = params['id'];
-      this.detailsApiService.getProductById(hotrlId).subscribe(
+      this.hotrlId = params['id'];
+      this.detailsApiService.getProductById(this.hotrlId).subscribe(
         (hotel) => {
           this.hotel = hotel;
-          console.log('Fetched product:', hotel);
+          this.titleService.setTitle('Hotel: ' + this.hotel['title']);
         },
         (error) => {
           console.error('Error fetching product:', error);

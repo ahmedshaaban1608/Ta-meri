@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FeedbackApiService } from '../services/feedback-api.service';
 import { ActivatedRoute } from '@angular/router';
@@ -6,28 +6,32 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
-  styleUrls: ['./feedback.component.css']
+  styleUrls: ['./feedback.component.css'],
 })
 export class FeedbackComponent {
+  @Input() id!: number;
   usersForm: FormGroup;
 
-
-  constructor(private formBuilder: FormBuilder, private apiService: FeedbackApiService,private route: ActivatedRoute ) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private apiService: FeedbackApiService,
+    private route: ActivatedRoute
+  ) {
     this.usersForm = this.formBuilder.group({
-   
-      rating: ['', [Validators.required, ]],
-      title: ['', [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z\s]{0,}$/)]],
+      rating: ['', [Validators.required]],
+      title: [
+        '',
+        [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z\s]{0,}$/)],
+      ],
 
       comment: ['', Validators.required],
-
     });
-    
   }
   getUserFormData(data: any) {
-    this.apiService.saveUsers(data).subscribe((result) => {
-      console.warn(result);
-    });
+    this.apiService
+      .saveUsers({ ...data, account_id: this.id })
+      .subscribe((result) => {
+        console.warn(result);
+      });
   }
-
-
 }

@@ -6,10 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class TourguideApiService {
   constructor(private http: HttpClient) {}
-  getTourGuideByUsername() {
-    return this.http.get(
-      'https://mocki.io/v1/4785a696-bed8-4985-a05d-80904de2987b'
-    );
+  url = 'https://retoolapi.dev/nWW8oZ/tourguide';
+  getTourGuideById(id: number) {
+    return this.http.get(this.url + '/' + id);
+  }
+  getTourGuideBySearch(word: string) {
+    return this.http.get(this.url + '?name=' + word);
   }
   getTourGuideReviews() {
     return this.http.get(

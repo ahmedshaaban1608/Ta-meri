@@ -33,7 +33,6 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.guidesApiService.getProducts().subscribe((data: TourGuide[]) => {
-      console.log(data);
       this.guides = data;
       this.animateCardText();
     });

@@ -1,112 +1,126 @@
-<header
-  class="p-3 mb-3 border-bottom sticky-top bg-white"
-  style="z-index: 9999"
->
-  <div class="container">
-    <div
-      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
-    >
-      <a
-        href="/"
-        class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none"
-      >
-        <svg
-          class="bi me-2"
-          width="40"
-          height="32"
-          role="img"
-          aria-label="Bootstrap"
-        >
-          <use xlink:href="#bootstrap" />
-        </svg>
-      </a>
-
-      <ul
-        class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
-      >
-        <li>
-          <a class="nav-link px-2 link-secondary" routerLink="/">Home</a>
-        </li>
-        <li>
-          <a class="nav-link px-2 link-dark" routerLink="hotels"> Hotels </a>
-        </li>
-        <li>
-          <a class="nav-link px-2 link-dark" routerLink="tourguides"
-            >Tour Guides</a
-          >
-        </li>
-      </ul>
-
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input
-          type="search"
-          class="form-control"
-          placeholder="Search..."
-          aria-label="Search"
-        />
-      </form>
-      <div class="dropdown text-end me-lg-3">
+<!--Top bar-->
+<div class="container-fluid bg-dark px-0">
+  <div class="row g-0">
+    <div class="col-2 col-md-6 col-lg-8 ps-5 text-start">
+      <div class="h-100 d-inline-flex align-items-center text-white fs-5">
+        <i class="fas fa-envelope d-none d-md-block"></i>
         <a
-          href="#"
-          class="d-block link-dark text-decoration-none dropdown-toggle"
-          id="dropdownUser1"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
+          class="btn btn-link text-light fs-5 text-decoration-none d-none d-md-block"
+          href="mailto:info@ta-meri.com"
         >
-          <img
-            src="https://github.com/mdo.png"
-            alt="mdo"
-            width="32"
-            height="32"
-            class="rounded-circle"
-          />
+          info@ta-meri.com
         </a>
-        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" routerLink="login">Login </a></li>
-          <li>
-            <a class="dropdown-item" routerLink="register">Register</a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="hotelregister"
-              >Hotel-register</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="tourguideregister"
-              >Tour-guide-register</a
-            >
-          </li>
-        </ul>
+        <i class="ms-3 fas fa-envelope d-none d-lg-block"></i>
+        <a
+          class="btn btn-link text-light fs-5 text-decoration-none d-none d-lg-block"
+          href="mailto:support@ta-meri.com"
+        >
+          support@ta-meri.com
+        </a>
+        <div class="d-none d-lg-block">
+          <i class="p-2 ms-3 me-2 fab fa-facebook-f"></i>
+          <i class="p-2 me-2 fab fa-linkedin-in"></i>
+          <i class="p-2 me-2 fab fa-twitter"></i>
+          <i class="p-2 me-2 fab fa-youtube"></i>
+          <i class="p-2 me-2 fab fa-instagram"></i>
+        </div>
       </div>
-      <!-- //////// -->
-      <div class="dropdown text-end">
-        <a
-          href="#"
-          class="d-block link-dark text-decoration-none dropdown-toggle"
-          id="dropdownUser1"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
+    </div>
+    <div class="col-10 col-md-6 col-lg-4 text-end">
+      <div
+        class="h-100 topbar-right bg-primary d-inline-flex align-items-center text-white py-2 px-4"
+      >
+        <span class="fw-bold me-2"
+          ><i class="fas fa-phone me-2 fs-6"></i>Call Us:</span
         >
-          <img
-            src="https://github.com/mdo.png"
-            alt="mdo"
-            width="32"
-            height="32"
-            class="rounded-circle"
-          />
-        </a>
-        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-          <li>
-            <a class="dropdown-item" routerLink="/">New project...</a>
-          </li>
-          <li><a class="dropdown-item" routerLink="/">Settings</a></li>
-          <li>
-            <a class="dropdown-item" routerLink="/tourguide-profile">Profile</a>
-          </li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><a class="dropdown-item" href="#">Sign out</a></li>
-        </ul>
+        <a
+          class="fs-6 fw-bold text-white text-decoration-none"
+          href="tel:+012345"
+          >+2012 345 6789</a
+        >
       </div>
     </div>
   </div>
+</div>
+
+<!-- main header -->
+<header
+  class="bg-white navbar-light sticky-top pb-3 pe-2 pe-lg-5 py-lg-0 mb-0 d-flex align-items-center justify-content-between"
+  style="z-index: 999"
+>
+  <nav class="navbar navbar-expand-lg flex-grow-1">
+    <a routerLink="/" class="navbar-brand ps-2 ps-lg-5 me-0">
+      <img
+        src="/assets/img/logo.png"
+        alt="Ta-meri"
+        width="200"
+        class="text-center"
+      />
+    </a>
+    <button
+      type="button"
+      class="navbar-toggler ms-2 me-0 bg-primary"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarCollapse"
+    >
+      <span class="navbar-toggler-icon fs-6"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto p-4 p-lg-0 fs-5 text-dark fw-semibold">
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="nav-item nav-link me-3 px-2"
+          >Home
+        </a>
+        <a
+          routerLink="hotels"
+          routerLinkActive="active"
+          class="nav-item nav-link me-3 px-2"
+        >
+          Hotels
+        </a>
+        <a
+          routerLink="tourguides"
+          routerLinkActive="active"
+          class="nav-item nav-link me-3 px-2"
+        >
+          Tour Guides
+        </a>
+        <a
+          routerLink="contact-us"
+          routerLinkActive="active"
+          class="nav-item nav-link me-3 px-2"
+        >
+          Contact us
+        </a>
+      </div>
+      <div class="nav-btn text-center">
+        <a
+          routerLink="login"
+          routerLinkActive="btn-active"
+          class="btn px-3 text-white fw-semibold login rounded-0 me-3"
+        >
+          Login
+        </a>
+        <a
+          routerLink="register"
+          routerLinkActive="btn-active"
+          class="btn text-white px-3 fw-semibold register rounded-0 me-3"
+        >
+          Create account
+        </a>
+      </div>
+    </div>
+    <a routerLink="search" class="ms-2 btn btn-secondary py-1 d-none d-lg-block"
+      ><i class="fas fa-search mt-2 p-0"></i
+    ></a>
+  </nav>
+  <a
+    routerLink="search"
+    class="ms-2 btn btn-secondary py-1 d-lg-none"
+    style="width: 40px; height: 40px"
+    ><i class="fas fa-search mt-2 p-0"></i
+  ></a>
 </header>
