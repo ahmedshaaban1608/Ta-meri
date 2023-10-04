@@ -1,0 +1,46 @@
+<div class="card mb-4 rounded-4 shadow">
+  <img
+    [src]="hotel?.img"
+    class="card-img-top rounded-4"
+    [alt]="hotel?.name"
+    [ngStyle]="{ height: '250px' }"
+  />
+  <div class="card-body">
+    <h5
+      class="card-title fw-bold fs-3 bg-primary text-white p-1 pt-2 text-center rounded-5 mb-4"
+      [ngStyle]="{ 'line-height': '1', 'margin-top': '-35px' }"
+    >
+      {{ hotel?.name }}
+    </h5>
+    <div class="row align-items-center">
+      <div class="col-7">
+        <p class="card-text fs-5 fw-medium">
+          <i class="fas fa-map-marker-alt text-red me-3"></i>{{ hotel?.city }}
+        </p>
+      </div>
+      <div class="col-5 text-end">
+        <ngb-rating
+          [rate]="hotel?.rating"
+          [readonly]="true"
+          class="text-warning fs-3"
+        ></ngb-rating>
+      </div>
+    </div>
+    <p class="card-text mt-3 hotel-text">
+      {{ hotel?.text }}
+    </p>
+    <p class="card-text fs-5 fw-medium mb-0">
+      <i class="fas fa-tags text-success me-2"></i>{{ hotel?.offers }} Offers
+      available
+    </p>
+    <div class="w-50 mx-auto">
+      <button
+        class="btn btn-danger fw-bold w-100"
+        (click)="moreDetails(hotel?.id)"
+        [ngStyle]="{ 'margin-bottom': '-55px' }"
+      >
+        See All Offers
+      </button>
+    </div>
+  </div>
+</div>

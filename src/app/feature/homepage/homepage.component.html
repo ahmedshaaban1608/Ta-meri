@@ -1,1 +1,91 @@
 <app-carousel></app-carousel> <app-about-section></app-about-section>
+<div class="container-fluid bg-primary my-5 p-5">
+  <div class="row g-5">
+    <div class="col-md-6 col-xl-3" *ngFor="let fact of facts">
+      <app-counter [counter]="fact"></app-counter>
+    </div>
+  </div>
+</div>
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <iframe
+          style="max-width: 100%"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/BapSQFJPMM0?si=dVEuVNiys0tY7UBb"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="col-lg-6">
+        <p class="fw-medium text-uppercase text-primary mb-2">
+          Why Choosing Us!
+        </p>
+        <h1 class="display-6 mb-4">Few Reasons Why People Choosing Us!</h1>
+        <div class="row gy-4">
+          <div class="col-12">
+            <div class="d-flex align-items-start">
+              <i
+                class="fa fa-check text-white rounded-circle bg-primary p-3 fs-4"
+              ></i>
+
+              <div class="ms-4">
+                <h4>Ancient Wonders</h4>
+                <span>
+                  Explore millennia-old pyramids, temples, and artifacts,
+                  uncovering Egypt's captivating history.
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="d-flex align-items-start">
+              <i
+                class="fa fa-check text-white rounded-circle bg-primary p-3 fs-4"
+              ></i>
+              <div class="ms-4">
+                <h4>Diverse Landscapes</h4>
+                <span>
+                  From the Nile River to the Red Sea, enjoy a variety of
+                  breathtaking landscapes, including deserts and coastlines.
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="d-flex align-items-start">
+              <i
+                class="fa fa-check text-white rounded-circle bg-primary p-3 fs-4"
+              ></i>
+              <div class="ms-4">
+                <h4>Affordable Adventures</h4>
+                <span>
+                  Discover Egypt's marvels without breaking the bank, with our
+                  budget-friendly travel options and tailored packages.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <h2 class="text-center display-5 mb-4">Featured Hotels</h2>
+  <div class="container mt-5">
+    <div class="row">
+      <div
+        class="col-sm-12 col-md-6 col-lg-4 mb-4"
+        *ngFor="let hotel of hotels | slice : 0 : 6"
+      >
+        <app-hotel-card [hotel]="hotel"></app-hotel-card>
+      </div>
+    </div>
+  </div>
+</div>

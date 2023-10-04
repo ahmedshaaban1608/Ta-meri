@@ -8,6 +8,9 @@ import { CarouselItemComponent } from './carousel-item/carousel-item.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { AboutSectionComponent } from './about-section/about-section.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { CounterComponent } from './counter/counter.component';
+import { HotelCardComponent } from './hotel-card/hotel-card.component';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,14 +21,18 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     CarouselComponent,
     AboutSectionComponent,
     BreadcrumbComponent,
+    CounterComponent,
+    HotelCardComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NgbRatingModule],
   exports: [
     HeaderComponent,
     FooterComponent,
     CarouselComponent,
     AboutSectionComponent,
     BreadcrumbComponent,
+    CounterComponent,
+    HotelCardComponent,
   ],
 })
 export class SharedModule {}

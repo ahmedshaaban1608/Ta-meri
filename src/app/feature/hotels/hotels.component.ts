@@ -1,45 +1,24 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiHotelService } from 'src/app/auth/services/hotel/api-hotel.service';
-
-
+import { HotelApiService } from '../services/hotel-api.service';
 
 @Component({
-selector: 'app-hotels',
-templateUrl: './hotels.component.html',
-styleUrls: ['./hotels.component.css'],
+  selector: 'app-hotels',
+  templateUrl: './hotels.component.html',
+  styleUrls: ['./hotels.component.css'],
 })
 export class HotelsComponent {
-constructor(
-private hotelLink: ApiHotelService,
-private router: Router,
+  constructor(private hotelLink: HotelApiService, private router: Router) {}
+  hotels!: any[];
+  TextValue: string = '';
 
-) {}
-hotels: any[] = [];
-TextValue: string = '';
+  ngOnInit(): void {
+    this.getAllHotels();
+  }
 
-ngOnInit(): void {
-this.getAllHotels();
-}
-
-getAllHotels() {
-this.hotelLink.getAllHotels().subscribe(
-(result) => {
-this.hotels = Object.values(result)[0];
-},
-(err) => {
-alert('can not load data of hotels from api');
-}
-);
-}
-
-moreDetails(id: number) {
-this.router.navigate(['hotel', id]);
-}
-
-searchText(data: string) {
-this.TextValue = data;
-console.log(this.TextValue);
-}
-
+  getAllHotels() {
+    this.hotelLink.getAllHotels().subscribe((result) => {
+      this.hotels = Object.values(result);
+    });
+  }
 }
