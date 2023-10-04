@@ -42,6 +42,13 @@
                   >
                     Name is required
                   </div>
+                  <div
+                    *ngIf="
+                      sendMessage.controls['fullName'].hasError('minLength')
+                    "
+                  >
+                    minimum length is 5 charachters
+                  </div>
                 </div>
                 <input
                   formControlName="fullName"
@@ -95,7 +102,11 @@
                     subject is required
                   </div>
                 </div>
-
+                <div
+                  *ngIf="sendMessage.controls['subject'].hasError('minLength')"
+                >
+                  minimum length is 5 charachters
+                </div>
                 <input
                   formControlName="subject"
                   type="text"

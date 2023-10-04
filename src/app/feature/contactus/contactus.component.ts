@@ -15,13 +15,11 @@ export class ContactusComponent {
       fullName: new FormControl('', [
         Validators.required,
         Validators.minLength(5),
-        Validators.maxLength(16),
       ]),
       email: new FormControl('', [Validators.required, Validators.email]),
       subject: new FormControl('', [
         Validators.required,
         Validators.minLength(5),
-        Validators.maxLength(16),
       ]),
       message: new FormControl('', [
         Validators.required,
