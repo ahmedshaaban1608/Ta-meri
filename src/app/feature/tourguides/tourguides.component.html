@@ -21,7 +21,12 @@
               >
                 {{ line }}
               </p>
-              <ngb-rating [rate]="3"></ngb-rating><br />
+              <ngb-rating
+                [rate]="3"
+                [readonly]="true"
+                class="text-warning fs-4"
+              ></ngb-rating
+              ><br />
               <button
                 class="btn btn-dark"
                 (click)="goToGuideDetails(tourGuide.id)"
