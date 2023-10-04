@@ -1,25 +1,17 @@
-<!-- <div
-  class="d-flex align-items-center justify-content-center"
-  style="height: 50vh"
+<div
+  class="d-flex flex-column align-items-center justify-content-center min-vh-50"
 >
-  <div class="text-center">
-    <h1 class="display-1 fw-bold">404</h1>
-    <p class="fs-3"><span class="text-danger">Opps!</span> Page not found.</p>
-    <p class="lead">The page you’re looking for doesn’t exist.</p>
-    <a [routerLink]="'/'" class="btn btn-primary">Go Home</a>
-  </div>
-</div> -->
+  <div class="notfound text-center p-4">
+    <div class="notfound-404 mx-auto"></div>
+    <h1 class="err">404</h1>
+    <h2 class="fs-3">
+      <span class="text-danger">Opps! </span> Page Not Be Found.
+    </h2>
 
-<div id="notfound">
-  <div class="notfound">
-    logo
-    <div class="notfound-404"></div>
-    <h1>404</h1>
-    <h2>Oops! Page Not Be Found</h2>
-    <p>
-      Sorry but the page you are looking for does not exist, have been removed.
-      name changed or is temporarily unavailable
+    <p class="text-danger">
+      Sorry but the page you are looking for does not exist, has been removed,
+      name changed, or is temporarily unavailable.
     </p>
-    <a [routerLink]="'/'">Back to homepage</a>
+    <a href="/" class="btn btn-primary">Back to Homepage</a>
   </div>
 </div>
