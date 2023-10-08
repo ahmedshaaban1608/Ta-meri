@@ -27,7 +27,7 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "https://code.tidio.co/jmfe5s9owpsfykouvtfugtmfuqornrwu.js"
+              "/assets/tidio.js"
             ]
           },
           "configurations": {
