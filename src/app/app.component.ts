@@ -11,4 +11,10 @@ export class AppComponent {
   constructor(private scrollService: ScrollTopService) {
     this.scrollService.setScrollTopOnRouteChange();
   }
+  ngOnInit(): void {
+    const script = document.createElement('script');
+    script.src = '//code.tidio.co/jmfe5s9owpsfykouvtfugtmfuqornrwu.js';
+    script.async = true;
+    document.body.appendChild(script);
+  }
 }
