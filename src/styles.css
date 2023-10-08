@@ -45,3 +45,8 @@ iframe body::-webkit-scrollbar {
   background-color: var(--bs-primary);
   border-radius: 10px;
 }
+/***************************/
+#tidio-chat-iframe {
+  left: 0 !important;
+  bottom: 0 !important;
+}
