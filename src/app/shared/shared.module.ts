@@ -11,6 +11,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { CounterComponent } from './counter/counter.component';
 import { HotelCardComponent } from './hotel-card/hotel-card.component';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
     BreadcrumbComponent,
     CounterComponent,
     HotelCardComponent,
+    PaginationComponent,
   ],
   imports: [CommonModule, RouterModule, NgbRatingModule],
   exports: [
@@ -33,6 +35,7 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
     BreadcrumbComponent,
     CounterComponent,
     HotelCardComponent,
+    PaginationComponent
   ],
 })
 export class SharedModule {}

@@ -23,6 +23,10 @@ import { SharedModule } from '../shared/shared.module';
 
 
 import { TourguideCardComponent } from './tourguide-card/tourguide-card.component';
+import { TourguideEditComponent } from './tourguide-edit/tourguide-edit.component';
+import { TourguideOwnPageComponent } from './tourguide-own-page/tourguide-own-page.component';
+import { TourguideBookorderListComponent } from './tourguide-bookorder-list/tourguide-bookorder-list.component';
+import { BookingFormComponent } from './booking-form/booking-form.component';
 
 const routes: Routes = [];
 
@@ -45,6 +49,10 @@ const routes: Routes = [];
     HotelGalleryComponent,
 
     TourguideCardComponent,
+     TourguideEditComponent,
+     TourguideOwnPageComponent,
+     TourguideBookorderListComponent,
+     BookingFormComponent,
 
   ],
   imports: [
