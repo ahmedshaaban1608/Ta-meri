@@ -52,4 +52,5 @@ export class TourguideProfileComponent {
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   }
+  
 }

@@ -10,4 +10,7 @@ export interface TourGuide {
   comment:string;
   startdate : Date;
   enddate : Date;
+  area:string;
+  price:number;
+
 }

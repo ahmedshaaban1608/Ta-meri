@@ -73,4 +73,7 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
   goToGuideDetails(id: number): void {
     this.router.navigate(['tourguides', id]);
   }
+  // goToGuideProfile(id: number): void {
+  //   this.router.navigate(['tourguide-edit', id]);
+  // }
 }
