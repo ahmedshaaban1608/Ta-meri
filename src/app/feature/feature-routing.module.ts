@@ -8,7 +8,8 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SearchComponent } from './search/search.component';
 import { HotelReviewComponent } from './hotel-review/hotel-review.component';
-import { TourguideBookorderListComponent } from './tourguide-bookorder-list/tourguide-bookorder-list.component';const routes: Routes = [
+import { TourguideBookorderListComponent } from './tourguide-bookorder-list/tourguide-bookorder-list.component';import { TourguideOwnPageComponent } from './tourguide-own-page/tourguide-own-page.component';
+const routes: Routes = [
   {
     path: '',
     component: HomepageComponent,
@@ -53,6 +54,11 @@ import { TourguideBookorderListComponent } from './tourguide-bookorder-list/tour
 
   { path: 'tourguidebookorder', component: TourguideBookorderListComponent },
 
+ {
+    path: 'my-profile/:id',
+    component: TourguideOwnPageComponent,
+    data: { title: 'my profile' },
+  }
 
 ];
 

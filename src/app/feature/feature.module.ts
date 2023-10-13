@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomepageComponent } from './homepage/homepage.component';
 import { TourguidesComponent } from './tourguides/tourguides.component';
 import { HotelsComponent } from './hotels/hotels.component';
@@ -27,6 +27,7 @@ import { TourguideEditComponent } from './tourguide-edit/tourguide-edit.componen
 import { TourguideOwnPageComponent } from './tourguide-own-page/tourguide-own-page.component';
 import { TourguideBookorderListComponent } from './tourguide-bookorder-list/tourguide-bookorder-list.component';
 import { BookingFormComponent } from './booking-form/booking-form.component';
+
 
 const routes: Routes = [];
 
@@ -62,6 +63,7 @@ const routes: Routes = [];
     FormsModule,
     SharedModule,
     ReactiveFormsModule,
+    NgbDatepickerModule
   ],
 })
 export class FeatureModule {

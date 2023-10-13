@@ -1,3 +1,6 @@
+<app-booking-form></app-booking-form>
+
+
 <div class="container mt-5 mb-5">
   <div class="rounded-3 pb-5" style="height: 350px">
     <img
@@ -67,6 +70,15 @@
         <div class="text-center mb-3">
           <h1 class="fs-3">{{ tourguide.name }}</h1>
           <span>{{ tourguide.bio }}</span>
+        </div>
+        <div class="border-top">
+          <div class="d-flex mt-3 ms-3">
+            <i class="fa-solid fa-dollar-sign me-3 text-danger fs-3"></i>
+            <div>
+              <h5>Price per day</h5>
+              <span> {{200 | currency}} </span>
+            </div>
+          </div>
         </div>
         <div class="border-top">
           <div class="d-flex mt-3 ms-3">
