@@ -1,0 +1,36 @@
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+.custom-day.range,
+.custom-day:hover {
+  background-color: var(--bs-primary);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba( var(--bs-primary-rgb),0.5)
+}
+.ngb-dp-day.disabled {
+  color: #a0a0a0; /* Change the text color of disabled days */
+  cursor: not-allowed; /* Change the cursor for disabled days */
+}
+/* Custom CSS for full-width datepicker */
+.full-width-datepicker .ngb-dp-header,
+.full-width-datepicker .ngb-dp-day,
+.full-width-datepicker .ngb-dp-months {
+  width: 100%!important;
+}
+
+.full-width-datepicker .ngb-dp-months > div {
+  max-width: 100%!important;
+}
+
+.full-width-datepicker .ngb-dp-month {
+  width: 100%!important;
+}

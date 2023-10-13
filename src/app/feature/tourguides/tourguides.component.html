@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row g-3">
-    <div class="col-md-6 col-lg-6 col-sm-12" *ngFor="let tourGuide of guides">
+    <div class="col-md-6 col-lg-6 col-sm-12" *ngFor="let tourGuide of guides  | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
       <div class="card mb-3 fade-in shadow">
         <div class="row justify-content-center g-0">
           <div class="col-md-4 text-center pt-5">
@@ -33,13 +33,16 @@
               >
                 Read More
               </button>
-              <button class="btn btn-dark" (click)="goToGuideProfile(tourGuide.id)">
+              <!-- <button class="btn btn-dark" (click)="goToGuideProfile(tourGuide.id)">
                 Profile
-              </button>
+              </button> -->
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="text-center fs-4 mt-3">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
   </div>
 </div>

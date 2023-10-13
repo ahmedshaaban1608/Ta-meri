@@ -22,7 +22,9 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
   @ViewChildren('cardTextElements') cardTextElements!: QueryList<ElementRef>;
 
   guides: TourGuide[] = [];
-
+  p:number=1;
+  itemsPerPage:number=6;
+  totalTourGuid:any;
   constructor(
     private guidesApiService: GuidesApiService,
     private router: Router,
@@ -35,6 +37,7 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
     this.guidesApiService.getProducts().subscribe((data: TourGuide[]) => {
       this.guides = data;
       this.animateCardText();
+      this.totalTourGuid=data.length;
     });
   }
 
@@ -70,7 +73,7 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
   goToGuideDetails(id: number): void {
     this.router.navigate(['tourguides', id]);
   }
-  goToGuideProfile(id: number): void {
-    this.router.navigate(['tourguide-edit', id]);
-  }
+  // goToGuideProfile(id: number): void {
+  //   this.router.navigate(['tourguide-edit', id]);
+  // }
 }
