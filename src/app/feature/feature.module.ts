@@ -67,4 +67,7 @@ const routes: Routes = [];
     NgxPaginationModule
   ],
 })
-export class FeatureModule {}
+export class FeatureModule {
+ 
+}
+

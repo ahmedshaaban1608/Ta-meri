@@ -11,10 +11,16 @@ import { AuthModule } from './auth/auth.module';
 import { StaticModule } from './static/static.module';
 import { ScrollTopService } from './services/scroll-top.service';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
+
+
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,],
 
   //  import { FeedbackApiService  } from '../app/feature/services/feedback-api.service';
 
@@ -30,7 +36,9 @@ import { SharedModule } from './shared/shared.module';
     FeatureModule,
     AuthModule,
     StaticModule,
-   
+    BrowserAnimationsModule,
+
+
   ],
   providers: [ScrollTopService],
   bootstrap: [AppComponent],
