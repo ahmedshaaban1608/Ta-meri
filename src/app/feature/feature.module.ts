@@ -14,7 +14,7 @@ import { ReviewComponent } from './review/review.component';
 import { SearchComponent } from './search/search.component';
 import { HotelOfferComponent } from './hotel-offer/hotel-offer.component';
 import { FeedbackComponent } from './feedback/feedback.component';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { HotelReviewComponent } from './hotel-review/hotel-review.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { HotelGalleryComponent } from './hotel-gallery/hotel-gallery.component';
