@@ -27,7 +27,13 @@ import { TourguideEditComponent } from './tourguide-edit/tourguide-edit.componen
 import { TourguideOwnPageComponent } from './tourguide-own-page/tourguide-own-page.component';
 import { TourguideBookorderListComponent } from './tourguide-bookorder-list/tourguide-bookorder-list.component';
 import { BookingFormComponent } from './booking-form/booking-form.component';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import{DataTablesModule}from'angular-datatables';
 const routes: Routes = [];
 
 @NgModule({
@@ -62,6 +68,17 @@ const routes: Routes = [];
     FormsModule,
     SharedModule,
     ReactiveFormsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    DataTablesModule
+  
   ],
 })
-export class FeatureModule {}
+export class FeatureModule {
+ 
+}
+

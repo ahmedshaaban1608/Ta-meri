@@ -50,3 +50,6 @@ iframe body::-webkit-scrollbar {
   left: 0 !important;
   bottom: 0 !important;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

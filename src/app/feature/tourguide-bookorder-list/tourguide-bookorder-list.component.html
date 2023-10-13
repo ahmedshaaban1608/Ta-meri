@@ -1,1 +1,33 @@
-<p>tourguide-bookorder-list works!</p>
+
+<div class="container mt-5">
+  <h1 >Tourguide Ta-meri</h1>
+  <table class="table mt-3 table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" >Guest ID</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Location</th>
+        <th scope="col">Dates</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of employeeData">
+        <td class="column-spacing">{{ row.id }}</td>
+        <td class="column-spacing">{{ row.fullname }}</td>
+        <td class="column-spacing">{{ row.Number }}</td>
+        <td class="column-spacing">{{ row.locations }}</td>
+        <td class="column-spacing">{{ row.dates }}</td>
+        <td class="column-spacing">{{ row.salary }}</td>
+        <td>
+          <button (click)="acceptBooking()" class="btn btn-info">Accept</button>
+          <button (click)="deleteEmployee(row)" class="btn btn-danger mx-3">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  

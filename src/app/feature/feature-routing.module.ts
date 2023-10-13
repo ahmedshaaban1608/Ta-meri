@@ -8,9 +8,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SearchComponent } from './search/search.component';
 import { HotelReviewComponent } from './hotel-review/hotel-review.component';
-
-
-const routes: Routes = [
+import { TourguideBookorderListComponent } from './tourguide-bookorder-list/tourguide-bookorder-list.component';const routes: Routes = [
   {
     path: '',
     component: HomepageComponent,
@@ -51,6 +49,11 @@ const routes: Routes = [
   
 
   { path: 'tourguides/:id', component: TourguideProfileComponent },
+
+
+  { path: 'tourguidebookorder', component: TourguideBookorderListComponent },
+
+
 ];
 
 @NgModule({
