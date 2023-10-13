@@ -62,8 +62,6 @@ const routes: Routes = [];
     FormsModule,
     SharedModule,
     ReactiveFormsModule,
-   
-  
   ],
 })
 export class FeatureModule {
