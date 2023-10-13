@@ -8,6 +8,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SearchComponent } from './search/search.component';
 import { HotelReviewComponent } from './hotel-review/hotel-review.component';
+import { TourguideEditComponent } from './tourguide-edit/tourguide-edit.component';
 
 
 const routes: Routes = [
@@ -50,7 +51,13 @@ const routes: Routes = [
   },
   
 
-  { path: 'tourguides/:id', component: TourguideProfileComponent },
+  { path: 'tourguides/:id', 
+  component: TourguideProfileComponent
+ },
+ {
+  path: 'tourguide-edit/:id',
+  component: TourguideEditComponent,
+},
 ];
 
 @NgModule({

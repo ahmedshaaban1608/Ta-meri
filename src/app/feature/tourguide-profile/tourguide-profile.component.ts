@@ -35,4 +35,5 @@ export class TourguideProfileComponent {
       .getTourGuideReviews()
       .subscribe((data) => (this.reviews = Object.values(data)));
   }
+  
 }

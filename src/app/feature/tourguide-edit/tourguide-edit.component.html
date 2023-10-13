@@ -1,1 +1,73 @@
-<p>tourguide-edit works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 shadow">
+      <h3 style="font-size: 1.5rem; font-weight: bold; text-align: center;">Personal Details</h3>
+
+      <form (ngSubmit)="submitForm(tourguideForm)" #tourguideForm="ngForm" class="was-validated" novalidate>
+        <div class="form-group shadow-sm mb-3">
+          <label for="name" style="font-size: 1rem;">Name</label>
+          <input type="text" class="form-control" id="name" name="name" [(ngModel)]="tourguide.name" required>
+          <div class="invalid-feedback">Name is required.</div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="description" style="font-size: 1rem;">About</label>
+          <textarea class="form-control" id="description" name="description" [(ngModel)]="tourguide.description" required></textarea>
+          <div class="invalid-feedback">About is required.</div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="thumbnail" style="font-size: 1rem;">Image</label>
+          <input type="text" class="form-control" id="thumbnail" name="thumbnail" [(ngModel)]="tourguide.thumbnail" required>
+          <div class="invalid-feedback">Image is required.</div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="price" style="font-size: 1rem;">Price</label>
+          <input type="number" class="form-control" id="price" name="price" [(ngModel)]="tourguide.price" required>
+          <div class="invalid-feedback">Price is required.</div>
+        </div>
+        
+        <div class="form-group mb-3">
+          <label for="area" style="font-size: 1rem;">Area</label>
+           <input type="text" class="form-control" id="area" name="area" [(ngModel)]="tourguide.area" required>
+          <div>
+            <label class="checkbox-label" *ngFor="let area of areas">
+              <input type="checkbox" name="area" [(ngModel)]="tourguide.area" [value]="area">{{ area }}
+            </label>
+          </div>
+          <div class="invalid-feedback">Area is required.</div>
+        </div>
+      
+        <div class="form-group mb-3">
+          <label for="language" style="font-size: 1rem;">Language</label>
+            <input type="text" class="form-control" id="language" name="language" [(ngModel)]="tourguide.langauge" required>
+          <div>
+            <label class="checkbox-label" *ngFor="let language of languages">
+              <input type="checkbox" name="language" [(ngModel)]="tourguide.language" [value]="language">{{ language }}
+            </label>
+          </div>
+          <div class="invalid-feedback">Language is required.</div>
+        </div>
+       
+
+        <form (ngSubmit)="submitForm(tourguideForm)" #tourguideForm="ngForm" class="was-validated" novalidate>
+      
+          <div class="form-group mb-3">
+            <label for="startdate" style="font-size: 1rem;">Start Date</label>
+            <input type="text" class="form-control" id="startdate" name="startdate" [(ngModel)]="tourguide.startdate">
+          </div> 
+  
+          <div class="form-group mb-3">
+            <label for="enddate" style="font-size: 1rem;">End Date</label>
+            <input type="text" class="form-control" id="enddate" name="enddate" [(ngModel)]="tourguide.enddate">
+          </div> 
+        </form>
+
+        <div style="text-align: center;">
+          <button type="submit" class="btn mt-3" style="background-color: #f39c12; color: #fff;" [disabled]="tourguideForm.invalid">Submit</button>
+        </div>
+      </form>
+      </div>
+      </div>
+</div>
