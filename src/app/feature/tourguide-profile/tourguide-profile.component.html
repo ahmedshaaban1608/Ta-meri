@@ -48,15 +48,19 @@
       <div class="mt-5">
         <h2 class="mb-3">Reviews</h2>
         <app-feedback [id]="id"></app-feedback>
-        <div class="text-center text-black-50 my-5" *ngIf="!reviews?.length">
+        <div class="text-center text-black-50 my-5" *ngIf="!reviews?.length ">
           <h3>{{ tourguide.name }} has no any reviews yet</h3>
         </div>
         <ng-container *ngIf="reviews?.length">
           <app-review
             [review]="review"
-            *ngFor="let review of reviews"
+            *ngFor="let review of reviews | paginate: { itemsPerPage: itemsPerPage, currentPage: p }"
           ></app-review>
+
         </ng-container>
+        <div >
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
       </div>
     </div>
     <div class="col-md-4 mobile-first mt-4">

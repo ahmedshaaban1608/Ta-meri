@@ -22,17 +22,26 @@ export class TourguideProfileComponent {
   }
   tourguide: any = {};
   reviews: Array<Ireview> = [];
+  p:number=1;
+  itemsPerPage:number=3;
+  totaltourguide:any;
 
   ngOnInit() {
     this.id = this.activateRoute.snapshot['params']['id'];
 
     this.tourguideApi.getTourGuideById(this.id).subscribe((data) => {
       this.tourguide = data;
+
       this.titleService.setTitle('Tour guide: ' + this.tourguide['name']);
+
     });
 
     this.tourguideApi
       .getTourGuideReviews()
-      .subscribe((data) => (this.reviews = Object.values(data)));
+      .subscribe((data) =>{
+        (this.reviews = Object.values(data));
+        this.totaltourguide= Object.values(data).length;
+
+      });
   }
 }

@@ -1,6 +1,6 @@
 <h2 class="my-4 text-center">Feedback Of Hotels</h2>
 <div class="row">
-  <div class="col-md-6 col-lg-6 col-sm-12" *ngFor="let tourGuide of guides">
+  <div class="col-md-6 col-lg-6 col-sm-12" *ngFor="let tourGuide of guides  | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
     <div
       class="card mb-3 fade-in shadow"
       style="
@@ -11,7 +11,7 @@
       <div class="row justify-content-center g-0">
         <div class="col-md-4 text-center pt-5">
           <!-- <img [src]="tourGuide.thumbnail"
-           alt="{{ tourGuide.name }}" 
+           alt="{{ tourGuide.name }}"
            class="card-img-top mx-auto" /> -->
 
           <img
@@ -39,5 +39,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <div >
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>
