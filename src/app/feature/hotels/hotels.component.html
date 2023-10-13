@@ -1,7 +1,11 @@
 <div class="container mt-5">
   <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 mb-4" *ngFor="let hotel of hotels">
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4" *ngFor="let hotel of hotels | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
       <app-hotel-card [hotel]="hotel"></app-hotel-card>
     </div>
+    <div >
+      <div class="text-center fs-4 mt-3">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>    </div>
   </div>
 </div>

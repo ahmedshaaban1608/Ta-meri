@@ -1,10 +1,11 @@
 <div class="container">
   <form
-    class="col-md-6 bg-white py-5 w-100"
+    class="col-md-6 bg-white w-100"
     [formGroup]="BookingForm"
     (ngSubmit)="BookSubmitted()"
   >
-    <div class="mb-3 text-center full-width-datepicker">
+    <div class="text-center">
+      <h2 class="text-center">Check Availability</h2>
       <ngb-datepicker
         #dp
         (dateSelect)="onDateSelection($event)"
@@ -41,7 +42,7 @@
       class="form-control"
       id="fullName"
       name="fullName"
-      placeholder="ahmed shaaban"
+      placeholder="your full name"
       formControlName="name"
     />
 
@@ -71,6 +72,49 @@
         only letters and spaces are allowed
       </small>
     </div>
+    <label for="phone" class="form-label mt-3">phone</label>
+    <input
+      type="text"
+      [ngClass]="{
+        'is-valid':
+          BookingForm.controls['phone'].touched &&
+          !BookingForm.controls['phone'].invalid,
+        'is-invalid':
+          BookingForm.controls['phone'].touched &&
+          BookingForm.controls['phone'].invalid
+      }"
+      class="form-control"
+      id="phone"
+      name="phone"
+      placeholder="enter your phone number"
+      formControlName="phone"
+    />
+
+    <div
+      class="valid-feedback"
+      *ngIf="
+        BookingForm.controls['phone'].touched &&
+        !BookingForm.controls['phone'].invalid
+      "
+    >
+      Looks good!
+    </div>
+    <div
+      class="invalid-feedback"
+      *ngIf="
+        BookingForm.controls['phone'].touched &&
+        BookingForm.controls['phone'].invalid
+      "
+    >
+      <small *ngIf="BookingForm.controls['phone'].errors?.['required']">
+        phone is required
+      </small>
+         <small *ngIf="BookingForm.controls['phone'].errors?.['pattern']">
+invalid phone number      </small>
+    </div>
+    <label for="notes" class="form-label mt-3">Additional Notes</label>
+    <textarea name="notes" id="notes" class="form-control" rows="5" formControlName="phone"></textarea>
+
     <div class="mt-3">
       <button class="btn btn-primary w-100" type="submit">send request</button>
     </div>

@@ -16,28 +16,32 @@ constructor(
 
   TextValue: string = '';
   guides: TourGuide[] = [];
-  
+  p:number=1;
+  itemsPerPage:number=4;
+  totalHotel:any;
+
   ngOnInit(): void {
- 
+
   this.getAllGuides();
   }
-  
+
   getAllGuides() {
   this.feedbackApi.getProducts().subscribe(
   (result) => {
   this.guides = result;
+  this.totalHotel=result.length;
   },
   (err) => {
   alert('can not load data of guides from api');
   }
   );
   }
-  
+
   moreDetails(id: number) {
   this.router.navigate(['hotel-review', id]);
   }
-  
- 
+
+
   getTypedLines(tourGuide: TourGuide): string[] {
     return [tourGuide.address, tourGuide.comment ,'star: ' + tourGuide.star];
     }

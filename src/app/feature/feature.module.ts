@@ -27,6 +27,7 @@ import { TourguideEditComponent } from './tourguide-edit/tourguide-edit.componen
 import { TourguideOwnPageComponent } from './tourguide-own-page/tourguide-own-page.component';
 import { TourguideBookorderListComponent } from './tourguide-bookorder-list/tourguide-bookorder-list.component';
 import { BookingFormComponent } from './booking-form/booking-form.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 const routes: Routes = [];
@@ -55,6 +56,7 @@ const routes: Routes = [];
      TourguideBookorderListComponent,
      BookingFormComponent,
 
+
   ],
   imports: [
     CommonModule,
@@ -63,7 +65,8 @@ const routes: Routes = [];
     FormsModule,
     SharedModule,
     ReactiveFormsModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
+    NgxPaginationModule
   ],
 })
 export class FeatureModule {

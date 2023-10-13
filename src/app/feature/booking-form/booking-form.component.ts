@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./booking-form.component.css']
 })
 export class BookingFormComponent {
+  @Input() id!:number;
   fromDate: NgbDate;
   toDate: NgbDate | null = null;
   BookingForm: FormGroup;
@@ -27,6 +28,16 @@ export class BookingFormComponent {
           Validators.pattern(/^[a-zA-Z]{3,}(?:\s[a-zA-Z]{3,})*$/),
         ],
       ],
+      phone: [
+        null,
+        [
+          Validators.required,
+         
+          Validators.pattern(/^[+0-9]{10,14}$/),
+        ],
+      ],
+      notes: [
+        null],
     });
   }
 
@@ -45,7 +56,16 @@ export class BookingFormComponent {
   }
   
   BookSubmitted() {
-    console.log({...this.BookingForm.value, From: this.fromDate, To: this.toDate});
+    Object.values(this.BookingForm.controls).forEach(control => {
+      control.markAsTouched();
+    });
+  
+    if(!this.BookingForm.invalid){
+      console.log({...this.BookingForm.value, tourguideId: this.id, From: this.fromDate, To: this.toDate});
+
+    } else{
+      
+    }
   }
 
   isHovered(date: NgbDate) {
