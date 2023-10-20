@@ -9,6 +9,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SearchComponent } from './search/search.component';
 import { HotelReviewComponent } from './hotel-review/hotel-review.component';
 import { TourguideBookorderListComponent } from './tourguide-bookorder-list/tourguide-bookorder-list.component';import { TourguideOwnPageComponent } from './tourguide-own-page/tourguide-own-page.component';
+import { ToursitProfileComponent } from './toursit-profile/toursit-profile.component';
 const routes: Routes = [
   {
     path: '',
@@ -58,6 +59,10 @@ const routes: Routes = [
     path: 'my-profile/:id',
     component: TourguideOwnPageComponent,
     data: { title: 'my profile' },
+  },
+  {
+    path: 'toursit-profile/:id',
+    component: ToursitProfileComponent,
   }
 
 ];

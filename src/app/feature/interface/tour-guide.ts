@@ -12,5 +12,12 @@ export interface TourGuide {
   enddate : Date;
   area:string;
   price:number;
+  salary:number;
+  booking_date:Date;
+  booking_time:Date;
+  places_visit: string[];
+  reservation_status:string;
+  isPaymentButtonVisible?: boolean;
+
 
 }
