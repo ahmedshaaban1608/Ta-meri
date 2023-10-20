@@ -1,0 +1,64 @@
+<div class="container">
+  <form style="max-width: 600px" class="border p-3 rounded-3 shadow-lg m-auto bg-white">
+    <div class="row g-0">
+      <div class="col text-center p-2 mb-3 bg-light">
+        <span class="fs-3">**Join as a Tourist or Tour-guide or Hotels**</span>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-sm-9 col-xs-12 mb-3">
+        <div class="rounded ">
+          <label for="client" class="createLabel position-relative w-100">
+            <div class="post-item">
+              <h4 class="text-left pe-xl-5">🏖️
+                I'm a Tourist, go a Register
+              </h4>
+            </div>
+            <input style="top: 15px; right: 15px" class="position-absolute" type="radio" name="accountType" id="client" value="client" (click)="accountType = 'client'" />
+          </label>
+        </div>
+      </div>
+    
+      <div class="col-sm-9 col-xs-12 mb-3">
+        <div class="rounded ">
+          <label for="freelancer" class="createLabel position-relative w-100">
+            <div class="post-item">
+              <h4 class="text-left pe-xl-5">🎫
+                I’m a Tour-guide, looking for Profile
+              </h4>
+            </div>
+            <input style="top: 15px; right: 15px" class="position-absolute" type="radio" name="accountType" id="freelancer" value="freelancer" (click)="accountType = 'freelancer'" />
+          </label>
+        </div>
+      </div>
+    
+      <div class="col-sm-9 col-xs-12 mb-3">
+        <div class="rounded">
+          <label for="hotels" class="createLabel position-relative w-100">
+            <div class="post-item">
+              <h4 class="text-left pe-xl-5">🏨
+                I’m a Hotels, Register
+              </h4>
+            </div>
+            <input style="top: 15px; right: 15px" class="position-absolute" type="radio" name="accountType" id="hotels" value="hotels" (click)="accountType = 'hotels'" />
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-6 offset-3">
+    <div class="d-grid">
+      <button class="btn  btn-secondary" type="submit" [routerLink]="getRouterLink()" [disabled]="!accountType">Create Account</button>
+    </div>
+      </div>
+    </div>
+
+    <p class="text-center mt-3">
+      Do you have an account? <a routerLink="/login">Login</a>
+    </p>
+  </form>
+</div>
+
+

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import{map} from 'rxjs/operators'
+import { map } from 'rxjs/operators';
+//import { EmailService } from './email.service'; // Import the email service
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http:HttpClient ) { }
+  constructor(private http:HttpClient  ) { }
   postEmploye(data : any){
     return this.http.post<any>("https://retoolapi.dev/Hg857F/data",data)
     .pipe((res:any)=>{
