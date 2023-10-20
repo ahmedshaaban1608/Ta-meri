@@ -120,4 +120,8 @@ export class RegisterComponent implements OnInit {
   get PWD(): FormControl {
     return this.registerForm.get('pwd') as FormControl;
   }
+
+  
+
+
 }

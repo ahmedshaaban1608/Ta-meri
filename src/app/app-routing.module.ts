@@ -9,6 +9,8 @@ import { FeatureRoutingModule } from './feature/feature-routing.module';
 import { StaticRoutingModule } from './static/static-routing.module';
 import { NotFoundComponent } from './feature/not-found/not-found.component';
 import { FeedbackComponent } from './feature/feedback/feedback.component';
+import { JoinAsComponent } from './auth/join-as/join-as.component';
+
 
 const routes: Routes = [
   {
@@ -27,11 +29,22 @@ const routes: Routes = [
     component: TouristRegisterComponent,
     data: { title: 'Create Hotel account' },
   },
+
+  {
+    path: 'joinas',
+    component: JoinAsComponent,
+   
+  },
+
+
+
   {
     path: '**',
     component: NotFoundComponent,
     data: { title: '404 Page not found' },
   },
+
+
 ];
 
 @NgModule({

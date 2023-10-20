@@ -20,7 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
-  declarations: [AppComponent,],
+  declarations: [AppComponent, ],
 
   //  import { FeedbackApiService  } from '../app/feature/services/feedback-api.service';
 
