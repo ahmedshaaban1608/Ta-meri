@@ -78,15 +78,18 @@
 </div>
 <div>
   <h2 class="text-center display-5 mb-4">Featured Hotels</h2>
- 
-  <div class="container mt-5">
-    <div class="row">
-      <div
-        class="col-sm-12 col-md-6 col-lg-4 mb-4"
-        *ngFor="let hotel of hotels | slice : 0 : 6"
-      >
-        <app-hotel-card [hotel]="hotel"></app-hotel-card>
+ <div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="hotels-sharm container">
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="hotels-luxor container">
       </div>
     </div>
   </div>
-</div>
+ </div>
+
+    </div>
+

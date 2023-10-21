@@ -34,12 +34,7 @@ export class HomepageComponent {
   ngOnInit() {
     this.hotelApi.getAllHotels().subscribe((result) => {
       this.hotels = Object.values(result);
-      const script = document.createElement('script');
-      script.src = 'https://tp.media/content?currency=usd&trs=278542&shmarker=496016&type=compact&host=search.hotellook.com&locale=en&limit=10&powered_by=true&nobooking=&id=6674&categories=restaurant%2Cpets&primary=%23ff8e00&special=%23e0e0e0&promo_id=4026&campaign_id=101';
-      script.async = true;
-      const hotelContainer = document.querySelector('.hotels');
-      hotelContainer?.appendChild(script);
-   
+     
     });
   }
 

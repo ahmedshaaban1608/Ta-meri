@@ -12,6 +12,7 @@ import { TourguideBookorderListComponent } from './tourguide-bookorder-list/tour
 import { ToursitProfileComponent } from './toursit-profile/toursit-profile.component';
 import { ToursitDetailsComponent } from './toursit-details/toursit-details.component';
 import { TouristOwnPageComponent } from './tourist-own-page/tourist-own-page.component';
+import { Home2Component } from './home2/home2.component';
 const routes: Routes = [
   {
     path: '',
@@ -71,6 +72,11 @@ const routes: Routes = [
     path: 'toursit-profile/:id',
     component: ToursitProfileComponent,
     data: { title: 'Tourist profile' },
+  },
+  {
+    path: 'home',
+    component: Home2Component,
+   
   }
 
 ];

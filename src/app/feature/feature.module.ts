@@ -31,6 +31,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ToursitProfileComponent } from './toursit-profile/toursit-profile.component';
 import { ToursitDetailsComponent } from './toursit-details/toursit-details.component';
 import { TouristOwnPageComponent } from './tourist-own-page/tourist-own-page.component';
+import { Home2Component } from './home2/home2.component';
 
 
 const routes: Routes = [];
@@ -61,6 +62,7 @@ const routes: Routes = [];
      ToursitProfileComponent,
      ToursitDetailsComponent,
      TouristOwnPageComponent,
+     Home2Component,
 
 
   ],

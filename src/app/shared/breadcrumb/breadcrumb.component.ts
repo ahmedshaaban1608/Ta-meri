@@ -40,7 +40,7 @@ export class BreadcrumbComponent implements OnInit {
 
         // Show breadcrumb for all pages except the home page
         this.showBreadcrumb =
-          this.router.url !== '/' && !this.router.url.includes('search');
+          this.router.url !== '/' && !this.router.url.includes('search') && this.router.url !== '/home';
       });
   }
 }
