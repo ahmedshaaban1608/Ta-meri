@@ -28,12 +28,15 @@
                 <li class="list-group-item">
                   <strong>Booking Time:</strong> {{ tourGuide.booking_time }}
                 </li>
-                <li class="list-group-item">
+                <!-- <li class="list-group-item">
                   <strong>Places to Visit:</strong>
                   <ul>
                     <li *ngFor="let place of tourGuide.places_visit">{{ place }}</li>
                   </ul>
-                </li>
+                </li> -->
+                <li class="list-group-item">
+    <strong>Places to Visit:</strong>{{ tourGuide.places_visit }}
+</li>
                 <li class="list-group-item">
                   <strong>Reservation Status:</strong> {{ tourGuide.reservation_status }}
                 </li>

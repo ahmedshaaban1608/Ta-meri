@@ -15,7 +15,7 @@ export interface TourGuide {
   salary:number;
   booking_date:Date;
   booking_time:Date;
-  places_visit: string[];
+  places_visit: string;
   reservation_status:string;
   isPaymentButtonVisible?: boolean;
 
