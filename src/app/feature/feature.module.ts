@@ -29,6 +29,8 @@ import { TourguideBookorderListComponent } from './tourguide-bookorder-list/tour
 import { BookingFormComponent } from './booking-form/booking-form.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ToursitProfileComponent } from './toursit-profile/toursit-profile.component';
+import { ToursitDetailsComponent } from './toursit-details/toursit-details.component';
+import { TouristOwnPageComponent } from './tourist-own-page/tourist-own-page.component';
 
 
 const routes: Routes = [];
@@ -57,6 +59,8 @@ const routes: Routes = [];
      TourguideBookorderListComponent,
      BookingFormComponent,
      ToursitProfileComponent,
+     ToursitDetailsComponent,
+     TouristOwnPageComponent,
 
 
   ],

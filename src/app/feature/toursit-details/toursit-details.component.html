@@ -1,0 +1,18 @@
+<div class="container" style="max-width: 600px">
+  <div *ngIf="tourGuide" class="card">
+    <img
+      [src]="tourGuide.thumbnail"
+      alt="{{ tourGuide.name }}"
+      class="card-img-top mx-auto "
+      style="width: 200px; height: 200px;"
+    />
+    <div class="card-body">
+      <h3 class="card-title text-center">{{ tourGuide.name }}</h3>
+      <p class="card-text"><strong>Email: </strong>{{ tourGuide.gmail }}</p>
+      <p class="card-text"><strong>Gender: </strong>{{ tourGuide.gender }}</p>
+      <p class="card-text"><strong>Date of Birth: </strong>{{ tourGuide.date_birth }}</p>
+      <p class="card-text"><strong>Nationality: </strong>{{ tourGuide.nationality }}</p>
+      <p class="card-text"><strong>Phone Number: </strong>{{ tourGuide.phone_number }}</p>
+    </div>
+  </div>
+</div>
