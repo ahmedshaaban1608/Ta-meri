@@ -18,6 +18,10 @@ export interface TourGuide {
   places_visit: string;
   reservation_status:string;
   isPaymentButtonVisible?: boolean;
-
-
+  gender:string;
+  nationality:string;
+  phone_number:number;
+  date_birth:number;
+  gmail:string;
+  
 }

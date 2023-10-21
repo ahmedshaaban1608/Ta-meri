@@ -10,6 +10,8 @@ import { SearchComponent } from './search/search.component';
 import { HotelReviewComponent } from './hotel-review/hotel-review.component';
 import { TourguideBookorderListComponent } from './tourguide-bookorder-list/tourguide-bookorder-list.component';import { TourguideOwnPageComponent } from './tourguide-own-page/tourguide-own-page.component';
 import { ToursitProfileComponent } from './toursit-profile/toursit-profile.component';
+import { ToursitDetailsComponent } from './toursit-details/toursit-details.component';
+import { TouristOwnPageComponent } from './tourist-own-page/tourist-own-page.component';
 const routes: Routes = [
   {
     path: '',
@@ -61,8 +63,17 @@ const routes: Routes = [
     data: { title: 'my profile' },
   },
   {
+    path: 'my-toursit-profile/:id',
+    component: TouristOwnPageComponent,
+    data: { title: 'my toursit' },
+  },
+  {
     path: 'toursit-profile/:id',
     component: ToursitProfileComponent,
+  },
+  {
+    path: 'toursit-details/:id',
+    component: ToursitDetailsComponent,
   }
 
 ];
