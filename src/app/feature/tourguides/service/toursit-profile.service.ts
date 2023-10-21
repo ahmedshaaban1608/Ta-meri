@@ -7,9 +7,9 @@ import {TourGuide} from '../../interface/tour-guide'
   providedIn: 'root'
 })
 // https://retoolapi.dev/gzb1u5/data
-
+// https://retoolapi.dev/SSgzdt/data
 export class ToursitProfileService {
-  private productsUrl = 'https://retoolapi.dev/SSgzdt/data';
+  private productsUrl = 'https://retoolapi.dev/DVtftj/data';
  
   constructor(private http: HttpClient) {}
 
