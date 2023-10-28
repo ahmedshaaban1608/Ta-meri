@@ -31,18 +31,19 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TourGuide } from '../../interface/tour-guide';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 // https://retoolapi.dev/DlmmEr/data
 export class GuidesApiService {
-  private productsUrl = 'https://retoolapi.dev/92c2G4/data';
+  private productsUrl = `${environment.apiUrl}/tourguides`;
 
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<TourGuide[]> {
-    return this.http.get<TourGuide[]>(this.productsUrl);
+  getProducts(): Observable<any> {
+    return this.http.get(this.productsUrl);
   }
 
   getProductById(id: number): Observable<TourGuide | null> {
