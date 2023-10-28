@@ -21,7 +21,7 @@ import Typed from 'typed.js';
 export class TourguidesComponent implements OnInit, AfterViewInit {
   @ViewChildren('cardTextElements') cardTextElements!: QueryList<ElementRef>;
 
-  guides: TourGuide[] = [];
+  guides:any = [];
   p:number=1;
   itemsPerPage:number=6;
   totalTourGuid:any;
@@ -34,10 +34,13 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.guidesApiService.getProducts().subscribe((data: TourGuide[]) => {
-      this.guides = data;
+    this.guidesApiService.getProducts().subscribe((data) => {
+        
+      this.guides = Object.values(data)[0];
       this.animateCardText();
       this.totalTourGuid=data.length;
+   
+      
     });
   }
 
