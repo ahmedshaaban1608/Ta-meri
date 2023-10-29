@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ToursitDetailsService } from '../services/toursit-details.service';
-import { TourGuide } from '../interface/tour-guide';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,7 +8,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./toursit-details.component.css']
 })
 export class ToursitDetailsComponent implements OnInit {
-  tourGuide: TourGuide | null = null;
+  tourGuide: any = [];
+  p: number = 1;
+  itemsPerPage: number = 6;
+  totalTourGuid: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,7 +21,8 @@ export class ToursitDetailsComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.touristDetailsService.getDetailsTourGuide(id).subscribe((tourGuide: TourGuide) => {
+      this.touristDetailsService.getDetailsTourGuide(id).subscribe((tourGuide: any) => {
+        //console.log(tourGuide)
         this.tourGuide = tourGuide;
       });
     }

@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChildren, ElementRef, QueryList } from '@angular
 import { ToursitDetailsService } from '../services/toursit-details.service';
 import { TourGuide } from '../interface/tour-guide';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-toursit-profile',
@@ -11,29 +13,23 @@ import { Router } from '@angular/router';
 export class ToursitProfileComponent implements OnInit {
   @ViewChildren('cardTextElements') cardTextElements!: QueryList<ElementRef>;
 
-  guides: TourGuide[] = [];
+  orders: any = [];
   p: number = 1;
   itemsPerPage: number = 6;
   totalTourGuid: any;
 
-  constructor(private touristDetailsService: ToursitDetailsService, private router: Router) {}
+  constructor(private touristDetailsService: ToursitDetailsService, private route: ActivatedRoute, private router:Router) {}
 
   ngOnInit(): void {
-    this.touristDetailsService.getProfileProducts().subscribe(
-      (data: TourGuide[]) => {
-        this.guides = data;
-        this.totalTourGuid = data.length;
-        for (const guide of this.guides) {
-          guide.isPaymentButtonVisible = guide.reservation_status === 'accepted' || guide.reservation_status === 'rejected';
-        }
-      },
-      (error: any) => {
-        console.error('Error fetching tour guides:', error);
-      }
-    );
-  }
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.touristDetailsService.getDetailsTourGuide(id).subscribe((tourGuide: any) => {
+        console.log(tourGuide.orders)
+        this.orders = (tourGuide.orders);
+      });
+    }
 
+  }
   goToGuideDetails(id: number): void {
     this.router.navigate(['tourguides', id]);
-  }
-}
+  }}
