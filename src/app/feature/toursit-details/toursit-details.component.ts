@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToursitDetailsService } from '../tourguides/service/toursit-details.service';
+import { ToursitDetailsService } from '../services/toursit-details.service';
 import { TourGuide } from '../interface/tour-guide';
 import { ActivatedRoute } from '@angular/router';
 
@@ -19,7 +19,7 @@ export class ToursitDetailsComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.touristDetailsService.getTourGuide(id).subscribe((tourGuide: TourGuide) => {
+      this.touristDetailsService.getDetailsTourGuide(id).subscribe((tourGuide: TourGuide) => {
         this.tourGuide = tourGuide;
       });
     }

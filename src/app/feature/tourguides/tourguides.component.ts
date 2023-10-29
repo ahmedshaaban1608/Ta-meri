@@ -7,7 +7,7 @@ import {
   QueryList,
 } from '@angular/core';
 
-import { GuidesApiService } from './service/guides-api.service';
+import { GuidesApiService } from '../services/guides-api.service';
 import { TourGuide } from '../interface/tour-guide';
 import { Router } from '@angular/router';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';

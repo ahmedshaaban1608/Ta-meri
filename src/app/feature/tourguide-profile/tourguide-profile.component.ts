@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TourguideApiService } from '../services/tourguide-api.service';
+import { TourguideApiService } from '../services/guides-api.service';
 import { Ireview } from '../interface/ireview';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
