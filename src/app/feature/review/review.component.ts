@@ -7,5 +7,7 @@ import { Ireview } from '../interface/ireview';
   styleUrls: ['./review.component.css'],
 })
 export class ReviewComponent {
-  @Input() review!: Ireview;
+  // @Input() review!: Ireview;
+  @Input() review!: any; 
+
 }

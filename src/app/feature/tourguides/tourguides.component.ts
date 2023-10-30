@@ -7,7 +7,7 @@ import {
   QueryList,
 } from '@angular/core';
 
-import { GuidesApiService } from '../services/guides-api.service';
+import { TourguideApiService } from '../services/guides-api.service';
 import { TourGuide } from '../interface/tour-guide';
 import { Router } from '@angular/router';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
@@ -26,7 +26,7 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
   itemsPerPage:number=6;
   totalTourGuid:any;
   constructor(
-    private guidesApiService: GuidesApiService,
+    private guidesApiService: TourguideApiService,
     private router: Router,
     private ratingConfig: NgbRatingConfig
   ) {
@@ -34,11 +34,12 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.guidesApiService.getProducts().subscribe((data) => {
+    this.guidesApiService.getAllTourguides().subscribe((data) => {
         
       this.guides = Object.values(data)[0];
+  
       this.animateCardText();
-      this.totalTourGuid=data.length;
+      this.totalTourGuid=this.guides.length;
    
       
     });

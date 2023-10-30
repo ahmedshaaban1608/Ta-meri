@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { GuidesApiService } from '../services/guides-api.service';
+import { TourguideApiService } from '../services/guides-api.service';
 
 @Component({
   selector: 'app-tourguide-edit',
@@ -29,14 +29,14 @@ export class TourguideEditComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private guidesApiService: GuidesApiService
+    private guidesApiService: TourguideApiService
   ) {}
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
-      this.guidesApiService.getTourGuide(id).subscribe(
+      this.guidesApiService.getTourGuideById(+id).subscribe(
         (tourguide: any) => {
           this.tourguide = tourguide;
           this.selectedAreas = tourguide.areas || [];

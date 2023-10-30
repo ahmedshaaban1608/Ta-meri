@@ -18,4 +18,8 @@ export class TourguideCardComponent {
   goToGuideDetails(id: number): void {
     this.router.navigate(['tourguides', id]);
   }
+  ngOnInit(){
+    console.log(this.tourGuide);
+    
+  }
 }
