@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row g-3">
+  <div class="row g-3" *ngIf="orders.length">
     <div class="col-md-6 col-lg-6 col-sm-12" *ngFor="let order of orders | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
       <div class="card mb-3 fade-in shadow">
         <div class="row justify-content-center g-0">
@@ -30,9 +30,16 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="text-center fs-4 mt-3">
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
-</div>
+    <div class="text-center fs-4 mt-3">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+  <div class="mt-5 text-center" *ngIf="!orders.length">
+      <h2 class="pt-5" style="font-size: 2em; color: #999">
+        you don't have any booking order yet.
+
+      </h2>
+    </div>
+  </div>
+

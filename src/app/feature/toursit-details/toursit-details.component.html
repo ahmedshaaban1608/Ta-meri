@@ -1,18 +1,18 @@
 <div class="container" style="max-width: 600px">
-  <div *ngIf="tourGuide" class="card">
+  <div *ngIf="tourist" class="card">
     <img
-      [src]="tourGuide.avatar"
-      alt="{{ tourGuide.name }}"
+      [src]="tourist.avatar"
+      alt="{{ tourist.name }}"
       class="card-img-top mx-auto "
       style="width: 200px; height: 200px;"
     />
     <div class="card-body">
-      <h3 class="card-title text-center">{{ tourGuide.name }}</h3>
-      <p class="card-text"><strong>type: </strong>{{ tourGuide.type }}</p>
-      <p class="card-text"><strong>email: </strong>{{ tourGuide.email }}</p>
-      <p class="card-text"><strong>country: </strong>{{ tourGuide.country}}</p>
-      <p class="card-text"><strong>gender: </strong>{{ tourGuide.gender }}</p>
-      <p class="card-text"><strong>Phone: </strong>{{ tourGuide.phone }}</p>
+      <h3 class="card-title text-center">{{ tourist.name }}</h3>
+      <p class="card-text"><strong>type: </strong>{{ tourist.type }}</p>
+      <p class="card-text"><strong>email: </strong>{{ tourist.email }}</p>
+      <p class="card-text"><strong>country: </strong>{{ tourist.country}}</p>
+      <p class="card-text"><strong>gender: </strong>{{ tourist.gender }}</p>
+      <p class="card-text"><strong>Phone: </strong>{{ tourist.phone }}</p>
     </div>
   </div>
 </div>

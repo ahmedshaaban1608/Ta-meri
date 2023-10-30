@@ -6,8 +6,8 @@
           role="tab" aria-controls="pills-details" aria-selected="true" (click)="switchTab('details')">Details</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button"
-          role="tab" aria-controls="pills-profile" aria-selected="false" (click)="switchTab('profile')">Booking Orders</button>
+        <button class="nav-link" id="pills-order-tab" data-bs-toggle="pill" data-bs-target="#pills-order" type="button"
+          role="tab" aria-controls="pills-order" aria-selected="false" (click)="switchTab('order')">Booking Orders</button>
       </li>
     </ul>
   
@@ -15,12 +15,12 @@
     <div class="tab-content" id="pills-tabContent">
     
       <div class="tab-pane fade show active" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
-        <app-toursit-details *ngIf="activeTab === 'details'"></app-toursit-details>
+        <app-toursit-details *ngIf="activeTab === 'details'" [tourist]="tourist"></app-toursit-details>
       </div>
   
       
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-        <app-toursit-profile *ngIf="activeTab === 'profile'"></app-toursit-profile>
+      <div class="tab-pane fade" id="pills-order" role="tabpanel" aria-labelledby="pills-order-tab">
+        <app-toursit-profile *ngIf="activeTab === 'order'" [orders]="tourist.orders"></app-toursit-profile>
       </div>
     </div>
   </div>
