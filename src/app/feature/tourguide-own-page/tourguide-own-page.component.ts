@@ -23,16 +23,16 @@ export class TourguideOwnPageComponent {
   tourguide: any = {};
   reviews: Array<Ireview> = [];
 
-  ngOnInit() {
-    this.id = this.activateRoute.snapshot['params']['id'];
+  // ngOnInit() {
+  //   this.id = this.activateRoute.snapshot['params']['id'];
 
-    this.tourguideApi.getTourGuideById(this.id).subscribe((data) => {
-      this.tourguide = data;
-      this.titleService.setTitle('Tour guide: ' + this.tourguide['name']);
-    });
+  //   this.tourguideApi.getTourGuideById(this.id).subscribe((data) => {
+  //     this.tourguide = data;
+  //     this.titleService.setTitle('Tour guide: ' + this.tourguide['name']);
+  //   });
 
-    this.tourguideApi
-      .getTourGuideReviews()
-      .subscribe((data) => (this.reviews = Object.values(data)));
-  }
+  //   this.tourguideApi
+  //     .getTourGuideReviews()
+  //     .subscribe((data) => (this.reviews = Object.values(data)));
+  //  }
 }

@@ -1,14 +1,14 @@
 <div class="container mt-5 mb-5">
   <div class="rounded-3 pb-5" style="height: 350px">
     <img
-      [src]="tourguide.background"
+      [src]="tourguide.image"
       [alt]="tourguide.name"
       class="img-fluid w-100 h-100 rounded-3 shadow"
       style="object-fit: cover"
     />
     <div class="text-center" style="margin-top: -75px">
       <img
-        [src]="tourguide.avatar"
+        [src]="tourguide.Profile_img"
         [alt]="tourguide.name"
         height="150"
         width="150"
@@ -56,13 +56,13 @@
       <div class="mt-5">
         <h2 class="mb-3">Reviews</h2>
         <app-feedback [id]="id"></app-feedback>
-        <div class="text-center text-black-50 my-5" *ngIf="!reviews?.length ">
+        <div class="text-center text-black-50 my-5" *ngIf="!tourguide.reviews?.length ">
           <h3>{{ tourguide.name }} has no any reviews yet</h3>
         </div>
-        <ng-container *ngIf="reviews?.length">
+        <ng-container *ngIf="tourguide.reviews?.length">
           <app-review
-            [review]="review"
-            *ngFor="let review of reviews | paginate: { itemsPerPage: itemsPerPage, currentPage: p }"
+            [reviews]="tourguide.reviews"
+            *ngFor="let review of tourguide.reviews | paginate: { itemsPerPage: itemsPerPage, currentPage: p }"
           ></app-review>
 
         </ng-container>
