@@ -1,45 +1,7 @@
 <div class="container">
   <div class="row g-3">
     <div class="col-md-6 col-lg-6 col-sm-12" *ngFor="let tourGuide of guides  | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
-      <div class="card mb-3 fade-in shadow">
-        <div class="row justify-content-center g-0">
-          <div class="col-md-4 text-center pt-5">
-            <img
-              [src]="tourGuide.profile_img"
-              alt="{{ tourGuide.bio }}"
-              class="card-img-top mx-auto w-75 h-75 rounded-circle"
-            />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body mt-4">
-              <h5 class="card-title animated-text">
-                {{ tourGuide.bio }}
-              </h5>
-              <p
-                class="card-text"
-                *ngFor="let line of getTypedLines(tourGuide)"
-              >
-                {{ line }}
-              </p>
-              <ngb-rating
-                [rate]="3"
-                [readonly]="true"
-                class="text-warning fs-4"
-              ></ngb-rating
-              ><br />
-              <button
-                class="btn btn-dark"
-                (click)="goToGuideDetails(tourGuide.id)"
-              >
-                Read More
-              </button>
-              <!-- <button class="btn btn-dark" (click)="goToGuideProfile(tourGuide.id)">
-                Profile
-              </button> -->
-            </div>
-          </div>
-        </div>
-      </div>
+<app-tourguide-card [tourGuide]="tourGuide"></app-tourguide-card>
     </div>
     <div class="text-center fs-4 mt-3">
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
