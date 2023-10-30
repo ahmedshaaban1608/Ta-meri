@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HotelApiService } from '../services/hotel-api.service';
-import { TourguideApiService } from '../services/tourguide-api.service';
+import { TourguideApiService } from '../services/guides-api.service';
 
 @Component({
   selector: 'app-search',

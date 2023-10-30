@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ToursitDetailsService } from '../services/toursit-details.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tourist-own-page',
@@ -7,10 +9,20 @@ import { Component } from '@angular/core';
 })
 export class TouristOwnPageComponent {
 
+  tourist: any = [];
   activeTab: string = 'details';
 
-  constructor() {}
+  constructor(private route: ActivatedRoute,
+    private touristDetailsService: ToursitDetailsService) {}
 
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.touristDetailsService.getDetailsById(+id).subscribe((tourist: any) => {
+        this.tourist = tourist;
+      });
+    }
+  }
   switchTab(tab: string): void {
     this.activeTab = tab;
   }

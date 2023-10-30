@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FeedbackHotelService } from '../tourguides/service/feedback-hotel.service';
+import { HotelApiService } from '../services/hotel-api.service';
 import { TourGuide } from '../interface/tour-guide';
 @Component({
   selector: 'app-hotel-review',
@@ -11,7 +11,7 @@ export class HotelReviewComponent {
 
 constructor(
   private router: Router,
-  private feedbackApi: FeedbackHotelService
+  private HotelApiService: HotelApiService
   ) {}
 
   TextValue: string = '';
@@ -26,7 +26,7 @@ constructor(
   }
 
   getAllGuides() {
-  this.feedbackApi.getProducts().subscribe(
+  this.HotelApiService. getFeedbackHotels().subscribe(
   (result) => {
   this.guides = result;
   this.totalHotel=result.length;

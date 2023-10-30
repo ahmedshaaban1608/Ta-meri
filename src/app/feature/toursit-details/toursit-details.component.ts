@@ -1,27 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { ToursitDetailsService } from '../tourguides/service/toursit-details.service';
-import { TourGuide } from '../interface/tour-guide';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-toursit-details',
   templateUrl: './toursit-details.component.html',
   styleUrls: ['./toursit-details.component.css']
 })
-export class ToursitDetailsComponent implements OnInit {
-  tourGuide: TourGuide | null = null;
+export class ToursitDetailsComponent{
+  @Input() tourist: any = [];
+  p: number = 1;
+  itemsPerPage: number = 6;
+  totalOrders: any;
 
-  constructor(
-    private route: ActivatedRoute,
-    private touristDetailsService: ToursitDetailsService
-  ) {}
+  constructor() {}
 
-  ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.touristDetailsService.getTourGuide(id).subscribe((tourGuide: TourGuide) => {
-        this.tourGuide = tourGuide;
-      });
-    }
-  }
 }

@@ -1,58 +1,45 @@
-
 <div class="container">
-  <div class="row g-3">
-    <div class="col-md-6 col-lg-6 col-sm-12" *ngFor="let tourGuide of guides | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
+  <div class="row g-3" *ngIf="orders.length">
+    <div class="col-md-6 col-lg-6 col-sm-12" *ngFor="let order of orders | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
       <div class="card mb-3 fade-in shadow">
         <div class="row justify-content-center g-0">
           <div class="col-md-4 text-center pt-5">
-            <img
-              [src]="tourGuide.thumbnail"
-              alt="{{ tourGuide.name }}"
-              class="card-img-top mx-auto w-75 h-75 rounded-circle"
-            />
+            <img [src]="order.tourguide_avatar" alt="{{ order.tourguide_name }}" class="card-img-top mx-auto w-75 h-75 rounded-circle" />
           </div>
           <div class="col-md-8">
             <div class="card-body mt-4">
-              <h5 class="card-title animated-text">
-                {{ tourGuide.name }}
-              </h5>
+              <h5 class="card-title animated-text">{{ order.tourguide_name  }}</h5>
               <ul class="list-group">
-                <li class="list-group-item">
-                  <strong>Langauge:</strong> {{ tourGuide.langauge }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Salary:</strong> {{ tourGuide.salary }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Booking Date:</strong> {{ tourGuide.booking_date }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Booking Time:</strong> {{ tourGuide.booking_time }}
-                </li>
-                <!-- <li class="list-group-item">
-                  <strong>Places to Visit:</strong>
-                  <ul>
-                    <li *ngFor="let place of tourGuide.places_visit">{{ place }}</li>
-                  </ul>
-                </li> -->
-                <li class="list-group-item">
-    <strong>Places to Visit:</strong>{{ tourGuide.places_visit }}
-</li>
-                <li class="list-group-item">
-                  <strong>Reservation Status:</strong> {{ tourGuide.reservation_status }}
-                </li>
+                <li class="list-group-item"><strong>StartDate:</strong> {{ order.startDate }}</li>
+                <li class="list-group-item"><strong>EndDate:</strong> {{ order.endDate }}</li>
+                <li class="list-group-item"><strong>city:</strong> {{ order.city }}</li>
+                <li class="list-group-item"><strong>totalPrice:</strong> {{ order.totalPrice }}</li>
+                <li class="list-group-item"><strong>Phone:</strong> {{ order.phone }}</li>
+                <li class="list-group-item"><strong>Status:</strong> {{ order.status }}</li>
+
               </ul>
-              
-              <button class="btn btn-dark btn-lg mt-3" *ngIf="tourGuide.reservation_status === 'Accept'" (click)="goToGuideDetails(tourGuide.id)">
-                <i class="far fa-credit-card"></i> Payment
-              </button>
+         <p>
+        <strong> Comment: </strong>{{order.comment}}
+         </p>
             </div>
+                        
+            <button class="btn btn-dark btn-lg mt-3" *ngIf="order.status === 'accepted'" (click)="goToGuideDetails(order.id)">
+              <i class="far fa-credit-card"></i> Payment
+            </button>
           </div>
         </div>
       </div>
     </div>
+
     <div class="text-center fs-4 mt-3">
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
   </div>
-</div>
+  <div class="mt-5 text-center" *ngIf="!orders.length">
+      <h2 class="pt-5" style="font-size: 2em; color: #999">
+        you don't have any booking order yet.
+
+      </h2>
+    </div>
+  </div>
+

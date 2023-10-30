@@ -21,6 +21,7 @@ export class HotelsComponent {
 
   getAllHotels() {
     this.hotelLink.getAllHotels().subscribe((result) => {
+      
       this.hotels = Object.values(result);
       this.totalHotel=Object.values(result).length;
     });

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { GuidesApiService } from '../tourguides/service/guides-api.service';
+import { GuidesApiService } from '../services/guides-api.service';
 
 @Component({
   selector: 'app-tourguide-edit',

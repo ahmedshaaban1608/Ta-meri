@@ -1,31 +1,33 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { DetailsService } from '../tourguides/service/details.service';
+import {  HotelApiService } from '../services/hotel-api.service';
+
 @Component({
   selector: 'app-hotel-details',
   templateUrl: './hotel-details.component.html',
   styleUrls: ['./hotel-details.component.css'],
 })
 export class HotelDetailsComponent implements OnInit {
-  hotrlId!: number;
+  hotelId!: number;
   @Input() hotel!: any;
+
   constructor(
     private route: ActivatedRoute,
-    private detailsApiService: DetailsService,
+    private  HotelApiService:  HotelApiService,
     private titleService: Title
   ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.hotrlId = params['id'];
-      this.detailsApiService.getProductById(this.hotrlId).subscribe(
+      this.hotelId = params['id'];
+      this. HotelApiService.getHotelById(this.hotelId).subscribe(
         (hotel) => {
           this.hotel = hotel;
           this.titleService.setTitle('Hotel: ' + this.hotel['title']);
         },
         (error) => {
-          console.error('Error fetching product:', error);
+          console.error('Error fetching hotel:', error);
         }
       );
     });

@@ -21,7 +21,7 @@ export interface TourGuide {
   gender:string;
   nationality:string;
   phone_number:number;
-  date_birth:number;
+  date_birth:Date;
   gmail:string;
   
 }
