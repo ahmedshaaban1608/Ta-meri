@@ -30,8 +30,7 @@ export class TourguideProfileComponent {
     this.id = this.activateRoute.snapshot.params['id'];
     if (this.id) {
       this.tourguideApi.getTourGuideById(this.id).subscribe(( data) => {
-        this.tourguide =  Object.values(data)[0];
-        console.log(data);
+        this.tourguide =  data
         this.titleService.setTitle('Tour guide: ' + this.tourguide.name);
       });
     }

@@ -8,5 +8,6 @@ import { Ireview } from '../interface/ireview';
 })
 export class ReviewComponent {
   // @Input() review!: Ireview;
-  @Input() reviews!: any; 
+  @Input() review!: any; 
+
 }

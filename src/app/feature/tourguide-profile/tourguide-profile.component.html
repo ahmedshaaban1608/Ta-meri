@@ -1,14 +1,14 @@
 <div class="container mt-5 mb-5">
   <div class="rounded-3 pb-5" style="height: 350px">
     <img
-      [src]="tourguide.image"
+      [src]="tourguide.profile_img"
       [alt]="tourguide.name"
       class="img-fluid w-100 h-100 rounded-3 shadow"
       style="object-fit: cover"
     />
     <div class="text-center" style="margin-top: -75px">
       <img
-        [src]="tourguide.Profile_img"
+        [src]="tourguide.avatar"
         [alt]="tourguide.name"
         height="150"
         width="150"
@@ -35,18 +35,7 @@
           </button>
         </div>
       </div>
-      <div class="mt-4">
-        <h2 class="mb-3">Gallery</h2>
-        <div class="row g-4">
-          <div class="col-lg-6" *ngFor="let image of tourguide.gallery">
-            <img
-              [src]="image"
-              alt="tourguide.name"
-              class="img-fluid rounded-3 shadow"
-            />
-          </div>
-        </div>
-      </div>
+    
       <div class="mt-5">
        
         <div id="bookingFormSection">
@@ -61,7 +50,7 @@
         </div>
         <ng-container *ngIf="tourguide.reviews?.length">
           <app-review
-            [reviews]="tourguide.reviews"
+            [review]="review"
             *ngFor="let review of tourguide.reviews | paginate: { itemsPerPage: itemsPerPage, currentPage: p }"
           ></app-review>
 
@@ -85,7 +74,7 @@
             <i class="fa-solid fa-dollar-sign me-3 text-danger fs-3"></i>
             <div>
               <h5>Price per day</h5>
-              <span> {{200 | currency}} </span>
+              <span> {{tourguide.day_price | currency}} </span>
             </div>
           </div>
         </div>
@@ -96,9 +85,9 @@
               <h5>Available Areas</h5>
               <span
                 class="badge bg-light text-dark border shadow-light p-2 me-2 mb-2"
-                *ngFor="let area of tourguide.areas"
+                *ngFor="let item of tourguide.areas"
               >
-                {{ area }}
+                {{ item.area }}
               </span>
             </div>
           </div>
@@ -110,9 +99,9 @@
               <h5>Languages</h5>
               <span
                 class="badge bg-light text-dark border shadow-light p-2 me-2 mb-2"
-                *ngFor="let language of tourguide.language"
+                *ngFor="let item of tourguide.languages"
               >
-                {{ language }}
+                {{ item.language }}
               </span>
             </div>
           </div>
