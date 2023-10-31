@@ -23,8 +23,7 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
 
   guides:any = [];
   p:number=1;
-  itemsPerPage:number=6;
-  totalTourGuid:any;
+  itemsPerPage:number=10;
   constructor(
     private guidesApiService: TourguideApiService,
     private router: Router,
@@ -39,7 +38,6 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
       this.guides = Object.values(data)[0];
   
       this.animateCardText();
-      this.totalTourGuid=this.guides.length;
    
       
     });

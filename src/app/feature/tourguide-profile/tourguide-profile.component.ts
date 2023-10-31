@@ -24,7 +24,6 @@ export class TourguideProfileComponent {
     tourguide: any = {};
   p: number = 1;
   itemsPerPage: number = 3;
-  totaltourguide: any;
 
   ngOnInit() {
     this.id = this.activateRoute.snapshot.params['id'];

@@ -15,8 +15,8 @@ export class ToursitProfileComponent{
 
   @Input() orders: any = [];
   p: number = 1;
-  itemsPerPage: number = 6;
-  totalTourGuid: any;
+  itemsPerPage: number = 2;
+ 
 
   constructor(private router:Router) {}
 
