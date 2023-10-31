@@ -23,7 +23,7 @@
           {{ item.language }}
         </span>
         </p>
-        <ngb-rating [rate]="tourGuide.reviews[0]" [readonly]="true"></ngb-rating>
+        <ngb-rating [rate]="rating" [readonly]="true"></ngb-rating>
         <button
           class="btn btn-dark d-block"
           (click)="goToGuideDetails(tourGuide.id)"
