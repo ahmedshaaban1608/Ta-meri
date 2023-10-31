@@ -15,7 +15,8 @@
     ></i>  
          
     <h6 class="mt-4 mb-3">{{ review.title }}</h6>    
-    <p *ngIf="review.comment">{{ review.comment }}</p>   
+    <p>{{ review.comment }}</p>  
+    <p class=" me-3  fw-bold text-end">{{ review.date | date }}</p>  
   </div>
 </div>
 </div>
