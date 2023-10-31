@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FeedbackApiService } from '../services/feedback-api.service';
+import { TourguideApiService } from '../services/guides-api.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class FeedbackComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private apiService: FeedbackApiService,
+    private apiService:TourguideApiService,
     private route: ActivatedRoute
   ) {
     this.usersForm = this.formBuilder.group({
