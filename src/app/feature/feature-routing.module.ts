@@ -13,6 +13,7 @@ import { ToursitProfileComponent } from './toursit-profile/toursit-profile.compo
 import { ToursitDetailsComponent } from './toursit-details/toursit-details.component';
 import { TouristOwnPageComponent } from './tourist-own-page/tourist-own-page.component';
 import { Home2Component } from './home2/home2.component';
+import { touristGuard } from '../guard/tourist.guard';
 const routes: Routes = [
   {
     path: '',
@@ -40,9 +41,6 @@ const routes: Routes = [
     component: SearchComponent,
     data: { title: 'Search' },
   },
- 
- 
-  
   {
     path: 'hotel/:id',
     component: HotelDetailsComponent,

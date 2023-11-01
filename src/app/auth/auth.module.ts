@@ -9,6 +9,8 @@ import { TourGuideRegisterComponent } from './tour-guide-register/tour-guide-reg
 import { TouristRegisterComponent } from './Hotel-register/tourist-register.component';
 import { SharedModule } from '../shared/shared.module';
 import { JoinAsComponent } from './join-as/join-as.component';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,6 @@ import { JoinAsComponent } from './join-as/join-as.component';
     JoinAsComponent,
    
   ],
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule, SharedModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule, SharedModule, NgbAlertModule],
 })
 export class AuthModule {}
