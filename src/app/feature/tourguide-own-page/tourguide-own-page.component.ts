@@ -3,6 +3,7 @@ import { TourguideApiService } from '../services/guides-api.service';
 import { Ireview } from '../interface/ireview';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { AccountsApiService } from 'src/app/auth/services/accounts-api.service';
 
 @Component({
   selector: 'app-tourguide-own-page',
@@ -16,7 +17,8 @@ export class TourguideOwnPageComponent {
   constructor(
     private tourguideApi: TourguideApiService,
     private titleService: Title,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private auth: AccountsApiService
   ) {}
   showMore: boolean = false;
   toggleDescriptionDisplay() {
@@ -24,7 +26,7 @@ export class TourguideOwnPageComponent {
   }
   tourguide: any = {};
   ngOnInit() {
-    this.id = this.activateRoute.snapshot.params['id'];
+    this.id = this.auth.getUser().id;
     if (this.id) {
       this.tourguideApi.getTourGuideById(this.id).subscribe(( data) => {
         this.tourguide =  data

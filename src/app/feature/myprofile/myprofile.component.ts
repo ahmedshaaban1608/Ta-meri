@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AccountsApiService } from 'src/app/auth/services/accounts-api.service';
 
 @Component({
   selector: 'app-myprofile',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./myprofile.component.css']
 })
 export class MyprofileComponent {
+constructor(public auth: AccountsApiService){}
 
 }
