@@ -12,6 +12,8 @@ import { StaticModule } from './static/static.module';
 import { ScrollTopService } from './services/scroll-top.service';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UnAuthGuard } from './guard/unauth.guard';
+import { AuthGuard } from './guard/auth.guard';
 
 
 
@@ -40,7 +42,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
   ],
-  providers: [ScrollTopService],
+  providers: [ScrollTopService, UnAuthGuard, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

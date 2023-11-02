@@ -1,11 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { CanActivateFn } from '@angular/router';
 
-import { tourguideGuard } from './tourguide.guard';
+import { unauthGuard } from './unauth.guard';
 
-describe('tourguideGuard', () => {
+describe('unauthGuard', () => {
   const executeGuard: CanActivateFn = (...guardParameters) => 
-      TestBed.runInInjectionContext(() => tourguideGuard(...guardParameters));
+      TestBed.runInInjectionContext(() => unauthGuard(...guardParameters));
 
   beforeEach(() => {
     TestBed.configureTestingModule({});

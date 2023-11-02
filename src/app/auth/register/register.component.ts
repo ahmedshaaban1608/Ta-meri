@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AccountsApiService } from '../services/accounts-api.service';
 import { HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -102,7 +103,7 @@ export class RegisterComponent implements OnInit {
     // Add more countries as needed...
   ];
     
-  constructor(private auth: AccountsApiService) {}
+  constructor(private auth: AccountsApiService, private router:Router) {}
 
   ngOnInit(): void {
 
@@ -138,22 +139,25 @@ export class RegisterComponent implements OnInit {
 
     if (this.registerForm.valid) {
       this.auth.createTourist(this.registerForm.value).subscribe(
-        (data: HttpResponse<any>) => {
-          console.log(data.status );
-          
+        (data: HttpResponse<any>) => {    
           // Check the status code
           if (data.status === 200) {  
-            console.log('Request was successful');
-            console.log(data.body); // Response data
+           
+            this.router.navigate(['/notification'], { queryParams: { notify: 'tourist-signup' }});
           } 
         },
         (error) => {
-          const errors = Object.values(error.error.errors)
+          if (error.status === 422) {
+            const errors = Object.values(error.error.errors)
             errors.forEach((error:any) => {
               this.errors.push(error[0]);
-              
-              
             });
+          } else {
+            this.errors.push('An error occurred while creating the account, please try again later.')
+          }
+         
+          
+      
         }
       );
     }

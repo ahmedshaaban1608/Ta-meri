@@ -10,6 +10,8 @@ import { StaticRoutingModule } from './static/static-routing.module';
 import { NotFoundComponent } from './feature/not-found/not-found.component';
 import { FeedbackComponent } from './feature/feedback/feedback.component';
 import { JoinAsComponent } from './auth/join-as/join-as.component';
+import { NotifyComponent } from './shared/notify/notify.component';
+import { UnAuthGuard } from './guard/unauth.guard';
 
 
 const routes: Routes = [
@@ -17,22 +19,32 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
     data: { title: 'Create Tourist account' },
+    canActivate:[UnAuthGuard]
   },
-  { path: 'login', component: LoginComponent, data: { title: 'Login' } },
+  { path: 'login', component: LoginComponent, data: { title: 'Login' },  canActivate:[UnAuthGuard] },
   {
     path: 'tourguideregister',
     component: TourGuideRegisterComponent,
     data: { title: 'Create Tour guide account' },
+    canActivate:[UnAuthGuard]
   },
   {
     path: 'hotelregister',
     component: TouristRegisterComponent,
     data: { title: 'Create Hotel account' },
+    canActivate:[UnAuthGuard]
   },
 
   {
     path: 'joinas',
     component: JoinAsComponent,
+    canActivate:[UnAuthGuard]
+   
+  },
+  {
+    path: 'notification',
+    component: NotifyComponent,
+  
    
   },
 

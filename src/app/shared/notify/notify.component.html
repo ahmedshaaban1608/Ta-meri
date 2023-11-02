@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="text-center">
+    <h2 class="py-5" style="font-size: 2.5em; color: #999" [ngSwitch]="notify">
+      
+      <span *ngSwitchCase="'tourist-signup'">
+        Thank you for creating a tourist account <br />
+        
+        <a routerLink ="/login" class="btn btn-primary fw-bold">Login Now</a>
+      </span>
+      <span *ngSwitchDefault>
+        <a routerLink ="/" class="btn btn-primary fw-bold">Back to Homepage</a>
+      </span>
+    </h2>
+  </div>
+</div>

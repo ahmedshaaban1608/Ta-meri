@@ -8,12 +8,9 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SearchComponent } from './search/search.component';
 import { HotelReviewComponent } from './hotel-review/hotel-review.component';
-import { TourguideBookorderListComponent } from './tourguide-bookorder-list/tourguide-bookorder-list.component';import { TourguideOwnPageComponent } from './tourguide-own-page/tourguide-own-page.component';
-import { ToursitProfileComponent } from './toursit-profile/toursit-profile.component';
-import { ToursitDetailsComponent } from './toursit-details/toursit-details.component';
-import { TouristOwnPageComponent } from './tourist-own-page/tourist-own-page.component';
 import { Home2Component } from './home2/home2.component';
-import { touristGuard } from '../guard/tourist.guard';
+import { MyprofileComponent } from './myprofile/myprofile.component';
+import { AuthGuard } from '../guard/auth.guard';
 const routes: Routes = [
   {
     path: '',
@@ -50,31 +47,16 @@ const routes: Routes = [
     component: HotelReviewComponent,
   },
   
-
   { path: 'tourguides/:id', component: TourguideProfileComponent },
-
-
-  { path: 'tourguidebookorder', component: TourguideBookorderListComponent },
-
- {
-    path: 'my-profile/:id',
-    component: TourguideOwnPageComponent,
-    data: { title: 'my profile' },
-  },
-  {
-    path: 'my-toursit-profile/:id',
-    component: TouristOwnPageComponent,
-    data: { title: 'my toursit' },
-  },
-  {
-    path: 'toursit-profile/:id',
-    component: ToursitProfileComponent,
-    data: { title: 'Tourist profile' },
-  },
   {
     path: 'home',
-    component: Home2Component,
-   
+    component: Home2Component,  
+  },
+  {
+    path:'profile',
+    component: MyprofileComponent,
+    data: { title: 'My Profie' },
+    canActivate:[AuthGuard]
   }
 
 ];

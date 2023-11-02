@@ -9,7 +9,7 @@
     </div>
     <form
       class="col-md-6 bg-white py-5"
-      [formGroup]="registerForm"
+      [formGroup]="loginForm"
       (ngSubmit)="loginSubmitted()"
     >
       <div class="row g-0">
@@ -20,18 +20,18 @@
       <div class="row">
         <div class="col mb-3">
           <label for="email" class="form-label"
-            >Email address<span class="text-danger">*</span></label
+            >Email<span class="text-danger">*</span></label
           >
           <input
             type="email"
             class="form-control"
             id="email"
             formControlName="email"
-            placeholder="Tameri@gmail.com"
+            placeholder="Enter your email"
           />
           <div
             class="form-text text-success"
-            *ngIf="Email.valid && (PWD.touched || Email.dirty)"
+            *ngIf="Email.valid && (Email.touched || Email.dirty)"
           >
             <i class="fa-solid fa-check"></i> Looks good!
           </div>
@@ -45,70 +45,58 @@
             class="form-text text-danger"
             *ngIf="Email.errors?.['pattern'] && (Email.dirty || Email.touched)"
           >
-            <i class="fa-solid fa-circle-exclamation"></i> you must enter a
-            valid email format.
+            <i class="fa-solid fa-circle-exclamation"></i> you must enter a valid
+            email format.
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col mb-3">
-          <label for="pwd" class="form-label"
+          <label for="password" class="form-label"
             >Password<span class="text-danger">*</span></label
           >
           <input
             type="password"
             class="form-control"
-            id="pwd"
-            formControlName="pwd"
+            id="password"
+            formControlName="password"
             placeholder="******"
           />
           <div
             class="form-text text-success"
-            *ngIf="PWD.valid && (PWD.touched || PWD.dirty)"
+            *ngIf="password.valid && (password.touched || password.dirty)"
           >
             <i class="fa-solid fa-check"></i> Looks good!
           </div>
           <div
             class="form-text text-danger"
-            *ngIf="PWD.errors?.['required'] && (PWD.dirty || PWD.touched)"
+            *ngIf="password.errors?.['required'] && (password.dirty || password.touched)"
           >
             <i class="fa-solid fa-circle-exclamation"> </i> Password is Required
           </div>
           <div
             class="form-text text-danger"
-            *ngIf="(PWD.errors?.['minlength'] || PWD.errors?.['maxlength']) && (PWD.dirty || PWD.touched)"
+            *ngIf="(password.errors?.['minlength'] || password.errors?.['maxlength']) && (password.dirty || password.touched)"
           >
-            <i class="fa-solid fa-circle-exclamation"></i> Password at least 6
-            and at most 15 characters long.
+            <i class="fa-solid fa-circle-exclamation"></i> Password at least 6 and
+            at most 15 characters long.
           </div>
         </div>
+    <div class="row">
+      <div class="col">
+      <ngb-alert [dismissible]="false" *ngFor="let error of errors">
+        <strong>Warning!</strong> {{error}}
+      </ngb-alert>
+    </div>
+    </div>
       </div>
-
-      <div class="col-12">
-        <div class="row justify-content-between">
-          <div class="col-6">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                name="remember_me"
-                id="remember_me"
-              />
-              <label class="form-check-label text-secondary" for="remember_me">
-                Remember me
-              </label>
-            </div>
-          </div>
-          <br /><br />
-        </div>
-    
+   
       <div class="col-12">
         <div class="d-grid mb-3">
           <div class="d-grid">
             <button
               type="submit"
-              [disabled]="registerForm.invalid"
+              [disabled]="loginForm.invalid"
               class="btn btn-primary"
             >
               Submit
@@ -116,7 +104,7 @@
           </div>
         </div>
       </div>
-      </div>
+
       
       <br />
       <div class="row">

@@ -19,6 +19,8 @@ export class TouristOwnPageComponent {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.touristDetailsService.getDetailsById(+id).subscribe((tourist: any) => {
+        console.log(tourist);
+        
         this.tourist = tourist;
       });
     }

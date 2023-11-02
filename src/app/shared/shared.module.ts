@@ -12,6 +12,7 @@ import { CounterComponent } from './counter/counter.component';
 import { HotelCardComponent } from './hotel-card/hotel-card.component';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { PaginationComponent } from './pagination/pagination.component';
+import { NotifyComponent } from './notify/notify.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     CounterComponent,
     HotelCardComponent,
     PaginationComponent,
+    NotifyComponent,
   ],
   imports: [CommonModule, RouterModule, NgbRatingModule],
   exports: [

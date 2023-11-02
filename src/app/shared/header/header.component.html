@@ -112,7 +112,7 @@
     </a>
       
       </div>
-      <div class="nav-btn text-center">
+      <div class="nav-btn text-center" *ngIf="!auth.isTourGuide() && !auth.isTourist()">
         <a
           routerLink="login"
           routerLinkActive="btn-active"
@@ -126,6 +126,22 @@
           class="btn text-white px-3 fw-semibold register rounded-0 me-3"
         >
           Create account
+        </a>
+      </div>
+      <div class="nav-btn text-center" *ngIf="auth.isTourGuide() || auth.isTourist()">
+      
+        <a
+        routerLink="profile"
+        routerLinkActive="btn-active"
+        class="btn px-3 text-white fw-semibold login rounded-0 me-3"
+      >
+        My Profile
+      </a>
+        <a
+          (click)="logout()"
+          class="btn text-white px-3 fw-semibold register rounded-0 me-3"
+        >
+        Logout
         </a>
       </div>
     </div>
