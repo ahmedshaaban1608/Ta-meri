@@ -7,6 +7,11 @@
         
         <a routerLink ="/login" class="btn btn-primary fw-bold">Login Now</a>
       </span>
+      <span *ngSwitchCase="'tourguide-signup'">
+        Thank you for creating a tourguide account <br />
+        
+        <a routerLink ="/login" class="btn btn-primary fw-bold">Login Now</a>
+      </span>
       <span *ngSwitchDefault>
         <a routerLink ="/" class="btn btn-primary fw-bold">Back to Homepage</a>
       </span>

@@ -35,13 +35,7 @@ export class TourguideApiService {
     return this.http.get(this.feedbackApiUrl);
   }
 
-  saveUsers(data: any): Observable<any> {
-    const modifiedData = {
-      ...data,
-      tourist_id: this.generateRandomId(),
-    };
-    return this.http.post(this.feedbackApiUrl, modifiedData);
-  }
+
 
   private generateRandomId(): string {
     const characters = '123456789';

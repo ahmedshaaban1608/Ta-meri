@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { NgbDatepickerModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule, NgbDatepickerModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomepageComponent } from './homepage/homepage.component';
 import { TourguidesComponent } from './tourguides/tourguides.component';
 import { HotelsComponent } from './hotels/hotels.component';
@@ -76,7 +76,8 @@ const routes: Routes = [];
     SharedModule,
     ReactiveFormsModule,
     NgbDatepickerModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgbAlertModule
   ],
 })
 export class FeatureModule {

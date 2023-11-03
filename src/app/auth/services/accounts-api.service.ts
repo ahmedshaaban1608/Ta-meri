@@ -21,6 +21,9 @@ export class AccountsApiService {
     }
     return  this.user
   }
+  isAuthenticated(): boolean {
+    return this.getUser().token? true : false;
+  }
   isTourist(): boolean {
     return this.getUser().role === 'tourist';
   }
@@ -32,6 +35,10 @@ export class AccountsApiService {
   createTourist(data:any){
     return this.http.post(`${environment.apiUrl}/tourists`, data, { observe: 'response' });
   }
+  createTourguide(data:any){
+    return this.http.post(`${environment.apiUrl}/tourguides`, data, { observe: 'response' });
+  }
+
 
   login(data:any){
     return this.http.post(`${environment.apiUrl}/login`, data, { observe: 'response' });

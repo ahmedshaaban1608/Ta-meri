@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TourguideApiService } from '../services/guides-api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ToursitDetailsService } from '../services/toursit-details.service';
+import { HttpResponse } from '@angular/common/http';
+import { AccountsApiService } from 'src/app/auth/services/accounts-api.service';
 
 @Component({
   selector: 'app-feedback',
@@ -11,27 +12,53 @@ import { ActivatedRoute } from '@angular/router';
 export class FeedbackComponent {
   @Input() id!: number;
   usersForm: FormGroup;
+  errors: any[] = [];
+  reviewSubmitted: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private apiService:TourguideApiService,
-    private route: ActivatedRoute
+    private apiService:ToursitDetailsService,
+    private auth: AccountsApiService,
+
   ) {
     this.usersForm = this.formBuilder.group({
-      rating: ['', [Validators.required]],
+      stars: ['', [Validators.required]],
       title: [
         '',
-        [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z\s]{0,}$/)],
+        [Validators.required],
       ],
 
       comment: ['', Validators.required],
     });
   }
+  ngOnInit(){
+    this.reviewSubmitted = false;
+  }
   getUserFormData(data: any) {
-    this.apiService
-      .saveUsers({ ...data, account_id: this.id })
-      .subscribe((result) => {
-        console.warn(result);
+ 
+if(!this.auth.isAuthenticated()){
+  this.errors.push('You should log in to add a review')
+  return;
+}
+    if(this.usersForm.valid){
+      if(this.auth.isTourist()){
+      this.apiService
+      .addTourguideReview({ ...data, tourguide_id: this.id })
+      .subscribe((data: HttpResponse<any>) => {
+        if (data.status === 200) {  
+          this.reviewSubmitted = true;
+           
+        } 
+      },
+      (error) => {
+        console.log(error);
+        
+        this.errors.push('An error occurred, please try again later.')
       });
+    } else{
+      this.errors.push('Only tourists are allowed to create reviews.')
+    }
+    return;
+    }
   }
 }
