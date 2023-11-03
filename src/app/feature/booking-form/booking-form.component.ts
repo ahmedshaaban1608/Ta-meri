@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-booking-form',
@@ -9,38 +9,58 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class BookingFormComponent {
   @Input() id!:number;
+  @Input() areas:any[] = [];
+  @Input() price!:number;
   fromDate: NgbDate;
   toDate: NgbDate | null = null;
   BookingForm: FormGroup;
   hoveredDate: NgbDate | null = null;
-  customDisabledDates: NgbDate[] = [
-    new NgbDate(2023, 11, 10), // Example custom disabled date
-    new NgbDate(2023, 11, 15)  // Add more custom disabled dates as needed
-  ];
+errors: string[] = [];
+from!: string;
+to: string = '';
+  defaultCity: string[] = [
+    "Cairo",
+    "Giza",
+    "Luxor",
+    "Aswan",
+    "Alexandria",
+    "Sharm El Sheikh",
+    "Hurghada",
+    "Dahab",
+    "Siwa Oasis",
+    "Marsa Alam",
+    "Abu Simbel",
+    "El Minya",
+    "Ismailia",
+    "Port Said",
+    "Taba",
+  ];;
   constructor(private fb: FormBuilder, private calendar: NgbCalendar) {
     this.fromDate = calendar.getToday();
-    this.BookingForm = this.fb.group({
-      name: [
-        null,
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.pattern(/^[a-zA-Z]{3,}(?:\s[a-zA-Z]{3,})*$/),
-        ],
-      ],
-      phone: [
-        null,
-        [
-          Validators.required,
-         
-          Validators.pattern(/^[+0-9]{10,14}$/),
-        ],
-      ],
-      notes: [
-        null],
+    this.from = this.fromDate.year +'-'+this.fromDate.month +'-'+this.fromDate.day;
+    this.BookingForm = new FormGroup({
+
+      phone: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^\+?\d{7,14}$/),
+  
+      ]),
+      comment: new FormControl('', [
+        Validators.required,
+     
+  
+      ]),
+      city: new FormControl('', [
+        Validators.required,
+     
+  
+      ]),
+
     });
   }
-
+ngOnInit(){
+  this.areas = this.areas && this.areas.length? this.areas: this.defaultCity
+}
   onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {
       this.fromDate = date;
@@ -50,18 +70,23 @@ export class BookingFormComponent {
       this.toDate = null;
       this.fromDate = date;
     }
-  
-    // Update selectedDate whenever a date is selected
-   
+    this.from = this.fromDate.year +'-'+this.fromDate.month +'-'+this.fromDate.day;
+    this.to = this.toDate?.year? this.toDate?.year +'-'+this.toDate?.month +'-'+this.toDate?.day : '';
+
+  }
+
+  getDayDifference(): number {
+    const timeDifference = new Date(this.to).getTime() - new Date(this.from).getTime();
+    return Math.ceil(timeDifference / (1000 * 3600 * 24));
   }
   
   BookSubmitted() {
-    Object.values(this.BookingForm.controls).forEach(control => {
-      control.markAsTouched();
-    });
+    this.to = this.to ? this.to : this.from
+
+    this.BookingForm.markAllAsTouched();
   
-    if(!this.BookingForm.invalid){
-      console.log({...this.BookingForm.value, tourguideId: this.id, From: this.fromDate, To: this.toDate});
+    if(this.BookingForm.valid){
+      console.log({...this.BookingForm.value, tourguide_id: this.id, from: this.from, to: this.to});
 
     } else{
       
@@ -79,11 +104,7 @@ export class BookingFormComponent {
   }
  
 
-  isCustomDisabled(date: NgbDate): boolean {
-    return this.customDisabledDates.some(
-      disabledDate => disabledDate.equals(date)
-    );
-  }
+
   isInside(date: NgbDate) {
     return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
   }
@@ -100,7 +121,7 @@ export class BookingFormComponent {
     const today = new Date();
     const ngbDate = new NgbDate(today.getFullYear(), today.getMonth() + 1, today.getDate());
 
-    return date.before(ngbDate) || this.isCustomDisabled(date);
+    return date.before(ngbDate)
   };
 
 }
