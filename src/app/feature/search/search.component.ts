@@ -21,7 +21,7 @@ export class SearchComponent {
   ) {
     this.SearchForm = this.fb.group({
       search: [null, [Validators.required, Validators.minLength(3)]],
-      searchOption: ['hotel', [Validators.required]],
+      searchOption: ['tourguide', [Validators.required]],
     });
   }
 

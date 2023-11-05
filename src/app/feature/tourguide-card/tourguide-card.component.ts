@@ -10,6 +10,7 @@ import Typed from 'typed.js';
 export class TourguideCardComponent {
   @Input() tourGuide: any;
   rating = 0
+  slicedLanguages: any = [];
   constructor(private ratingConfig: NgbRatingConfig, private router: Router) {
     this.ratingConfig.max = 5;
    
@@ -21,6 +22,8 @@ export class TourguideCardComponent {
     this.router.navigate(['tourguides', id]);
   }
   ngOnInit(){
+    this.slicedLanguages = this.tourGuide.languages.slice(0, 2);
+
     this.rating = Math.ceil(this.tourGuide?.reviews?.avg) ?? 0;
     
   }

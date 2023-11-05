@@ -17,11 +17,6 @@ const routes: Routes = [
     component: HomepageComponent,
     data: { title: 'Home' },
   },
-  {
-    path: 'hotels',
-    component: HotelsComponent,
-    data: { title: 'Hotels' },
-  },
   
   {
     path: 'tourguides',
@@ -38,14 +33,8 @@ const routes: Routes = [
     component: SearchComponent,
     data: { title: 'Search' },
   },
-  {
-    path: 'hotel/:id',
-    component: HotelDetailsComponent,
-  },
-  {
-    path: 'hotel-review/:id',
-    component: HotelReviewComponent,
-  },
+ 
+
   
   { path: 'tourguides/:id', component: TourguideProfileComponent },
   {

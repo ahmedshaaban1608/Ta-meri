@@ -78,15 +78,15 @@
   </div>
 </div>
 <div>
-  <h2 class="text-center display-5 mb-4">Featured Hotels</h2>
+  <h2 class="text-center display-5 mb-4">Our Tourguides</h2>
  
   <div class="container mt-5">
     <div class="row">
       <div
         class="col-sm-12 col-md-6 col-lg-4 mb-4"
-        *ngFor="let hotel of hotels | slice : 0 : 6"
+        *ngFor="let tourguide of tourguides | slice : 0 : 6"
       >
-        <app-hotel-card [hotel]="hotel"></app-hotel-card>
+      <app-tourguide-card [tourGuide]="tourguide"></app-tourguide-card>
       </div>
     </div>
   </div>

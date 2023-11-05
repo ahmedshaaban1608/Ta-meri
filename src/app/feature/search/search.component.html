@@ -15,7 +15,7 @@
           class="form-control"
           id="search"
           name="search"
-          placeholder="search a hotel or tour guide"
+          placeholder="search a tour guide"
           formControlName="search"
         />
         <div
@@ -47,8 +47,8 @@
           name="searchOption"
           formControlName="searchOption"
         >
-          <option value="hotel" name="searchOption" selected>Hotels</option>
-          <option value="tourguide" name="searchOption">Tour Guides</option>
+          <!-- <option value="hotel" name="searchOption" >Hotels</option> -->
+          <option value="tourguide" name="searchOption" selected>Tour Guides</option>
         </select>
       </div>
 
@@ -97,7 +97,7 @@
 >
   <div class="row g-3">
     <div
-      class="col-md-6 col-lg-6 col-sm-12"
+      class="col-sm-12 col-md-6 col-lg-4 mb-4"
       *ngFor="let tourGuide of searchResult"
     >
       <app-tourguide-card [tourGuide]="tourGuide"></app-tourguide-card>

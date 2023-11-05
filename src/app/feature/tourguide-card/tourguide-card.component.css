@@ -1,4 +1,4 @@
-.card-text {
+/* .card-text {
   font-size: 0.8rem;
 }
 ngb-rating {
@@ -66,6 +66,14 @@ ngb-rating {
   }
 }
 .card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+} */
+
+
+.hotel-text {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;

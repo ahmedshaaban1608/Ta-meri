@@ -23,7 +23,7 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
 
   guides:any = [];
   p:number=1;
-  itemsPerPage:number=10;
+  itemsPerPage:number=12;
   constructor(
     private guidesApiService: TourguideApiService,
     private router: Router,

@@ -1,4 +1,55 @@
-<div class="card mb-3 fade-in shadow">
+<div class="card mb-4 rounded-4 shadow">
+  <img
+    [src]="tourGuide?.avatar"
+    class="card-img-top rounded-4"
+    [alt]="tourGuide?.name"
+    [ngStyle]="{ height: '250px' }"
+  />
+  <div class="card-body">
+    <h5
+      class="card-title fw-bold fs-4 bg-primary text-white p-1 pt-2 text-center rounded-5 mb-4"
+      [ngStyle]="{ 'line-height': '1', 'margin-top': '-35px' }"
+    >
+      {{ tourGuide?.name }}
+    </h5>
+    <div class="row align-items-center">
+      <div class="col-7">
+        <p class="card-text fs-5 fw-medium">
+          <i class="fas fa-map-marker-alt text-red me-3"></i>{{ tourGuide?.day_price | currency }}
+        </p>
+      </div>
+      <div class="col-5 text-end">
+        <ngb-rating
+          [rate]="rating"
+          [readonly]="true"
+          class="text-warning fs-3"
+        ></ngb-rating>
+      </div>
+    </div>
+    <p class="card-text mt-3 hotel-text">
+      {{ tourGuide?.description }}
+    </p>
+      <p class="card-text fs-5 fw-medium mb-0" *ngIf="tourGuide?.languages.length">
+        <i class="fas fa-tags text-success me-2"></i>Languages: <span
+        class="badge bg-light text-dark border shadow-light p-2 me-2 mb-2"
+        *ngFor="let item of slicedLanguages"
+      >
+        {{ item.language }}
+      </span>
+      </p>
+    <div class="w-50 mx-auto">
+      <button
+        class="btn btn-danger fw-bold w-100"
+        (click)="goToGuideDetails(tourGuide.id)"
+        [ngStyle]="{ 'margin-bottom': '-55px' }"
+      >
+        Read More
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="card mb-3 fade-in shadow">
   <div class="row justify-content-center g-0">
     <div class="col-md-4 text-center pt-5">
       <img
@@ -33,4 +84,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

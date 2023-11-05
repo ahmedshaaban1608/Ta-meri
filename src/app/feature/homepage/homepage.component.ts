@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HotelApiService } from '../services/hotel-api.service';
+import { TourguideApiService } from '../services/guides-api.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,7 +8,7 @@ import { HotelApiService } from '../services/hotel-api.service';
   styleUrls: ['./homepage.component.css'],
 })
 export class HomepageComponent {
-  hotels!: any[];
+  tourguides: any =   [];
   facts = [
     {
       number: 5,
@@ -30,10 +31,15 @@ export class HomepageComponent {
       class: 'fas fa-user-tie',
     },
   ];
-  constructor(private hotelApi: HotelApiService) {}
+  constructor(private guidesApiService: TourguideApiService) {}
   ngOnInit() {
-    this.hotelApi.getAllHotels().subscribe((result) => {
-      this.hotels = Object.values(result);
+    this.guidesApiService.getAllTourguides().subscribe((data) => {
+        
+      const dataArr:any = Object.values(data)[0];
+      const sortedData = dataArr.sort((a:any,b:any)=> b?.reviews?.avg - a?.reviews?.avg)
+
+
+      this.tourguides = sortedData
      
     });
   }
