@@ -1,11 +1,13 @@
 <app-carousel></app-carousel>
 <app-about-section></app-about-section>
 <div class="container-fluid bg-primary my-5 p-5">
+<div class="container">
   <div class="row g-5">
-    <div class="col-md-6 col-xl-3" *ngFor="let fact of facts">
+    <div class="col-md-6 col-lg-4" *ngFor="let fact of facts">
       <app-counter [counter]="fact"></app-counter>
     </div>
   </div>
+</div>
 </div>
 
 <div class="container-xxl py-5">

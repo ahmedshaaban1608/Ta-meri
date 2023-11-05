@@ -16,15 +16,11 @@ export class HomepageComponent {
       class: 'fas fa-users',
     },
     {
-      number: 2154,
+      number: 150,
       text: 'Happy Clients',
       class: 'fas fa-users',
     },
-    {
-      number: 75,
-      text: 'Hotels',
-      class: 'fas fa-hotel',
-    },
+  
     {
       number: 30,
       text: 'Tour guides',
