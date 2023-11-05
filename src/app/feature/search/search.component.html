@@ -1,38 +1,38 @@
 <div class="container mt-4 bg-primary p-3">
   <form [formGroup]="SearchForm" (ngSubmit)="submitSearch()">
     <div class="row g-3">
-      <div class="col-md-8">
+      <div class="col-md-6">
         <input
           type="text"
           [ngClass]="{
             'is-valid':
-              SearchForm.controls['search'].touched &&
-              !SearchForm.controls['search'].invalid,
+              SearchForm.controls['name'].touched &&
+              !SearchForm.controls['name'].invalid,
             'is-invalid':
-              SearchForm.controls['search'].touched &&
-              SearchForm.controls['search'].invalid
+              SearchForm.controls['name'].touched &&
+              SearchForm.controls['name'].invalid
           }"
           class="form-control"
-          id="search"
-          name="search"
+          id="name"
+          name="name"
           placeholder="search a tour guide"
-          formControlName="search"
+          formControlName="name"
         />
         <div
           class="invalid-feedback"
           *ngIf="
-            SearchForm.controls['search'].touched &&
-            SearchForm.controls['search'].invalid
+            SearchForm.controls['name'].touched &&
+            SearchForm.controls['name'].invalid
           "
         >
           <small
-            *ngIf="SearchForm.controls['search'].errors?.['required']"
+            *ngIf="SearchForm.controls['name'].errors?.['required']"
             class="text-white"
           >
             search is required
           </small>
           <small
-            *ngIf="SearchForm.controls['search'].errors?.['minlength']"
+            *ngIf="SearchForm.controls['name'].errors?.['minlength']"
             class="text-white"
           >
             search must be more than 3 characters
@@ -40,15 +40,27 @@
         </div>
       </div>
 
+    
       <div class="col-md-2">
         <select
-          class="form-control form-select"
-          id="searchOption"
-          name="searchOption"
-          formControlName="searchOption"
+          class="form-control form-select "
+          id="city"
+          name="city"
+          formControlName="city"
         >
-          <!-- <option value="hotel" name="searchOption" >Hotels</option> -->
-          <option value="tourguide" name="searchOption" selected>Tour Guides</option>
+          <option value="" name="city" selected>any city</option>
+          <option *ngFor="let area of areas" value="{{area | lowercase}}">{{area}}</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <select
+          class="form-control form-select "
+          id="language"
+          name="language"
+          formControlName="language"
+        >
+          <option value="" name="language" selected>any language</option>
+          <option *ngFor="let language of languages" value="{{language | lowercase}}">{{language}}</option>
         </select>
       </div>
 
@@ -79,21 +91,7 @@
 </div>
 <div
   class="container mt-5"
-  *ngIf="searchOption === 'hotel' && searchResult.length"
->
-  <div class="row">
-    <div
-      class="col-sm-12 col-md-6 col-lg-4 mb-4"
-      *ngFor="let hotel of searchResult"
-    >
-      <app-hotel-card [hotel]="hotel"></app-hotel-card>
-    </div>
-  </div>
-</div>
-
-<div
-  class="container mt-5"
-  *ngIf="searchOption === 'tourguide' && searchResult.length"
+  *ngIf="searchResult.length"
 >
   <div class="row g-3">
     <div
@@ -102,5 +100,10 @@
     >
       <app-tourguide-card [tourGuide]="tourGuide"></app-tourguide-card>
     </div>
+   
   </div>
+  <!-- <div class="text-center fs-4 mt-3">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div> -->
 </div>
+

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HotelApiService } from '../services/hotel-api.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { TourguideApiService } from '../services/guides-api.service';
 
 @Component({
@@ -12,48 +11,48 @@ export class SearchComponent {
   isSubmitting = false;
   startSearch = false;
   SearchForm!: FormGroup;
-  searchResult: any[] = [];
+  searchResult: any = [];
   searchOption!: string;
+  areas!: string[];
+  languages !: string[];
+  p:number = 1;
+  itemsPerPage:number = 12;
   constructor(
     private fb: FormBuilder,
-    private hotelApi: HotelApiService,
-    private tourguideApi: TourguideApiService
+    private tourguideApi: TourguideApiService,
+    
   ) {
     this.SearchForm = this.fb.group({
-      search: [null, [Validators.required, Validators.minLength(3)]],
-      searchOption: ['tourguide', [Validators.required]],
+      name: [null, ],
+      city: [''],
+      language: [''],
     });
+    this.areas = this.tourguideApi.areas;
+    this.languages = this.tourguideApi.languages;
   }
 
   submitSearch() {
-    if (!this.SearchForm.invalid) {
+    this.SearchForm.markAllAsTouched();
+    if (this.SearchForm.valid) {
       this.searchResult = [];
-      const searchText = this.SearchForm.controls['search']['value'];
-      this.searchOption = this.SearchForm.controls['searchOption']['value'];
 
       this.isSubmitting = true;
       setTimeout(() => {
         this.isSubmitting = false;
       }, 2000);
-      if (this.searchOption === 'hotel') {
-        this.searchHotel(searchText);
-      } else {
-        this.searchTourGuide(searchText);
-      }
+      this.tourguideApi.getTourGuideBySearch(this.SearchForm.value).subscribe((data) => {
+        this.searchResult = Object.values(data)[0];
+        this.p = 1;
+        console.log(this.searchResult);
+        
+        this.startSearch = true;
+      },
+      (error) => {
+        
+        this.startSearch = true;
+      });
+     
     }
   }
-  searchHotel(searchText: string) {
-    this.hotelApi.getHotelBySearch(searchText).subscribe((data) => {
-      this.searchResult = Object.values(data);
-      this.startSearch = true;
-    });
-  }
-  searchTourGuide(searchText: string) {
-    this.tourguideApi.getTourGuideBySearch(searchText).subscribe((data) => {
-      this.searchResult = Object.values(data);
-      console.log(this.searchResult);
-
-      this.startSearch = true;
-    });
-  }
+  
 }

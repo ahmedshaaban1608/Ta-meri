@@ -8,6 +8,44 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root'
 })
 export class TourguideApiService {
+ public areas: string[] = [
+    "Cairo",
+    "Giza",
+    "Luxor",
+    "Aswan",
+    "Alexandria",
+    "Sharm El Sheikh",
+    "Hurghada",
+    "Dahab",
+    "Siwa Oasis",
+    "Marsa Alam",
+    "Abu Simbel",
+    "El Minya",
+    "Ismailia",
+    "Port Said",
+    "Taba",
+  ];
+ public languages: string[] =  [
+    'English',
+    'Spanish',
+    'French',
+    'German',
+    'Chinese',
+    'Japanese',
+    'Korean',
+    'Arabic',
+    'Russian',
+    'Italian',
+    'Portuguese',
+    'Dutch',
+    'Hindi',
+    'Swedish',
+    'Greek',
+    'Turkish',
+    'Vietnamese',
+    'Bengali',
+    'Farsi (Persian)',
+];
   constructor(private http: HttpClient) {}
   url = `${environment.apiUrl}/tourguides`;
   
@@ -19,8 +57,8 @@ export class TourguideApiService {
     return this.http.get(`${this.url}/${id}`);
   }
   
-  getTourGuideBySearch(word: string): Observable<any> {
-    return this.http.get(`${this.url}?name=${word}`);
+  getTourGuideBySearch(data: {}): Observable<any> {
+    return this.http.post(`${this.url}/search`,data);
   }
   
   updateTourGuide(id: string, data: any): Observable<any> {
@@ -29,22 +67,12 @@ export class TourguideApiService {
   }
   
   // FeedbackApiService
-  private feedbackApiUrl = 'https://retoolapi.dev/IrJhOE/data';
+  // private feedbackApiUrl = 'https://retoolapi.dev/IrJhOE/data';
 
-  users() {
-    return this.http.get(this.feedbackApiUrl);
-  }
+  // users() {
+  //   return this.http.get(this.feedbackApiUrl);
+  // }
 
 
 
-  private generateRandomId(): string {
-    const characters = '123456789';
-    let randomId = '';
-    for (let i = 0; i < 4; i++) {
-      randomId += characters.charAt(
-        Math.floor(Math.random() * characters.length)
-      );
-    }
-    return randomId;
-  }
 }

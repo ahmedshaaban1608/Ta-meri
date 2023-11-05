@@ -34,7 +34,7 @@ to: string = '';
     "Ismailia",
     "Port Said",
     "Taba",
-  ];;
+  ];
   constructor(private fb: FormBuilder, private calendar: NgbCalendar) {
     this.fromDate = calendar.getToday();
     this.from = this.fromDate.year +'-'+this.fromDate.month +'-'+this.fromDate.day;
