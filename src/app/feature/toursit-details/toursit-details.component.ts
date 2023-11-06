@@ -11,6 +11,8 @@ import { ToursitDetailsService } from '../services/toursit-details.service';
   styleUrls: ['./toursit-details.component.css']
 })
 export class ToursitDetailsComponent{
+
+
   @Input() tourist: any = [];
   p: number = 1;
   itemsPerPage: number = 6;
@@ -108,6 +110,7 @@ export class ToursitDetailsComponent{
     // Add more countries as needed...
   ];
   updateForm: FormGroup;
+  file!: File;
 
   constructor(private formBuilder: FormBuilder, private auth: ToursitDetailsService) {
     this.updateForm = this.formBuilder.group({
@@ -121,10 +124,16 @@ export class ToursitDetailsComponent{
         Validators.required,
         Validators.pattern(/^\+?\d{7,14}$/),
       ]),
-
+ image: new FormControl(null),
     });
   }
-
+  onFileSelected(event: any) {  
+   this.file = event.target.files[0];
+   this.formData.append('avatar', this.file);
+this.updateForm.patchValue({
+  image: this.file
+})
+  }
   ngOnChanges(changes: SimpleChanges) {
     if (changes['tourist'] && changes['tourist'].currentValue) {
       this.updateForm.patchValue({
@@ -133,14 +142,20 @@ export class ToursitDetailsComponent{
       });
     }
   }
-
+formData = new FormData();
 
   updateSubmited() {
     this.errors = []
     this.updateForm.markAllAsTouched();
 
-    if (this.updateForm.valid) {      
-      this.auth.updateProfile(this.updateForm.value).subscribe(
+    if (this.updateForm.valid) {    
+     let formData = new FormData();
+     this.formData.append('name', this.updateForm.controls['name'].value);
+     this.formData.append('phone', this.updateForm.controls['phone'].value);
+     this.formData.append('_method', 'PUT');
+     
+     
+      this.auth.updateProfile(this.formData).subscribe(
         (data) => {    
      
           this.updated.emit(data);

@@ -1,10 +1,12 @@
 <div class="card mb-4 rounded-4 shadow">
-  <img
+  <div style="height: 250px;">
+    <img
     [src]="tourGuide?.avatar"
-    class="card-img-top rounded-4"
+    class="card-img-top rounded-4 w-100 h-100"
     [alt]="tourGuide?.name"
-    [ngStyle]="{ height: '250px' }"
+    style="object-fit: cover"
   />
+  </div>
   <div class="card-body">
     <h5
       class="card-title fw-bold fs-4 bg-primary text-white p-1 pt-2 text-center rounded-5 mb-4"

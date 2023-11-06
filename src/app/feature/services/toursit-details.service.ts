@@ -15,7 +15,9 @@ export class ToursitDetailsService {
   tourist: BehaviorSubject<any> = new BehaviorSubject<any>({});
   private token = this.auth.getUser().token
   headers = new HttpHeaders({
-    'Authorization': `Bearer ${this.token}`
+    'Authorization': `Bearer ${this.token}`,
+    'Accept': 'application/json'
+    
   });
   private myId = this.auth.getUser().id
 
@@ -49,8 +51,10 @@ bookTourguide(data:any){
 }
 
 updateProfile(data: any): Observable<any> {
-  return this.http.put(`${environment.apiUrl}/tourists/${this.myId}`, data, { headers: this.headers, observe: 'response' }).pipe(
-    map((response: any) => {     
+
+  
+  return this.http.post(`${environment.apiUrl}/tourists/${this.myId}`, data, { headers: this.headers, observe: 'response' }).pipe(
+    map((response: any) => {          
       this.tourist.next(response.body);
       return this.tourist['_value'];
     }),

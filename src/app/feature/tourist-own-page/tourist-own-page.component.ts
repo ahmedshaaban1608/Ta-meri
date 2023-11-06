@@ -12,8 +12,7 @@ export class TouristOwnPageComponent {
   changeData(updatedData: any) {
     console.log(updatedData);
     
-    // Handle the updated data received from the child component
-    this.tourist = updatedData;
+  this.tourist = updatedData? updatedData :  this.tourist;
   }
 
 
