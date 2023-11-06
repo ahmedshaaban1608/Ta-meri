@@ -47,8 +47,10 @@
               </button>
             </div>
           </div>
-          <div class="mt-5">
+          <a name="contentTop"></a>
+          <div class="mt-5 reviews">
             <h2 class="mb-3">Reviews</h2>
+            <app-feedback [id]="id"></app-feedback>
             <div class="text-center text-black-50 my-5" *ngIf="!tourguide.reviews?.length ">
               <h3>{{ tourguide.name }} has no any reviews yet</h3>
             </div>
@@ -58,10 +60,10 @@
                 *ngFor="let review of tourguide.reviews | paginate: { itemsPerPage: itemsPerPage, currentPage: p }"
               ></app-review>
               <div class="text-center fs-4 mt-3">
-                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                <pagination-controls (pageChange)="scrollToTop($event)"></pagination-controls>
               </div>
             </ng-container>
-         
+           
           </div>
         </div>
         

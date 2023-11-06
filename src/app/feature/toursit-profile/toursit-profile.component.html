@@ -1,4 +1,5 @@
-<div class="container">
+<a name="contentTop"></a>
+<div class="container orders">
   <div class="row g-3" *ngIf="orders.length">
     <div class="col-md-6 col-lg-6 col-sm-12" *ngFor="let order of orders | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
       <div class="card mb-3 fade-in shadow">
@@ -32,7 +33,7 @@
     </div>
 
     <div class="text-center fs-4 mt-3">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      <pagination-controls (pageChange)="scrollToTop($event)"></pagination-controls>
     </div>
   </div>
   <div class="mt-5 text-center" *ngIf="!orders.length">

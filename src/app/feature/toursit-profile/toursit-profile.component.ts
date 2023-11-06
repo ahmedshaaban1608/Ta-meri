@@ -23,4 +23,13 @@ export class ToursitProfileComponent{
 
   goToGuideDetails(id: number): void {
     this.router.navigate(['tourguides', id]);
-  }}
+  }
+  scrollToTop(pageNumber: number) {
+    this.p = pageNumber; // Update the current page number
+    const contentContainer = document.querySelector('.orders');
+    const anchorElement = document.querySelector('[name="contentTop"]');
+    if (contentContainer && anchorElement) {
+      anchorElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+}

@@ -15,7 +15,7 @@
     <div class="row align-items-center">
       <div class="col-7">
         <p class="card-text fs-5 fw-medium">
-          <i class="fas fa-map-marker-alt text-red me-3"></i>{{ tourGuide?.day_price | currency }}
+          <i class="fas fa-money-check-alt text-red me-3"></i>{{ tourGuide?.day_price | currency }}
         </p>
       </div>
       <div class="col-5 text-end">
@@ -30,7 +30,7 @@
       {{ tourGuide?.description }}
     </p>
       <p class="card-text fs-5 fw-medium mb-0" *ngIf="tourGuide?.languages.length">
-        <i class="fas fa-tags text-success me-2"></i>Languages: <span
+        <i class="fas fa-globe text-success me-2"></i>Languages: <span
         class="badge bg-light text-dark border shadow-light p-2 me-2 mb-2"
         *ngFor="let item of slicedLanguages"
       >
@@ -49,39 +49,3 @@
   </div>
 </div>
 
-<!-- <div class="card mb-3 fade-in shadow">
-  <div class="row justify-content-center g-0">
-    <div class="col-md-4 text-center pt-5">
-      <img
-        [src]="tourGuide.avatar"
-        alt="{{ tourGuide.name }}"
-        class="card-img-top mx-auto w-75 h-75 rounded-circle"
-      />
-    </div>
-    <div class="col-md-8">
-      <div class="card-body mt-4">
-        <h5 class="card-title animated-text fs-4">
-          {{ tourGuide.name }}
-        </h5>
-        <p class="card-text fs-6">
-          {{ tourGuide.description }}
-        </p>
-        <p class="card-text fs-6 fw-semibold">
-          Language: <span
-          class="badge bg-light text-dark border shadow-light p-2 me-2 mb-2"
-          *ngFor="let item of tourGuide.languages"
-        >
-          {{ item.language }}
-        </span>
-        </p>
-        <ngb-rating [rate]="rating" [readonly]="true"></ngb-rating>
-        <button
-          class="btn btn-dark d-block"
-          (click)="goToGuideDetails(tourGuide.id)"
-        >
-          Read More
-        </button>
-      </div>
-    </div>
-  </div>
-</div> -->

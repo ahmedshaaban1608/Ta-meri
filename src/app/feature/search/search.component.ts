@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TourguideApiService } from '../services/guides-api.service';
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -15,7 +14,7 @@ export class SearchComponent {
   searchOption!: string;
   areas!: string[];
   languages !: string[];
-  p:number = 1;
+  p!:number;
   itemsPerPage:number = 12;
   constructor(
     private fb: FormBuilder,
@@ -31,6 +30,17 @@ export class SearchComponent {
     this.languages = this.tourguideApi.languages;
   }
 
+  scrollToTop(pageNumber: number) {
+    this.p = pageNumber; // Update the current page number
+  
+    // Scroll to the top of the content container by targeting the anchor element
+    const contentContainer = document.querySelector('.searchResult');
+    const anchorElement = document.querySelector('[name="contentTop"]');
+    if (contentContainer && anchorElement) {
+      anchorElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+  
   submitSearch() {
     this.SearchForm.markAllAsTouched();
     if (this.SearchForm.valid) {

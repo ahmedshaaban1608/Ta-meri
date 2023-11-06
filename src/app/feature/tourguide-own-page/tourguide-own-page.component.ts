@@ -36,16 +36,14 @@ export class TourguideOwnPageComponent {
   }
 
 
-  // ngOnInit() {
-  //   this.id = this.activateRoute.snapshot['params']['id'];
-
-  //   this.tourguideApi.getTourGuideById(this.id).subscribe((data) => {
-  //     this.tourguide = data;
-  //     this.titleService.setTitle('Tour guide: ' + this.tourguide['name']);
-  //   });
-
-  //   this.tourguideApi
-  //     .getTourGuideReviews()
-  //     .subscribe((data) => (this.reviews = Object.values(data)));
-  //  }
+  scrollToTop(pageNumber: number) {
+    this.p = pageNumber; // Update the current page number
+  
+    // Scroll to the top of the content container by targeting the anchor element
+    const contentContainer = document.querySelector('.reviews');
+    const anchorElement = document.querySelector('[name="contentTop"]');
+    if (contentContainer && anchorElement) {
+      anchorElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }

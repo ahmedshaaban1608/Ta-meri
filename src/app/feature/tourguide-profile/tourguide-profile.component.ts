@@ -38,6 +38,16 @@ export class TourguideProfileComponent {
     //   this.totaltourguide = this.reviews.length;
     // });
   }
+  scrollToTop(pageNumber: number) {
+    this.p = pageNumber; // Update the current page number
+  
+    // Scroll to the top of the content container by targeting the anchor element
+    const contentContainer = document.querySelector('.reviews');
+    const anchorElement = document.querySelector('[name="contentTop"]');
+    if (contentContainer && anchorElement) {
+      anchorElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
   scrollToBookingForm() {
         const headerHeight = 100;  // Adjust this value with your actual header height
         const bookingFormElement = document.getElementById('bookingFormSection');

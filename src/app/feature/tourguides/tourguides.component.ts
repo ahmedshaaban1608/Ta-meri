@@ -53,6 +53,18 @@ export class TourguidesComponent implements OnInit, AfterViewInit {
     }, 100);
   }
 
+
+  scrollToTop(pageNumber: number) {
+    this.p = pageNumber; // Update the current page number
+  
+    // Scroll to the top of the content container by targeting the anchor element
+    const contentContainer = document.querySelector('.tourguideResult');
+    const anchorElement = document.querySelector('[name="contentTop"]');
+    if (contentContainer && anchorElement) {
+      anchorElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   animateCardText(): void {
     if (this.cardTextElements) {
       this.cardTextElements.forEach((element: ElementRef) => {

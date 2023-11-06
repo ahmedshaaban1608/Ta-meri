@@ -1,3 +1,4 @@
+<a name="contentTop"></a>
 <div class="container mt-4 bg-primary p-3">
   <form [formGroup]="SearchForm" (ngSubmit)="submitSearch()">
     <div class="row g-3">
@@ -89,21 +90,16 @@
     </h2>
   </div>
 </div>
-<div
-  class="container mt-5"
-  *ngIf="searchResult.length"
->
+
+<div class="container mt-5 searchResult" *ngIf="searchResult.length">
   <div class="row g-3">
-    <div
-      class="col-sm-12 col-md-6 col-lg-4 mb-4"
-      *ngFor="let tourGuide of searchResult"
-    >
+  
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4" *ngFor="let tourGuide of searchResult | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: searchResult.length }">
       <app-tourguide-card [tourGuide]="tourGuide"></app-tourguide-card>
     </div>
-   
   </div>
-  <!-- <div class="text-center fs-4 mt-3">
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-  </div> -->
+  <div class="text-center fs-4 mt-3">
+    <pagination-controls (pageChange)="scrollToTop($event)"></pagination-controls>
+  </div>
 </div>
 
