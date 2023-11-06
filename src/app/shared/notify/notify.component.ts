@@ -14,7 +14,6 @@ notify: string ='';
     this.route.queryParams.subscribe((params) => {
      
       this.notify = params['notify'];
-      console.log(this.notify);
       
 
     });

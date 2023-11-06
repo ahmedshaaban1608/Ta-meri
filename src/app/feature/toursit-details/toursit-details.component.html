@@ -1,18 +1,107 @@
-<div class="container" style="max-width: 600px">
-  <div *ngIf="tourist" class="card">
-    <img
-      [src]="tourist.avatar"
-      alt="{{ tourist.name }}"
-      class="card-img-top mx-auto "
-      style="width: 200px; height: 200px;"
-    />
-    <div class="card-body">
-      <h3 class="card-title text-center">{{ tourist.name }}</h3>
-      <p class="card-text"><strong>type: </strong>{{ tourist.type }}</p>
-      <p class="card-text"><strong>email: </strong>{{ tourist.email }}</p>
-      <p class="card-text"><strong>country: </strong>{{ tourist.country}}</p>
-      <p class="card-text"><strong>gender: </strong>{{ tourist.gender }}</p>
-      <p class="card-text"><strong>Phone: </strong>{{ tourist.phone }}</p>
-    </div>
+<div class="container">
+  <form style="max-width: 600px" [formGroup]="updateForm"
+   (ngSubmit)="updateSubmited()" 
+  class="border p-3 rounded-3 shadow-lg m-auto bg-white">
+      <div class="row">
+        <div class="col mb-3">
+          <label for="name" class="form-label"
+            >Name<span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="name"
+
+          />
+  
+          <div
+            class="form-text text-success"
+            *ngIf="name.valid && (name.touched || name.dirty)"
+          >
+            <i class="fa-solid fa-check"></i> Looks good!
+          </div>
+  
+          <div
+            class="form-text text-danger"
+            *ngIf="name.errors?.['required'] && (name.touched || name.dirty)"
+          >
+            <i class="fa-solid fa-circle-exclamation"></i> First Name is Required.
+          </div>
+          <div
+            class="form-text text-danger"
+            *ngIf="name.errors?.['minlength'] && (name.touched || name.dirty)"
+          >
+            <i class="fa-solid fa-circle-exclamation"></i> First Name must be more
+            than 3 characters
+          </div>
+          <div
+            class="form-text text-danger"
+            *ngIf="name.errors?.['pattern'] && (name.dirty || name.touched)"
+          >
+            <i class="fa-solid fa-circle-exclamation"></i> invalid name
+          </div>
+        </div>
+      </div>
+       
+
+      <div class="row">
+        <div class="col mb-3">
+          <label for="phone" class="form-label"
+            >Phone Number with country code<span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            formControlName="phone"
+            placeholder="**********"
+          />
+          <div
+            class="form-text text-success"
+            *ngIf="phone.valid && (phone.touched || phone.dirty)"
+          >
+            <i class="fa-solid fa-check"></i> Looks good!
+          </div>
+          <div
+            class="form-text text-danger"
+            *ngIf="phone.errors?.['required'] && (phone.dirty || phone.touched)"
+          >
+            <i class="fa-solid fa-circle-exclamation"></i> phone number is Required
+          </div>
+          <div
+            class="form-text text-danger"
+            *ngIf="phone.errors?.['pattern'] && (phone.dirty || phone.touched)"
+          >
+            <i class="fa-solid fa-circle-exclamation"></i> phone number is Invalid
+          </div>
+        
+        </div>
+    
+      </div>
+   
+      <div class="row">
+        <div class="col">
+        <ngb-alert [dismissible]="false" *ngFor="let error of errors">
+          <strong>Warning!</strong> {{error}}
+        </ngb-alert>
+      </div>
+      </div>
+      <ngb-alert [dismissible]="false" *ngFor="let error of errors">
+        <strong>Warning!</strong> {{error}}
+      </ngb-alert>
+      <div class="row">
+        <div class="col-6 offset-3">
+          <div class="d-grid">
+            <button
+              type="submit"
+              [disabled]="updateForm.invalid"
+              class="btn btn-primary">
+update profile            </button>
+          </div>
+        </div>
+      </div>
+    
+    </form>
   </div>
-</div>
+  

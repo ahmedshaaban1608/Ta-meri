@@ -1,26 +1,49 @@
+<div class="container p-4 px-lg-5">
+<div class="row align-items-center">
+  <div class="col-md-4 col-12 mb-3">
+    <div class="d-flex align-items-center">
+      <img
+      [src]="tourist?.avatar"
+      alt="{{ tourist?.name  }}"
+      class="rounded-circle me-2"
+      style="width: 70px; height: 70px;"
+    />
+    <h3 style="padding-top: 15px!important;">{{tourist?.name}}</h3>
+    </div>
+  </div>
+  <div class="col-md-4 col-12 mb-3">
+    <i class="fa-solid fa-phone me-2 text-primary fs-4"></i> <span class="fs-4">{{tourist?.phone}}</span>
+  </div>
+  <div class="col-md-4 col-12 mb-3">
+  <i class="fa-solid fa-envelope me-2 text-primary fs-4"></i> <span class="fs-4">{{tourist?.email}}</span>
+  </div>
+</div>
+</div>
 <div class="container mt-5 mb-5">
    
     <ul class="nav nav-pills mb-3 d-flex justify-content-center fw-bold fs-5" id="pills-tab" role="tablist">
+    
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pills-details-tab" data-bs-toggle="pill" data-bs-target="#pills-details" type="button"
-          role="tab" aria-controls="pills-details" aria-selected="true" (click)="switchTab('details')">Details</button>
+        <button class="nav-link active" id="pills-order-tab" data-bs-toggle="pill" data-bs-target="#pills-order" type="button"
+          role="tab" aria-controls="pills-order" aria-selected="false" (click)="switchTab('order')">Booking Orders</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-order-tab" data-bs-toggle="pill" data-bs-target="#pills-order" type="button"
-          role="tab" aria-controls="pills-order" aria-selected="false" (click)="switchTab('order')">Booking Orders</button>
+        <button class="nav-link " id="pills-details-tab" data-bs-toggle="pill" data-bs-target="#pills-details" type="button"
+          role="tab" aria-controls="pills-details" aria-selected="true" (click)="switchTab('details')">Edit profile</button>
       </li>
     </ul>
   
    
     <div class="tab-content" id="pills-tabContent">
     
-      <div class="tab-pane fade show active" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
-        <app-toursit-details *ngIf="activeTab === 'details'" [tourist]="tourist"></app-toursit-details>
+      <div class="tab-pane fade  show active" id="pills-order" role="tabpanel" aria-labelledby="pills-order-tab">
+        <app-toursit-profile *ngIf="activeTab === 'order'" [orders]="tourist?.orders"></app-toursit-profile>
+      </div>
+      <div class="tab-pane fade" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
+        <app-toursit-details *ngIf="activeTab === 'details'" [tourist]="tourist" (updated)="changeData($event)"></app-toursit-details>
       </div>
   
       
-      <div class="tab-pane fade" id="pills-order" role="tabpanel" aria-labelledby="pills-order-tab">
-        <app-toursit-profile *ngIf="activeTab === 'order'" [orders]="tourist.orders"></app-toursit-profile>
-      </div>
+    
     </div>
   </div>

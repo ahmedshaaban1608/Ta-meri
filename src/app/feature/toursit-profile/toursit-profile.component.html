@@ -1,11 +1,44 @@
 <a name="contentTop"></a>
-<div class="container orders">
-  <div class="row g-3" *ngIf="orders.length">
-    <div class="col-md-6 col-lg-6 col-sm-12" *ngFor="let order of orders | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
-      <div class="card mb-3 fade-in shadow">
+<div class="container orders mb-5">
+  <div class="row g-3" *ngIf="orders?.length">
+    <div *ngFor="let order of orders | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
+      <div class="card">
+        <div class="row p-3">
+            <!-- Large Screen (4 columns) -->
+            <div  class="col-md-6 col-lg-3 col-sm-12 text-center">
+              <h5 class="card-title mb-3"><strong>Tourguide: <br></strong> {{order.tourguide_name}}</h5>
+              <img [src]="order.tourguide_avatar" alt="{{ order.tourguide_name }}" class="card-img-top mx-auto rounded-circle"  style="width: 100px; height: 100px" />
+            </div>
+          
+            <div  class="col-md-6 col-lg-3 col-sm-12">
+                <div class="card-body">
+                    <p class="card-text"><strong>Start Date:</strong> {{ order.startDate }}</p>
+                    <p class="card-text"><strong>End Date:</strong> {{ order.endDate }}</p>
+                    <p class="card-text"><strong>Destination:</strong> {{ order.city }}</p>
+                </div>
+            </div>
+            <div  class="col-md-6 col-lg-3 col-sm-12">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Additional Notes:</strong> {{order.comment}}</h5>
+
+              </div>
+          </div>
+            <div  class="col-md-6 col-lg-3 col-sm-12">
+                <div class="card-body">
+                    <p class="card-text"><strong>Status:</strong> {{ order.status }}</p>
+                    <p class="card-text"><strong>totalPrice:</strong> {{ order.totalPrice | currency}}</p>
+                    <button class="btn btn-dark btn-lg mt-3" *ngIf="order.status === 'accepted'" (click)="goToGuideDetails(order.id)">
+                      <i class="far fa-credit-card"></i> Payment
+                    </button>                </div>
+            </div>
+    
+        </div>
+    </div>
+    
+      <!-- <div class="card mb-3 fade-in shadow">
         <div class="row justify-content-center g-0">
           <div class="col-md-4 text-center pt-5">
-            <img [src]="order.tourguide_avatar" alt="{{ order.tourguide_name }}" class="card-img-top mx-auto w-75 h-75 rounded-circle" />
+            <img [src]="order.tourguide_avatar" alt="{{ order.tourguide_name }}" class="card-img-top mx-auto rounded-3" style="width: 90%; height: 120px"/>
           </div>
           <div class="col-md-8">
             <div class="card-body mt-4">
@@ -29,14 +62,14 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div class="text-center fs-4 mt-3">
       <pagination-controls (pageChange)="scrollToTop($event)"></pagination-controls>
     </div>
   </div>
-  <div class="mt-5 text-center" *ngIf="!orders.length">
+  <div class="mt-5 text-center" *ngIf="!orders?.length">
       <h2 class="pt-5" style="font-size: 2em; color: #999">
         you don't have any booking order yet.
 

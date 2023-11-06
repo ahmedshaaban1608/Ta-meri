@@ -55,7 +55,6 @@ export class TourguideEditComponent implements OnInit {
     }
 
     const mergedData = { ...this.tourguide, ...tourguideForm.value };
-    console.log(mergedData);
 
   
     mergedData.languages = this.selectedLanguages;
@@ -79,7 +78,6 @@ export class TourguideEditComponent implements OnInit {
 
     this.guidesApiService.updateTourGuide(this.tourguide.id, mergedData).subscribe(
       (updatedTourguide: any) => {
-        console.log('Tour guide updated successfully:', updatedTourguide);
       },
       (error: any) => {
         console.error('Failed to update tour guide:', error);

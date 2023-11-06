@@ -31,10 +31,8 @@ export class ContactusComponent {
   onSubmit() {
     if (this.sendMessage.valid) {
       this.formSubmitted = true;
-      console.log(this.sendMessage.value);
       this.sendMessage.reset();
     } else {
-      console.log('Form is invalid. Please fill all the required fields.');
     }
   }
 }

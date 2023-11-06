@@ -1,4 +1,10 @@
-<div class="container">
+<div class="border p-3 rounded-3 shadow-lg py-5 my-5 bg-white" *ngIf="BookingSubmitted">
+  <div class="text-center text-success">
+  <h2 class="text-primary">Thank you</h2>
+   <h4>We have submitted an order request to the tour guide.<br>You will receive an email notification once the tour guide has accepted it.</h4>
+  </div>
+  </div>
+<div class="container" *ngIf="!BookingSubmitted">
   <form
     class="col-md-6 bg-white w-100"
     [formGroup]="BookingForm"

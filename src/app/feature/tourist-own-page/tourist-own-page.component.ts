@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ToursitDetailsService } from '../services/toursit-details.service';
 import { ActivatedRoute } from '@angular/router';
 import { AccountsApiService } from 'src/app/auth/services/accounts-api.service';
@@ -9,20 +9,27 @@ import { AccountsApiService } from 'src/app/auth/services/accounts-api.service';
   styleUrls: ['./tourist-own-page.component.css']
 })
 export class TouristOwnPageComponent {
+  changeData(updatedData: any) {
+    console.log(updatedData);
+    
+    // Handle the updated data received from the child component
+    this.tourist = updatedData;
+  }
 
-  tourist: any = [];
-  activeTab: string = 'details';
+
+  tourist!: any
+  activeTab: string = 'order';
+
 
   constructor(private route: ActivatedRoute,
-    private touristDetailsService: ToursitDetailsService,  private auth: AccountsApiService) {}
+    private touristService: ToursitDetailsService,  private auth: AccountsApiService, cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     const id = this.auth.getUser().id;
     if (id) {
-      this.touristDetailsService.getDetailsById(+id).subscribe((tourist: any) => {
-        console.log(tourist);
-        
+      this.touristService.getDetailsById(+id).subscribe((tourist: any) => {     
         this.tourist = tourist;
+        
       });
     }
   }

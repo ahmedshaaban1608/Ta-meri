@@ -10,7 +10,7 @@ import { AccountsApiService } from 'src/app/auth/services/accounts-api.service';
   styleUrls: ['./feedback.component.css'],
 })
 export class FeedbackComponent {
-  @Input() id!: number;
+  @Input() id!: number; 
   usersForm: FormGroup;
   errors: any[] = [];
   reviewSubmitted: boolean = false;
@@ -35,7 +35,7 @@ export class FeedbackComponent {
     this.reviewSubmitted = false;
   }
   getUserFormData(data: any) {
- 
+    this.errors = [];
 if(!this.auth.isAuthenticated()){
   this.errors.push('You should log in to add a review')
   return;
@@ -51,12 +51,11 @@ if(!this.auth.isAuthenticated()){
         } 
       },
       (error) => {
-        console.log(error);
         
         this.errors.push('An error occurred, please try again later.')
       });
     } else{
-      this.errors.push('Only tourists are allowed to create reviews.')
+      this.errors.push('Only tourists are allowed to make orders.')
     }
     return;
     }

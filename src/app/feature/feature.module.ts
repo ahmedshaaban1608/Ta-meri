@@ -77,7 +77,7 @@ const routes: Routes = [];
     ReactiveFormsModule,
     NgbDatepickerModule,
     NgxPaginationModule,
-    NgbAlertModule
+    NgbAlertModule,
   ],
 })
 export class FeatureModule {
