@@ -85,10 +85,10 @@
                 </div>
               </div>
             </div>
-            <div class="border-top">
+            <div class="border-top" *ngIf="tourguide.areas?.length">
               <div class="d-flex mt-3 ms-3">
                 <i class="fa-solid fa-location-dot me-3 text-danger fs-3"></i>
-                <div *ngIf="tourguide.areas?.length">
+                <div >
                   <h5>Available Areas</h5>
                   <span
                     class="badge bg-light text-dark border shadow-light p-2 me-2 mb-2"
@@ -99,10 +99,10 @@
                 </div>
               </div>
             </div>
-            <div class="border-top mt-2">
+            <div class="border-top mt-2" *ngIf="tourguide.languages?.length">
               <div class="d-flex mt-3 ms-3">
                 <i class="fa-regular fa-comments me-3 text-danger fs-3"></i>
-                <div *ngIf="tourguide.languages?.length">
+                <div >
                   <h5>Languages</h5>
                   <span
                     class="badge bg-light text-dark border shadow-light p-2 me-2 mb-2"

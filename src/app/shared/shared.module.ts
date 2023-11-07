@@ -13,6 +13,7 @@ import { HotelCardComponent } from './hotel-card/hotel-card.component';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { PaginationComponent } from './pagination/pagination.component';
 import { NotifyComponent } from './notify/notify.component';
+import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NotifyComponent } from './notify/notify.component';
     HotelCardComponent,
     PaginationComponent,
     NotifyComponent,
+    DeleteConfirmComponent,
   ],
   imports: [CommonModule, RouterModule, NgbRatingModule],
   exports: [
@@ -37,7 +39,8 @@ import { NotifyComponent } from './notify/notify.component';
     BreadcrumbComponent,
     CounterComponent,
     HotelCardComponent,
-    PaginationComponent
+    PaginationComponent,
+    DeleteConfirmComponent
   ],
 })
 export class SharedModule {}

@@ -85,14 +85,55 @@ private myId = this.auth.getUser().id
       })
     );
   }
-  
-  // FeedbackApiService
-  // private feedbackApiUrl = 'https://retoolapi.dev/IrJhOE/data';
+  StoreTourGuideArea(data: any): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/areas/`, data, { headers: this.headers, observe: 'response' }).pipe(
+      map((response: any) => {        
+        this.tourguide.next(response.body);        
+        return this.tourguide['_value'];
+      }),
+      catchError((error: any) => {
+        console.error('Error updating profile:', error);
+        return throwError(error);
+      })
+    );
+  }
 
-  // users() {
-  //   return this.http.get(this.feedbackApiUrl);
-  // }
+  StoreTourGuideLanguage(data: any): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/languages/`, data, { headers: this.headers, observe: 'response' }).pipe(
+      map((response: any) => {        
+        this.tourguide.next(response.body);        
+        return this.tourguide['_value'];
+      }),
+      catchError((error: any) => {
+        console.error('Error updating profile:', error);
+        return throwError(error);
+      })
+    );
+  }
 
+  DeleteTourGuideArea(id: number): Observable<any> {
+    return this.http.delete(`${environment.apiUrl}/areas/${id}`, { headers: this.headers, observe: 'response' }).pipe(
+      map((response: any) => {        
+        this.tourguide.next(response.body);        
+        return this.tourguide['_value'];
+      }),
+      catchError((error: any) => {
+        console.error('Error updating profile:', error);
+        return throwError(error);
+      })
+    );
+  }
 
-
+  DeleteTourGuideLanguage(id: number): Observable<any> {
+    return this.http.delete(`${environment.apiUrl}/languages/${id}`, { headers: this.headers, observe: 'response' }).pipe(
+      map((response: any) => {        
+        this.tourguide.next(response.body);        
+        return this.tourguide['_value'];
+      }),
+      catchError((error: any) => {
+        console.error('Error updating profile:', error);
+        return throwError(error);
+      })
+    );
+  }
 }

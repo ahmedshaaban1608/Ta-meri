@@ -1,9 +1,11 @@
-<div class="container">
-  <form
+<div class="container mt-5">
+ <div class="row">
+  <div class="col-lg-6 mb-4">
+    <form
     [formGroup]="updateForm"
     (ngSubmit)="updateSubmited()"
-    class="border p-3 rounded-3 shadow-lg bg-white m-auto"
-    style="max-width: 600px"
+    class="border p-3 rounded-3 shadow-lg bg-white"
+
   >
 
     <div class="row">
@@ -233,4 +235,106 @@
 
 
   </form>
+  </div>
+  <div class="col-lg-6">
+<div class="row">
+  <div class="col-md-6 mb-4">
+    <div class="border p-3 rounded-3 shadow-lg bg-white">
+    <form
+    [formGroup]="updateArea"
+    (ngSubmit)="areaSubmited()">
+  <h3 class="text-center">Areas</h3>
+  <div class="row">
+    <div class="col mb-3">
+      <select class="form-select" id="area" formControlName="area">
+        <option value="" disabled selected>Select Area</option>
+        <option *ngFor="let area of areas" value="{{area}}">{{area}}</option>
+        
+      </select>
+ 
+    
+      <div class="row mt-3">
+        <div class="col">
+          <div class="d-grid">
+            <button
+              type="submit"
+              [disabled]="updateArea.invalid"
+              class="btn btn-primary"
+         
+            >
+             Update Area
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="row mb-3">
+  <div class="col">
+  <ngb-alert [type]= "updateAreaAlert? 'success' : 'warning'"[dismissible]="false" *ngFor="let error of areaError">
+   {{error}}
+  </ngb-alert>
+</div>
+</div>
+<table class="w-100 table table-striped">
+  <tbody>
+<tr class="fw-bold" *ngFor="let area of tourguide.areas">
+  <td class="py-2">{{area.area}}</td>
+  <td class="text-end"><i class="fa-solid fa-trash text-danger " data-bs-toggle="modal" data-bs-target="#areaModel" (click)="onDeleteArea(area.id)"></i></td>
+</tr>
+</tbody>
+</table>
+</div>
+ </div>
+    <div class="col-md-6 mb-4">
+      <div class="border p-3 rounded-3 shadow-lg bg-white">
+      <form
+      [formGroup]="updateLanguage"
+      (ngSubmit)="languageSubmited()">
+    <h3 class="text-center">Languages</h3>
+    <div class="row">
+      <div class="col mb-3">
+        <select class="form-select" id="language" formControlName="language">
+          <option value="" disabled selected>Select Language</option>
+          <option *ngFor="let language of languages" value="{{language}}">{{language}}</option>
+          
+        </select>
+        <div class="row">
+          <div class="col mt-3">
+            <div class="d-grid">
+              <button
+                type="submit"
+                [disabled]="updateLanguage.invalid"
+                class="btn btn-primary"
+           
+              >
+               Update Language
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="row mb-3">
+    <div class="col">
+    <ngb-alert [type]= "updateLanguageAlert? 'success' : 'warning'"[dismissible]="false" *ngFor="let error of languageError">
+     {{error}}
+    </ngb-alert>
+  </div>
+  </div>
+  <table class="w-100 table table-striped">
+    <tbody>
+  <tr class="fw-bold" *ngFor="let language of tourguide.languages">
+    <td class="py-2">{{language.language}}</td>
+    <td class="text-end"><i class="fa-solid fa-trash text-danger " data-bs-toggle="modal" data-bs-target="#languageModel" (click)="onDeleteLanguage(language.id)"></i></td>
+  </tr>
+  </tbody>
+  </table>
+      </div>
+    </div>
+</div>
+  </div>
+ </div>
 </div>

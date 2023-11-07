@@ -78,6 +78,7 @@ const routes: Routes = [];
     NgbDatepickerModule,
     NgxPaginationModule,
     NgbAlertModule,
+    
   ],
 })
 export class FeatureModule {
