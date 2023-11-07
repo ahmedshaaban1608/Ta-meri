@@ -1,13 +1,16 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
+import { AccountsApiService } from 'src/app/auth/services/accounts-api.service';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TourguideApiService {
+  tourguide: BehaviorSubject<any> = new BehaviorSubject<any>({});
  public areas: string[] = [
     "Cairo",
     "Giza",
@@ -46,11 +49,19 @@ export class TourguideApiService {
     'Bengali',
     'Farsi (Persian)',
 ];
-  constructor(private http: HttpClient) {}
+
+private token = this.auth.getUser().token
+headers = new HttpHeaders({
+  'Authorization': `Bearer ${this.token}`,
+  'Accept': 'application/json'
+  
+});
+private myId = this.auth.getUser().id
+  constructor(private http: HttpClient ,private auth: AccountsApiService) {}
   url = `${environment.apiUrl}/tourguides`;
   
   getAllTourguides(): Observable<any> {
-    return this.http.get(`${this.url}`);
+    return this.http.get(`${this.url}`); 
   }
   
   getTourGuideById(id: number): Observable<any> {
@@ -61,9 +72,18 @@ export class TourguideApiService {
     return this.http.post(`${this.url}/search`,data);
   }
   
-  updateTourGuide(id: string, data: any): Observable<any> {
-    const tourGuideUrl = `${this.url}/${id}`;
-    return this.http.put(tourGuideUrl, data);
+  updateTourGuide(data: any): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/tourguides/${this.myId}`, data, { headers: this.headers, observe: 'response' }).pipe(
+      map((response: any) => {
+        
+        this.tourguide.next(response.body);        
+        return this.tourguide['_value'];
+      }),
+      catchError((error: any) => {
+        console.error('Error updating profile:', error);
+        return throwError(error);
+      })
+    );
   }
   
   // FeedbackApiService

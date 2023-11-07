@@ -111,6 +111,7 @@ export class ToursitDetailsComponent{
   ];
   updateForm: FormGroup;
   file!: File;
+  updateAlert: boolean= false;
 
   constructor(private formBuilder: FormBuilder, private auth: ToursitDetailsService) {
     this.updateForm = this.formBuilder.group({
@@ -145,11 +146,11 @@ this.updateForm.patchValue({
 formData = new FormData();
 
   updateSubmited() {
+    this.updateAlert = false;
     this.errors = []
     this.updateForm.markAllAsTouched();
 
     if (this.updateForm.valid) {    
-     let formData = new FormData();
      this.formData.append('name', this.updateForm.controls['name'].value);
      this.formData.append('phone', this.updateForm.controls['phone'].value);
      this.formData.append('_method', 'PUT');
@@ -157,12 +158,13 @@ formData = new FormData();
      
       this.auth.updateProfile(this.formData).subscribe(
         (data) => {    
-     
+          this.updateAlert = true;
           this.updated.emit(data);
-           
+          this.errors.push('Data is updated successfully');
           
         },
-        (error) => {         
+        (error) => {       
+          this.updateAlert = false;  
           console.log(error);
            
           if (error.status === 422) {
@@ -171,7 +173,7 @@ formData = new FormData();
               this.errors.push(error[0]);
             });
           } else {
-            this.errors.push('An error occurred while creating the account, please try again later.')
+            this.errors.push('An error occurred while updating, please try again later.')
           }
          
           

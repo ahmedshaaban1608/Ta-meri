@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TourguideApiService } from '../services/guides-api.service';
-import { Ireview } from '../interface/ireview';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { AccountsApiService } from 'src/app/auth/services/accounts-api.service';
@@ -17,7 +16,6 @@ export class TourguideOwnPageComponent {
   constructor(
     private tourguideApi: TourguideApiService,
     private titleService: Title,
-    private activateRoute: ActivatedRoute,
     private auth: AccountsApiService
   ) {}
   showMore: boolean = false;
@@ -34,7 +32,11 @@ export class TourguideOwnPageComponent {
       });
     }
   }
-
+  changeData(updatedData: any) { 
+    this.tourguide = updatedData? updatedData :  this.tourguide;
+    console.log(updatedData);
+    
+    }
 
   scrollToTop(pageNumber: number) {
     this.p = pageNumber; // Update the current page number

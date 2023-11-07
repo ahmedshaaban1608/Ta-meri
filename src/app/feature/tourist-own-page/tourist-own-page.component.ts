@@ -9,9 +9,7 @@ import { AccountsApiService } from 'src/app/auth/services/accounts-api.service';
   styleUrls: ['./tourist-own-page.component.css']
 })
 export class TouristOwnPageComponent {
-  changeData(updatedData: any) {
-    console.log(updatedData);
-    
+  changeData(updatedData: any) { 
   this.tourist = updatedData? updatedData :  this.tourist;
   }
 

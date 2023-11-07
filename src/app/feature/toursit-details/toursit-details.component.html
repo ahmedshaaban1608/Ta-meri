@@ -90,9 +90,9 @@
    </div>
       <div class="row">
         <div class="col">
-        <ngb-alert [dismissible]="false" *ngFor="let error of errors">
-          <strong>Warning!</strong> {{error}}
-        </ngb-alert>
+          <ngb-alert [type]= "updateAlert? 'success' : 'warning'"[dismissible]="false" *ngFor="let error of errors">
+            {{error}}
+           </ngb-alert>
       </div>
       </div>
       <div class="row">
