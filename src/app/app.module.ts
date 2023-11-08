@@ -39,6 +39,7 @@ import { AuthGuard } from './guard/auth.guard';
     AuthModule,
     StaticModule,
     BrowserAnimationsModule,
+    
 
 
   ],

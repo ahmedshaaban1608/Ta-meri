@@ -8,14 +8,14 @@
           class="btn btn-link text-light fs-5 text-decoration-none d-none d-md-block"
           href="mailto:info@ta-meri.com"
         >
-          info@ta-meri.com
+          {{email}}
         </a>
         <i class="ms-3 fas fa-envelope d-none d-lg-block"></i>
         <a
           class="btn btn-link text-light fs-5 text-decoration-none d-none d-lg-block"
           href="mailto:support@ta-meri.com"
         >
-          support@ta-meri.com
+          {{email2}}
         </a>
         <div class="d-none d-lg-block">
           <i class="p-2 ms-3 me-2 fab fa-facebook-f"></i>
@@ -45,7 +45,7 @@
 
 <!-- main header -->
 <header
-  class="bg-white navbar-light sticky-top pb-3 pe-2 pe-lg-5 py-lg-0 mb-0 d-flex align-items-center justify-content-between"
+  class="bg-white navbar-light sticky-top pb-3 pe-2 pe-lg-5 py-lg-0 mb-0 d-flex justify-content-between position-relative"
   style="z-index: 999"
 >
   <nav class="navbar navbar-expand-lg flex-grow-1">
@@ -131,7 +131,7 @@
   </nav>
   <a
     routerLink="search"
-    class="ms-2 btn btn-secondary py-1 d-lg-none"
+    class="ms-2 btn btn-secondary py-1 d-lg-none mt-4"
     style="width: 40px; height: 40px"
     ><i class="fas fa-search mt-2 p-0"></i
   ></a>
