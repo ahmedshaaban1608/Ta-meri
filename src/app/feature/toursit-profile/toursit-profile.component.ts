@@ -22,7 +22,7 @@ export class ToursitProfileComponent{
 
 
   goToGuideDetails(id: number): void {
-    this.router.navigate(['tourguides', id]);
+    // this.router.navigate(['tourguides', id]);
   }
   scrollToTop(pageNumber: number) {
     this.p = pageNumber; // Update the current page number

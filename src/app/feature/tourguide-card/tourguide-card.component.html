@@ -31,8 +31,8 @@
     <p class="card-text mt-3 hotel-text">
       {{ tourGuide?.description }}
     </p>
-      <p class="card-text fs-5 fw-medium mb-0" *ngIf="tourGuide?.languages.length">
-        <i class="fas fa-globe text-success me-2"></i>Languages: <span
+      <p class="card-text fs-6 fw-medium mb-0" *ngIf="tourGuide?.languages.length">
+        <i class="fas fa-globe text-success me-2"></i>Languages ({{tourGuide?.languages.length}}) <span
         class="badge bg-light text-dark border shadow-light p-2 me-2 mb-2"
         *ngFor="let item of slicedLanguages"
       >
