@@ -122,7 +122,7 @@
       <app-tourguide-edit [tourguide] = "tourguide" (updated)="changeData($event)"></app-tourguide-edit>
     </div>
     <div class="tab-pane fade" id="pills-orders" role="tabpanel" aria-labelledby="pills-orders-tab">
-      <app-tourguide-bookorder-list [orders]="tourguide.orders"></app-tourguide-bookorder-list>
+      <app-tourguide-bookorder-list [orders]="tourguide.orders" (updated)="changeData($event)"></app-tourguide-bookorder-list>
     </div>
   </div>
   

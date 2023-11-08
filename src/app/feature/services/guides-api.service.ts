@@ -136,4 +136,29 @@ private myId = this.auth.getUser().id
       })
     );
   }
+
+  AcceptTourGuideOrder(id: number): Observable<any> {
+    return this.http.put(`${environment.apiUrl}/orders/${id}`,{"status":"accepted"}, { headers: this.headers, observe: 'response' }).pipe(
+      map((response: any) => {        
+        this.tourguide.next(response.body);        
+        return this.tourguide['_value'];
+      }),
+      catchError((error: any) => {
+        console.error('Error updating profile:', error);
+        return throwError(error);
+      })
+    );
+  }
+  RejectTourGuideOrder(id: number): Observable<any> {
+    return this.http.put(`${environment.apiUrl}/orders/${id}`,{"status":"rejected"}, { headers: this.headers, observe: 'response' }).pipe(
+      map((response: any) => {        
+        this.tourguide.next(response.body);        
+        return this.tourguide['_value'];
+      }),
+      catchError((error: any) => {
+        console.error('Error updating profile:', error);
+        return throwError(error);
+      })
+    );
+  }
 }

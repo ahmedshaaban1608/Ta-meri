@@ -1,34 +1,56 @@
+<a name="contentTop"></a>
+<div class="container orders mb-5">
+  <div class="row g-3" *ngIf="orders?.length">
+    <div *ngFor="let order of orders | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
+      <div class="card">
+        <div class="row p-3">
+            <!-- Large Screen (4 columns) -->
+            <div  class="col-md-6 col-lg-3 col-sm-12 text-center">
+              <h5 class="card-title mb-3"><strong>Tourist <br></strong> {{order.tourist_name}}</h5>
+              <img [src]="order.tourist_avatar" alt="{{ order.tourist_name }}" class="card-img-top mx-auto rounded-circle"  style="width: 100px; height: 100px" />
+            </div>
+          
+            <div  class="col-md-6 col-lg-3 col-sm-12">
+                <div class="card-body">
+                    <p class="card-text"><strong>Start Date:</strong> {{ order.startDate }}</p>
+                    <p class="card-text"><strong>End Date:</strong> {{ order.endDate }}</p>
+                    <p class="card-text"><strong>Destination:</strong> {{ order.city }}</p>
+                </div>
+            </div>
+            <div  class="col-md-6 col-lg-3 col-sm-12">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Additional Notes:</strong> {{order.comment}}</h5>
 
-<div class="container mt-5">
-<div class="table-responsive">
-  <table class="table mt-3 table-striped table-bordered">
-    <thead class="thead-dark">
-      <tr>
-        <th >Tourist</th>
-        <th>Start Date</th>
-        <th>End Data</th>
-        <th>Destination</th>
-        <th>Total Price</th>
-        <th style="width: 200px!important;">Comment</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let row of orders">
-        <td>{{ row.tourist_name }}</td>
-        <td>{{ row.startDate }}</td>
-        <td>{{ row.endDate }}</td>
-        <td>{{ row.city }}</td>
-        <td>{{ row.totalPrice }}</td>
-        <td>{{ row.comment }}</td>
-        <td>
-          <button (click)="acceptBooking(row.id)" class="btn btn-info">Accept</button>
-          <button (click)="rejectBooking(row.id)" class="btn btn-danger mx-3">Reject</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
+              </div>
+          </div>
+            <div  class="col-md-6 col-lg-3 col-sm-12">
+                <div class="card-body">
+                    <p class="card-text"> <strong>Status:</strong> {{ order.status }} </p>
+                    <p class="card-text"> <strong>totalPrice:</strong> {{ order.totalPrice | currency}} </p>
+                  <div *ngIf="order.status === 'pending'">
+                    <button class="btn btn-success me-2" (click)="acceptOrder(order.id)">Accept</button>
+                    <button class="btn btn-warning" (click)="rejectOrder(order.id)">Reject</button>
 
-  
+                    <ngb-alert [dismissible]="false" *ngFor="let error of errors" class="mt-3">
+                      {{error}}
+                     </ngb-alert>
+                  </div>
+                  </div>
+            </div>
+    
+        </div>
+    </div>
+    </div>
+
+    <div class="text-center fs-4 mt-3">
+      <pagination-controls (pageChange)="scrollToTop($event)"></pagination-controls>
+    </div>
+  </div>
+  <div class="mt-5 text-center" *ngIf="!orders?.length">
+      <h2 class="pt-5" style="font-size: 2em; color: #999">
+        you don't have any booking order yet.
+
+      </h2>
+    </div>
+  </div>
+
