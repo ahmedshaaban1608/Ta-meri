@@ -2,7 +2,7 @@
 
 <div class="container tourguideResult">
   <div class="row g-3">
-    <div class="col-md-4" *ngFor="let tourGuide of guides  | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
+    <div class="col-md-6 col-lg-4" *ngFor="let tourGuide of guides  | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
 <app-tourguide-card [tourGuide]="tourGuide"></app-tourguide-card>
     </div>
     <div class="text-center fs-4 mt-3">

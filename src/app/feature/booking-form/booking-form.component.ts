@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToursitDetailsService } from '../services/toursit-details.service';
@@ -21,23 +21,25 @@ export class BookingFormComponent {
 errors: string[] = [];
 from!: string;
 to: string = '';
-  defaultCity: string[] = [
-    "Cairo",
-    "Giza",
-    "Luxor",
-    "Aswan",
-    "Alexandria",
-    "Sharm El Sheikh",
-    "Hurghada",
-    "Dahab",
-    "Siwa Oasis",
-    "Marsa Alam",
-    "Abu Simbel",
-    "El Minya",
-    "Ismailia",
-    "Port Said",
-    "Taba",
+  defaultCity: any[] = [
+    {area:"Cairo"},
+    {area:"Giza"},
+    {area:"Luxor"},
+    {area:"Aswan"},
+    {area:"Alexandria"},
+    {area:"Sharm El Sheikh"},
+    {area:"Hurghada"},
+    {area:"Dahab"},
+    {area:"Siwa Oasis"},
+    {area:"Marsa Alam"},
+    {area:"Abu Simbel"},
+    {area:"El Minya"},
+    {area:"Ismailia"},
+    {area:"Port Said"},
+    {area:"Taba"},
   ];
+  cities:any[] = []
+  isSubmited: boolean = false
   BookingSubmitted: boolean = false;;
   constructor(private fb: FormBuilder, private calendar: NgbCalendar,   private apiService:ToursitDetailsService,
     private auth: AccountsApiService,) {
@@ -65,8 +67,12 @@ to: string = '';
   }
 
 ngOnInit(){
-  this.areas = this.areas && this.areas.length? this.areas: this.defaultCity;
   this.BookingSubmitted = false;
+}
+ngOnChanges(changes: SimpleChanges) {
+  if (changes['areas'] && changes['areas'].currentValue) {
+  this.cities = this.areas && this.areas.length? this.areas: this.defaultCity;
+}
 }
   onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {
@@ -88,7 +94,10 @@ ngOnInit(){
   }
   
   BookSubmitted() {
+    this.isSubmited = true
     this.errors = [];
+    this.errors.push('sending request...')
+
     this.to = this.to ? this.to : this.from
 
     this.BookingForm.markAllAsTouched();
@@ -108,15 +117,18 @@ ngOnInit(){
           } 
         },
         (error) => {
+          this.isSubmited = false
+          this.errors = [];
+          console.log(error);
           
           if (error.status === 401) {
             this.errors.push(error.error.message);
         } else {         
-          this.errors.push('An error occurred while creating the account, please try again later.')
+          this.errors.push('An error occurred while making the order, please try again later.')
         }
         });
       } else{
-        this.errors.push('Only tourists are allowed to create reviews.')
+        this.errors.push('Only tourists are allowed to create order.')
       }
       return;
   }

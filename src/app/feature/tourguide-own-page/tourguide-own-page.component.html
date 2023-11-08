@@ -33,7 +33,7 @@
       <div class="row">
         <div class="col-md-8 mt-4">
           <div>
-      
+            <h2 class="mb-3">About</h2>
             <div
               [innerHTML]="tourguide.description"
               [class.showmore]="!showMore"
@@ -50,8 +50,7 @@
           <a name="contentTop"></a>
           <div class="mt-5 reviews">
             <h2 class="mb-3">Reviews</h2>
-            <app-feedback [id]="id"></app-feedback>
-            <div class="text-center text-black-50 my-5" *ngIf="!tourguide.reviews?.length ">
+            <div class="text-center text-black-50" *ngIf="!tourguide.reviews?.length ">
               <h3>{{ tourguide.name }} has no any reviews yet</h3>
             </div>
             <ng-container *ngIf="tourguide.reviews?.length">

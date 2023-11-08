@@ -18,21 +18,27 @@ export class TourguideBookorderListComponent {
   errors: string[] = [];
   p: number = 1;
   itemsPerPage: number = 6;
+  alertID!:number
   constructor(private guidesApiService: TourguideApiService,
     private modalService: NgbModal) {}
 
 
-    acceptOrder(id:number){
+acceptOrder(id:number){
 this.errors = [];
+this.alertID = id
 const modalRef = this.modalService.open(DeleteConfirmComponent);
 modalRef.result.then(
   (result) => {
     if (result === 'confirm') {
+      this.errors.push('updating...')
       this.guidesApiService.AcceptTourGuideOrder(id).subscribe(
         (data) => {    
       this.updated.emit(data);  
         },
         (error) => {
+          console.log(error);
+          
+          this.errors = [];
           if (error.status === 422) {
             const errors = Object.values(error.error.errors)
             errors.forEach((error:any) => {
@@ -49,17 +55,21 @@ modalRef.result.then(
 );
     }
     rejectOrder(id:number){
+      this.alertID = id
+      this.errors = [];
       
-this.errors = [];
 const modalRef = this.modalService.open(DeleteConfirmComponent);
 modalRef.result.then(
   (result) => {
     if (result === 'confirm') {
+      this.errors.push('updating...')
       this.guidesApiService.RejectTourGuideOrder(id).subscribe(
         (data) => {    
       this.updated.emit(data);  
         },
         (error) => {
+          console.log(error);
+          this.errors = [];
           if (error.status === 422) {
             const errors = Object.values(error.error.errors)
             errors.forEach((error:any) => {

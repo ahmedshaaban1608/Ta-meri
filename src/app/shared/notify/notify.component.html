@@ -1,19 +1,26 @@
 <div class="container">
   <div class="text-center">
-    <h2 class="py-5" style="font-size: 2.5em; color: #999" [ngSwitch]="notify">
+    <h2 class="py-5 " style="font-size: 2em; color: #999" [ngSwitch]="notify">
       
       <span *ngSwitchCase="'tourist-signup'">
         Thank you for creating a tourist account <br />
         
-        <a routerLink ="/login" class="btn btn-primary fw-bold">Login Now</a>
+        <a  routerLink ="/login" class=" mt-3 btn btn-primary fw-bold">Login Now</a>
       </span>
       <span *ngSwitchCase="'tourguide-signup'">
         Thank you for creating a tourguide account <br />
         
-        <a routerLink ="/login" class="btn btn-primary fw-bold">Login Now</a>
+        <a  routerLink ="/login" class=" mt-3 btn btn-primary fw-bold">Login Now</a>
+      </span>
+      <span *ngSwitchCase="'contact'">
+        Thank you for reaching out to us!<br />
+        We've received your message and will get back to you as soon as possible.
+        <br />
+        
+        <a  routerLink ="/" class=" mt-3 btn btn-primary fw-bold">Back to Homepage</a>
       </span>
       <span *ngSwitchDefault>
-        <a routerLink ="/" class="btn btn-primary fw-bold">Back to Homepage</a>
+        <a  routerLink ="/" class=" mt-3 btn btn-primary fw-bold">Back to Homepage</a>
       </span>
     </h2>
   </div>
