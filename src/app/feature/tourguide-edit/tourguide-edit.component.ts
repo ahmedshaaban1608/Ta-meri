@@ -126,6 +126,7 @@ export class TourguideEditComponent{
       this.errors.push('Data is updated successfully');
         },
         (error) => {
+          console.log(error);
           this.updateAlert = false;
           if (error.status === 422) {
             const errors = Object.values(error.error.errors)
@@ -133,6 +134,8 @@ export class TourguideEditComponent{
               this.errors.push(error[0]);
             });
           } else {
+            
+            
             this.errors.push('An error occurred while updating, please try again later.')
           }
         }
