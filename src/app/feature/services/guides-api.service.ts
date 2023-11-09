@@ -57,8 +57,9 @@ headers = new HttpHeaders({
   
 });
 private myId = this.auth.getUser().id
+private  url = `${environment.apiUrl}/tourguides`;
   constructor(private http: HttpClient ,private auth: AccountsApiService) {}
-  url = `${environment.apiUrl}/tourguides`;
+ 
   
   getAllTourguides(): Observable<any> {
     return this.http.get(`${this.url}`); 
@@ -148,7 +149,7 @@ private myId = this.auth.getUser().id
         return throwError(error);
       })
     );
-  }
+  }   
   RejectTourGuideOrder(id: number): Observable<any> {
     return this.http.put(`${environment.apiUrl}/orders/${id}`,{"status":"rejected"}, { headers: this.headers, observe: 'response' }).pipe(
       map((response: any) => {        
