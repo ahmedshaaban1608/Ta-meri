@@ -1,5 +1,5 @@
 <a name="contentTop"></a>
-<div class="container orders mb-5">
+<div class="container orders mb-5" *ngIf="orders?.length">
   <div class="row g-3" *ngIf="orders?.length">
     <div *ngFor="let order of orders | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
       <div class="card">
@@ -58,4 +58,8 @@
       </h2>
     </div>
   </div>
+</div>
 
+  <div class="text-center text-black-50 my-5" *ngIf="!orders?.length ">
+    <h2>You don't have any orders yet</h2>
+  </div>
