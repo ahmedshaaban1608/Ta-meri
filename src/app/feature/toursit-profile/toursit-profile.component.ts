@@ -3,6 +3,7 @@ import { ToursitDetailsService } from '../services/toursit-details.service';
 import { TourGuide } from '../interface/tour-guide';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -21,8 +22,9 @@ export class ToursitProfileComponent{
   constructor(private router:Router) {}
 
 
-  goToGuideDetails(id: number): void {
-    // this.router.navigate(['tourguides', id]);
+  goToPaymentDetails(id: number): void {
+    // this.router.navigate([environment.backEndUrl, id]);
+    window.location.href = `${environment.backEndUrl}/orderpayment/${id}`
   }
   scrollToTop(pageNumber: number) {
     this.p = pageNumber; // Update the current page number

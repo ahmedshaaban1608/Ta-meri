@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TourguideApiService } from '../services/guides-api.service';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AccountsApiService } from 'src/app/auth/services/accounts-api.service';
 
 @Component({
@@ -16,7 +16,8 @@ export class TourguideOwnPageComponent {
   constructor(
     private tourguideApi: TourguideApiService,
     private titleService: Title,
-    private auth: AccountsApiService
+    private auth: AccountsApiService,
+    private router: Router
   ) {}
   showMore: boolean = false;
   toggleDescriptionDisplay() {

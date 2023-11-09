@@ -27,9 +27,13 @@
                 <div class="card-body">
                     <p class="card-text"><strong>Status:</strong> {{ order.status }}</p>
                     <p class="card-text"><strong>totalPrice:</strong> {{ order.totalPrice | currency}}</p>
-                    <button class="btn btn-dark btn-lg mt-3" *ngIf="order.status === 'accepted'" (click)="goToGuideDetails(order.id)">
+                    <button class="btn btn-dark btn-lg mt-3" *ngIf="order.status === 'accepted' && order.payment === 'pending'" (click)="goToPaymentDetails(order.id)">
                       <i class="far fa-credit-card"></i> Payment
-                    </button>                </div>
+                    </button>    
+                    <button class="btn btn-success btn-lg mt-3" *ngIf="order.status === 'accepted' && order.payment === 'paid'" >
+                     Paid
+                    </button> 
+                              </div>
             </div>
     
         </div>

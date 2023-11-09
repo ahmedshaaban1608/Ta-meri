@@ -27,13 +27,12 @@ export class HeaderComponent {
   }
 
   logout() {
+   
     this.auth.logout().subscribe(
       (data: HttpResponse<any>) => {    
         // Check the status code
         if (data.status === 200) {  
-          
           localStorage.removeItem('user');
-      
           this.router.navigate(['/login']);
         } 
       },

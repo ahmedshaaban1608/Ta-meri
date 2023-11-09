@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { ToursitDetailsService } from '../services/toursit-details.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AccountsApiService } from 'src/app/auth/services/accounts-api.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class TouristOwnPageComponent {
 
 
   constructor(private route: ActivatedRoute,
-    private touristService: ToursitDetailsService,  private auth: AccountsApiService, cdr: ChangeDetectorRef) {}
+    private touristService: ToursitDetailsService,  private auth: AccountsApiService, cdr: ChangeDetectorRef, private router : Router) {}
 
   ngOnInit() {
     const id = this.auth.getUser().id;

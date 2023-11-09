@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TourGuide } from '../interface/tour-guide';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 import { AccountsApiService } from 'src/app/auth/services/accounts-api.service';
 import { catchError } from 'rxjs/operators';
 

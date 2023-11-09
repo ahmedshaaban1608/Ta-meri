@@ -96,7 +96,6 @@ ngOnChanges(changes: SimpleChanges) {
   BookSubmitted() {
     this.isSubmited = true
     this.errors = [];
-    this.errors.push('sending request...')
 
     this.to = this.to ? this.to : this.from
 
@@ -107,6 +106,8 @@ ngOnChanges(changes: SimpleChanges) {
     }
     if(this.BookingForm.valid){
       if(this.auth.isTourist()){
+        this.errors = [];
+        this.errors.push('sending request...')
         this.apiService
         .bookTourguide({...this.BookingForm.value, tourguide_id: this.id, from: this.from, to: this.to})
         .subscribe((data: HttpResponse<any>) => {

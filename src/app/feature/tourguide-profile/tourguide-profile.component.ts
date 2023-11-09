@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { TourguideApiService } from '../services/guides-api.service';
 import { Ireview } from '../interface/ireview';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tourguide-profile',
@@ -16,6 +16,7 @@ export class TourguideProfileComponent {
     private tourguideApi: TourguideApiService,
     private titleService: Title,
     private activateRoute: ActivatedRoute,
+    private router : Router
   ) {}
   showMore: boolean = false;
   toggleDescriptionDisplay() {
@@ -31,6 +32,9 @@ export class TourguideProfileComponent {
       this.tourguideApi.getTourGuideById(this.id).subscribe(( data) => {
         this.tourguide =  data
         this.titleService.setTitle('Tour guide: ' + this.tourguide.name);
+      },(error)=>{
+        this.router.navigate(['/404']);
+
       });
     }
     // this.tourguideApi.getTourGuideReviews().subscribe((data) => {

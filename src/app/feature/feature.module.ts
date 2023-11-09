@@ -34,7 +34,6 @@ import { TouristOwnPageComponent } from './tourist-own-page/tourist-own-page.com
 import { Home2Component } from './home2/home2.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 
-
 const routes: Routes = [];
 
 @NgModule({
