@@ -121,8 +121,9 @@ export class TourguideEditComponent{
       
       this.guidesApiService.updateTourGuide(this.formData).subscribe(
         (data) => {    
+          this.updateAlert = true;
       this.updated.emit(data);  
-      this.updateAlert = true;
+     
       this.errors.push('Data is updated successfully');
         },
         (error) => {

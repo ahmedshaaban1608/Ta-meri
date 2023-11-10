@@ -74,11 +74,22 @@ private  url = `${environment.apiUrl}/tourguides`;
   }
   
   updateTourGuide(data: any): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/tourguides/${this.myId}`, data, { headers: this.headers, observe: 'response' }).pipe(
+    console.log(this.headers);
+    this.token = this.auth.getUser().token
+this.headers = new HttpHeaders({
+  'Authorization': `Bearer ${this.token}`,
+  'Accept': 'application/json'
+  
+});
+console.log(this.headers);
+
+    console.log(data);
+    
+    return this.http.post(`${this.url}/${this.myId}`, data, { headers: this.headers, observe: 'response' }).pipe(
       map((response: any) => {
         
         this.tourguide.next(response.body);        
-        return this.tourguide['_value'];
+        return response.body;
       }),
       catchError((error: any) => {
         console.error('Error updating profile:', error);

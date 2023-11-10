@@ -60,6 +60,8 @@ export class LoginComponent implements OnInit {
         (data: HttpResponse<any>) => {    
           // Check the status code
           if (data.status === 200) {  
+            console.log(data.body);
+            
             const decodeUser = btoa(JSON.stringify(data.body));        
             localStorage.setItem('user', decodeUser);        
             this.router.navigate(['/']);

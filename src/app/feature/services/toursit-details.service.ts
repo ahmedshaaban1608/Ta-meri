@@ -52,6 +52,7 @@ bookTourguide(data:any){
 
 updateProfile(data: any): Observable<any> {
 
+  console.log(this.headers);
   
   return this.http.post(`${environment.apiUrl}/tourists/${this.myId}`, data, { headers: this.headers, observe: 'response' }).pipe(
     map((response: any) => {          
