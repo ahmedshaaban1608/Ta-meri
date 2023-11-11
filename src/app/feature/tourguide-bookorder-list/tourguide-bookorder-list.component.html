@@ -37,6 +37,10 @@
                      </ngb-alert>
                    </div>
                   </div>
+                  <div *ngIf="order.payment === 'paid'">
+                    <p class="card-text"> <strong>Tourist Phone:</strong> {{ order.phone }} </p>
+
+                  </div>
                   <div *ngIf="order.status === 'accepted'">
                     <button class="btn btn-success me-2" *ngIf="order.payment === 'paid'">Paid</button>
                     <button class="btn btn-warning" *ngIf="order.payment === 'pending'">Pending Payment</button>
