@@ -13,18 +13,22 @@ import { catchError } from 'rxjs/operators';
 })
 export class ToursitDetailsService {
   tourist: BehaviorSubject<any> = new BehaviorSubject<any>({});
-  private token = this.auth.getUser().token
-  headers = new HttpHeaders({
+  private token!: string;
+  private headers!: HttpHeaders;
+  private myId!: number;
+  private touristUrl!: string;
+
+
+ constructor(private http: HttpClient, private auth: AccountsApiService) {
+  const user  = this.auth.getUser()
+  this.token = user.token;
+  this.headers = new HttpHeaders({
     'Authorization': `Bearer ${this.token}`,
     'Accept': 'application/json'
-    
   });
-  private myId = this.auth.getUser().id
-
- private touristUrl = `${environment.apiUrl}/tourists`;
-
-
- constructor(private http: HttpClient, private auth: AccountsApiService) {}
+  this.myId = user.id;
+  this.touristUrl = `${environment.apiUrl}/tourists`;
+ }
  getDetailsById(id: number): Observable<any> {
   return this.http.get<any>(this.touristUrl + `/${id}`, { headers: this.headers }).pipe(
     map((tourist: any) => {

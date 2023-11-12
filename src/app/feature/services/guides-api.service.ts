@@ -50,15 +50,20 @@ export class TourguideApiService {
     'Farsi (Persian)',
 ];
 
-private token = this.auth.getUser().token
-headers = new HttpHeaders({
-  'Authorization': `Bearer ${this.token}`,
-  'Accept': 'application/json'
-  
-});
-private myId = this.auth.getUser().id
-private  url = `${environment.apiUrl}/tourguides`;
-  constructor(private http: HttpClient ,private auth: AccountsApiService) {}
+private token!: string;
+private headers!: HttpHeaders;
+private myId!: number;
+private url!: string;
+  constructor(private http: HttpClient ,private auth: AccountsApiService) {
+    const user  = this.auth.getUser()
+    this.token = user.token;
+    this.headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`,
+      'Accept': 'application/json'
+    });
+    this.myId = user.id;
+    this.url = `${environment.apiUrl}/tourguides`;
+  }
  
   
   getAllTourguides(): Observable<any> {
@@ -74,13 +79,7 @@ private  url = `${environment.apiUrl}/tourguides`;
   }
   
   updateTourGuide(data: any): Observable<any> {
-    this.token = this.auth.getUser().token
-this.headers = new HttpHeaders({
-  'Authorization': `Bearer ${this.token}`,
-  'Accept': 'application/json'
-  
-});
-    
+   
     return this.http.post(`${this.url}/${this.myId}`, data, { headers: this.headers, observe: 'response' }).pipe(
       map((response: any) => {
         
@@ -94,12 +93,7 @@ this.headers = new HttpHeaders({
     );
   }
   StoreTourGuideArea(data: any): Observable<any> {
-    this.token = this.auth.getUser().token
-    this.headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.token}`,
-      'Accept': 'application/json'
-      
-    });
+
     return this.http.post(`${environment.apiUrl}/areas/`, data, { headers: this.headers, observe: 'response' }).pipe(
       map((response: any) => {        
         this.tourguide.next(response.body);        
@@ -113,12 +107,7 @@ this.headers = new HttpHeaders({
   }
 
   StoreTourGuideLanguage(data: any): Observable<any> {
-    this.token = this.auth.getUser().token
-    this.headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.token}`,
-      'Accept': 'application/json'
-      
-    });
+
     return this.http.post(`${environment.apiUrl}/languages/`, data, { headers: this.headers, observe: 'response' }).pipe(
       map((response: any) => {        
         this.tourguide.next(response.body);        
@@ -132,12 +121,7 @@ this.headers = new HttpHeaders({
   }
 
   DeleteTourGuideArea(id: number): Observable<any> {
-    this.token = this.auth.getUser().token
-    this.headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.token}`,
-      'Accept': 'application/json'
-      
-    });
+
     return this.http.delete(`${environment.apiUrl}/areas/${id}`, { headers: this.headers, observe: 'response' }).pipe(
       map((response: any) => {        
         this.tourguide.next(response.body);        
@@ -151,12 +135,7 @@ this.headers = new HttpHeaders({
   }
 
   DeleteTourGuideLanguage(id: number): Observable<any> {
-    this.token = this.auth.getUser().token
-    this.headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.token}`,
-      'Accept': 'application/json'
-      
-    });
+
     return this.http.delete(`${environment.apiUrl}/languages/${id}`, { headers: this.headers, observe: 'response' }).pipe(
       map((response: any) => {        
         this.tourguide.next(response.body);        

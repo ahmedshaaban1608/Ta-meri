@@ -124,7 +124,7 @@ export class TourguideEditComponent{
           this.updateAlert = true;
       this.updated.emit(data);  
      
-      this.errors.push('Data is updated successfully');
+      this.errors.push('Data is updated successfully'); 
         },
         (error) => {
           console.log(error);
