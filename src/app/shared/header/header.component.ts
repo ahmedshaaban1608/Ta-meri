@@ -38,6 +38,8 @@ export class HeaderComponent {
       },
       (error) => {
         console.log(error);
+        localStorage.removeItem('user');
+          this.router.navigate(['/login']);
         
       }
     )
