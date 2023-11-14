@@ -55,7 +55,7 @@ if(!this.auth.isAuthenticated()){
         this.errors.push('An error occurred, please try again later.')
       });
     } else{
-      this.errors.push('Only tourists are allowed to make orders.')
+      this.errors.push('Only tourists are allowed to add reviews.')
     }
     return;
     }
