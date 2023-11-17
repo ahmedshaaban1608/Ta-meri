@@ -30,6 +30,13 @@ export class ToursitDetailsService {
   this.touristUrl = `${environment.apiUrl}/tourists`;
  }
  getDetailsById(id: number): Observable<any> {
+  const user  = this.auth.getUser()
+  this.token = user.token;
+  this.headers = new HttpHeaders({
+    'Authorization': `Bearer ${this.token}`,
+    'Accept': 'application/json'
+  });
+  this.myId = user.id;
   return this.http.get<any>(this.touristUrl + `/${id}`, { headers: this.headers }).pipe(
     map((tourist: any) => {
       
@@ -47,15 +54,34 @@ export class ToursitDetailsService {
 
 
 addTourguideReview(data:any){
-
+  const user  = this.auth.getUser()
+  this.token = user.token;
+  this.headers = new HttpHeaders({
+    'Authorization': `Bearer ${this.token}`,
+    'Accept': 'application/json'
+  });
+  this.myId = user.id;
   return this.http.post(`${environment.apiUrl}/reviews`, data,  {headers: this.headers, observe: 'response' });
 }
 bookTourguide(data:any){
+  const user  = this.auth.getUser()
+  this.token = user.token;
+  this.headers = new HttpHeaders({
+    'Authorization': `Bearer ${this.token}`,
+    'Accept': 'application/json'
+  });
+  this.myId = user.id;
   return this.http.post(`${environment.apiUrl}/orders`, data,  {headers: this.headers, observe: 'response' });
 }
 
 updateProfile(data: any): Observable<any> {
-
+  const user  = this.auth.getUser()
+  this.token = user.token;
+  this.headers = new HttpHeaders({
+    'Authorization': `Bearer ${this.token}`,
+    'Accept': 'application/json'
+  });
+  this.myId = user.id;
   console.log(this.headers);
   
   return this.http.post(`${environment.apiUrl}/tourists/${this.myId}`, data, { headers: this.headers, observe: 'response' }).pipe(
