@@ -72,7 +72,7 @@ git clone https://github.com/ahmedshaaban1608/Ta-meri.git
 
 ### Clone the Repository
 ```bash
-cd tameri-frontend
+cd Ta-meri
 ```
 ### Install Dependencies
 ```bash
